@@ -1,0 +1,174 @@
+% --------------------------------------------------------------------
+% LaTeX Template for Math Worksheets
+% --------------------------------------------------------------------
+
+\documentclass{article}
+
+% --- PACKAGE IMPORTS ---
+% These packages add functionality for math symbols, formatting, etc.
+\usepackage[margin=.7in]{geometry}       % For setting page margins to 1 inch
+\usepackage{amsmath, amssymb, amsthm}   % American Mathematical Society packages for advanced math
+\usepackage{graphicx}                   % For including images
+\usepackage{fancyhdr}                   % For creating custom headers and footers
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref} % For clickable links
+\usepackage{cancel}
+
+
+% custom commands
+\newcommand{\myauthor}{Miguel Gomez}
+\newcommand{\canceling}[2]{\textcolor{red}{\cancelto{\textcolor{black}{#1}}{\textcolor{black}{#2}}}}
+\newcommand{\todo}[1]{\textcolor{blue}{TODO:#1}}
+% --- DOCUMENT & AUTHOR INFORMATION ---
+\title{Worksheet 1: Complex Numbers}
+\author{
+  MATH 3160\\
+  \myauthor
+}
+\date{Completed: August 19, 2025} 
+
+% --- HEADER & FOOTER CONFIGURATION ---
+% This section sets up the header that will appear on each page.
+\pagestyle{fancy}
+\fancyhf{} % Clears the default header and footer
+\lhead{Math 3160 -- Worksheet 1} % Centered text in the header
+\rhead{\myauthor} % Puts the author's name (defined above) on the right side
+\rfoot{Page \thepage} % Puts the page number on the bottom right
+
+\begin{document}
+
+\maketitle % This command generates the title based on the information above.
+
+% ====================================================================
+% --- START OF PROBLEMS ---
+% ====================================================================
+
+% Note: \section* creates a section heading without a number.
+\section*{Problem 1: Simplify}
+Simplify the following complex expressions. 
+
+% The 'enumerate' environment creates a numbered list.
+% Using \item[(a)] allows for custom labels like (a), (b), etc.
+\begin{enumerate}
+    \item[(a)] $(\sqrt{2}-i)-i(1-\sqrt{2}i)$ 
+    
+      \vspace{.1cm} % Adds vertical space for handwritten work or can be removed for typed solutions.
+      \begin{align*}
+         (\sqrt{2}-i)-&i(1-\sqrt{2}i)=\\
+         (\sqrt{2}-i)-&i-\sqrt{2}i^2=\\
+         (\sqrt{2}-i)-&i-\sqrt{2}\canceling{-1}{i^2}=\\
+         \sqrt{2}-i-&i+\sqrt{2}=\\
+         \sqrt{2}+\sqrt{2}-&i-i=\\
+         2\sqrt{2}-&2i = 2(\sqrt{2}-i)  
+       \end{align*}
+    
+    \item[(b)] $(2-3i)(-2+i)$ 
+    \begin{align*}
+      (2-3i)&(-2+i)=\\
+      (-2(2-3i)+&i(2-3i))=\\
+      (-4+6i)+&(2i-3i^2)=\\
+      (-4+6i)+&(2i-3\canceling{-1}{i^2})=\\
+      (-4+6i)+&(2i+3)=\\
+      (-4 + 3)+&(2i+6i)=(-1 + 8i)
+    \end{align*}
+    
+    \item[(c)] $(3+i)(3-i)\left(\frac{1}{5}+\frac{1}{10}i\right)$ 
+    
+   \begin{align*}
+     (3+i)(3-i)&\left(\frac{1}{5}+\frac{1}{10}i\right)=\\
+     (3(3+i)-i(3+i))&\left(\frac{1}{5}+\frac{1}{10}i\right)=\\
+     ((9+3i)-3i-i^2))&\left(\frac{1}{5}+\frac{1}{10}i\right)=\\
+     ((9+3i)-3i-\canceling{-1}{i^2}))&\left(\frac{1}{5}+\frac{1}{10}i\right)=\\
+     (9+\canceling{0}{3i-3i}+1))&\left(\frac{1}{5}+\frac{1}{10}i\right)=\\
+     10&\left(\frac{1}{5}+\frac{1}{10}i\right) = (2 + i)\\
+   \end{align*}
+    
+\end{enumerate}
+
+\hrule % Adds a horizontal line to separate problems.
+\newpage
+\section*{Problem 2: Verification}
+Verify that each of the two numbers $z=1\pm i$ satisfies the equation $z^{2}-2z+2=0$.
+
+\hrule
+\vspace{.25cm}
+First root: $1 + i$
+\begin{align*}
+  z^{2}-2z+2&=0\\
+  (1+i)^{2}-2(1+i)+2&=0\\
+  (1+i)^{2}-2(1+i)+2&=0\\
+  (1 + 2i + i^2) - 2 - 2i + 2&=0\\
+  (1 + \canceling{-1}{i^2}) + (2i - 2i)  + (2 - 2)&=0\\
+  \canceling{0}{(1 - 1)} + \canceling{0}{(2i - 2i)}  + \canceling{0}{(2 - 2)} &= 0\\
+  0 &= 0 \qed
+\end{align*}
+\vspace{.25cm}
+\hrule
+\vspace{.25cm}
+Second root: $1 - i$
+\begin{align*}
+  z^{2}-2z+2&=0\\
+  (1-i)^{2}-2(1-i)+2&=0\\
+  (1-i)^{2}-2(1-i)+2&=0\\ 
+  (1-2i +i^2)-21+2i+2&=0\\
+  (1-2i +\canceling{-1}{i^2})-2+2i+2&=0\\
+  \canceling{0}{(1-1)} + \canceling{0}{(2i-2i)}+\canceling{0}{(2-2)}&=0\\
+  0 &= 0 \qed
+\end{align*}
+\newpage
+\section*{Problem 3: Solving Equations}
+Solve the equation $z^{2}+z+1=0$ for $z=(x,y)$ by writing $(x,y)(x,y)+(x,y)+(1,0)=(0,0)$ and then solving a pair of simultaneous equations in $x$ and $y$. 
+\vspace{.25cm}
+\hrule
+\vspace{.25cm}
+Using expressions (3) and (4) from the textbook shown below:
+
+\begin{align*}
+  (3)\ (x_1,y_1) + (x_2,y_2) &= (x_1 + x_2,  y_1+y_2)\\
+  (4)\ (x_1,y_1)(x_2,y_2) &= (x_1x_2 - y_1y_2, y_1x_2 + x_1y_2)
+\end{align*}
+
+We can see that $x_1 = x_2$ and $y_1 = y_2$ for our problem. Solving for the expression in the form above:
+\begin{align*}
+(x,y)(x,y)+(x,y)+(1,0)&=(0,0)\\
+(x^2 - y^2 + x + 1, 2xy + y + 0) &=(0,0)
+\end{align*}
+Case $x = 0$:
+\begin{align*}
+(x^2 - y^2 + x + 1, 2xy + y + 0) &=(0,0)\\
+(\canceling{0}{x^2} - y^2 + \canceling{0}{x} + 1, \canceling{0}{2xy} + y + 0) &=(0,0)\\  
+( -y^2 +  1,  y + 0) &=(0,0) 
+\end{align*}
+We can see that we simultaneously have expressions $y=0$ and $y = \pm1$. This is a contradiction.\\
+\noindent
+
+Case $y = 0$:
+\begin{align*}
+(x^2 - y^2 + x + 1, 2xy + y + 0) &=(0,0)\\
+(x^2 - \canceling{0}{y^2} + x + 1, \canceling{0}{2xy} + \canceling{0}{y} + 0) &=(0,0)\\
+(x^2 + x + 1,   0) &=(0,0)
+\end{align*}
+This is not factorable in $\mathbb{R}$. We can show this with the quadratic equation:
+\begin{align*}
+  x &= \frac{-b \pm \sqrt{b^2-4ac}}{2a}\\
+  x &= \frac{-1 \pm \sqrt{1^2-4(1)(1)}}{2(1)}\\
+  x &= \frac{-1 \pm \sqrt{-3}}{2}\ \ ; i = \sqrt{-1}\\
+  x &= \frac{-1 \pm i\sqrt{3}}{2} = -\frac{1}{2} \pm i\frac{\sqrt{3}}{2} 
+\end{align*}
+$\therefore$ if $x$ is complex, that implies that $y$ is non-zero. Then we can plug $x = -\frac{1}{2}$ and $y = \pm\frac{\sqrt{3}}{2}$ back into the starting expression $(x^2 - y^2 + x + 1, 2xy + y + 0)$ to verify the answers come out to $(0,0)$.
+
+\begin{align*}
+  (x^2 - y^2 + x + 1\ , 2xy + y + 0) &= (0,\ 0)\\
+  \left(  \left(-\frac{1}{2}\right)^2 - \left(\pm\frac{\sqrt{3}}{2}\right)^2 + \left(-\frac{1}{2}\right) + 1,\  2\left(-\frac{1}{2}\right)\left(\pm\frac{\sqrt{3}}{2}\right) + \left(\pm\frac{\sqrt{3}}{2}\right) + 0 \right) &= (0,0)\\
+  \left(  \frac{1}{4} - \frac{3}{4} -  \frac{1}{2} + 1,\  \canceling{-1}{\left(-\frac{2}{2}\right)}\left(\pm\frac{\sqrt{3}}{2}\right) + \left(\pm\frac{\sqrt{3}}{2}\right) \right) &= (0,0)\\
+  \left(  \canceling{-\frac{1}{2}}{\frac{1}{4} - \frac{3}{4}} -  \frac{1}{2} + 1,\  \left(\canceling{\mp}{-1 \pm}\ \ \ \frac{\sqrt{3}}{2}\right) + \left(\pm\frac{\sqrt{3}}{2}\right) \right) &= (0,0)\\
+  \left( \canceling{-1}{-\frac{1}{2} -  \frac{1}{2}} + 1,\  \left(\mp\frac{\sqrt{3}}{2}\right) + \left(\pm\frac{\sqrt{3}}{2}\right) \right) &= (0,0)\\  
+  \left( \canceling{0}{1 - 1},\  \canceling{0}{\left(\mp\frac{\sqrt{3}}{2}\right) + \left(\pm\frac{\sqrt{3}}{2}\right)} \right) &= (0,0)\\
+  (0, 0)&=(0, 0) \qed
+\end{align*}
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
