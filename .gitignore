@@ -1,0 +1,26 @@
+# LaTeX intermediate files
+**/*.aux
+**/*.log
+**/*.bbl
+**/*.blg
+_region_.tex
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.fls
+*.fdb_latexmk
+
+
+# LaTeX auto-generated directory
+**/auto/*
+auto/
+
+# Other logs
+texput.log
+
+# Emacs temp files
+.#*
