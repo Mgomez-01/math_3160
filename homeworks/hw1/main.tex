@@ -1,0 +1,156 @@
+% --------------------------------------------------------------------
+% LaTeX Template for Math Homework
+% --------------------------------------------------------------------
+
+\documentclass{article}
+
+% --- PACKAGE IMPORTS ---
+% These packages add functionality for math symbols, formatting, etc.
+\usepackage[margin=.7in]{geometry}       % For setting page margins
+\usepackage{amsmath, amssymb, amsthm}   % American Mathematical Society packages for advanced math
+\usepackage{graphicx}                   % For including images
+\usepackage{fancyhdr}                   % For creating custom headers and footers
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref} % For clickable links
+\usepackage{cancel}
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage{amsxtra}
+\usepackage{epsfig}
+\usepackage{wasysym}
+\usepackage{relsize}
+\renewcommand{\normalsize}{\fontsize{12}{20}\selectfont}
+
+
+
+% custom commands
+\newcommand{\myauthor}{Miguel Gomez}
+\newcommand{\canceling}[2]{\textcolor{red}{\cancelto{\textcolor{black}{#1}}{\textcolor{black}{#2}}}}
+\newcommand{\todo}[1]{\textcolor{blue}{TODO:#1}}
+
+% --- DOCUMENT & AUTHOR INFORMATION ---
+\title{Homework 1: Complex Numbers}
+\author{
+  MATH 3160\\
+  \myauthor
+}
+\date{Completed: \today}
+
+% --- HEADER & FOOTER CONFIGURATION ---
+% This section sets up the header that will appear on each page.
+\pagestyle{fancy}
+\fancyhf{} % Clears the default header and footer
+\lhead{Math 3160 -- HW 1} % Left side of header
+\rhead{\myauthor} % Puts the author's name on the right side
+\rfoot{Page \thepage} % Puts the page number on the bottom right
+
+\begin{document}
+
+\maketitle % This command generates the title based on the information above.
+
+% ====================================================================
+% --- START OF PROBLEMS ---
+% ====================================================================
+
+\section*{Problem 1: Complex Number Reduction}
+Reduce each of these to a real number:
+\begin{enumerate}
+\item[(a)] $ \frac{1+2i}{3-4i} + \frac{2-i}{5i}$
+  \begin{align*}
+    \frac{1+2i}{3-4i} &+ \frac{2-i}{5i} = \\
+    \frac{(1+2i)(3+4i)}{(3-4i)(3+4i)} &+ \frac{(2-i)(-5i)}{(5i)(-5i)} = \\
+    \frac{(1+2i)(3+4i)}{9-16i^2} &+ \frac{(2-i)(-5i)}{-25i^2} = \\
+    \frac{(3+4i+6i+8\canceling{-1}{i^2})}{9-16\canceling{-1}{i^2}} &+ \frac{(-10i+5\canceling{-1}{i^2})}{-25\canceling{-1}{i^2}} = \\
+    \frac{(3+4i+6i-8)}{25} &+ \frac{(-10i-5)}{25} = \\
+    \frac{(3+4i+6i-8)}{25} &+ \frac{(-10i-5)}{25} = \\
+    \frac{(-5+10i)}{25} &+ \frac{(-10i-5)}{25} = \\
+    \frac{(-5-5+10i -10i)}{25} = -\frac{2}{5}\\
+  \end{align*}
+\item[(b)] $ \frac{5i}{(1-i)(2-i)(3-i)}$
+\item[(c)] $ (1-i)^4$
+\end{enumerate}
+
+\vspace{.5cm} % Space for work
+
+\hrule % Adds a horizontal line to separate problems.
+
+\newpage
+\section*{Problem 2: Vector Addition and Subtraction}
+Locate the numbers $z_1+z_2$ and $z_1 - z_2$ vectorially by drawing a graph when:
+
+\begin{enumerate}
+    \item[(a)] $z_1 = 2i$, $z_2 = 2/3-i$
+    
+    \vspace{.5cm} % Space for graph
+    
+    \item[(b)] $z_1 = -\sqrt{3}+i$, $z_2 = \sqrt{3}$
+    
+    \vspace{.5cm} % Space for graph
+    
+    \item[(c)] $z_1 = (3,1)$, $z_2 = (1,4)$
+    
+    \vspace{.5cm} % Space for graph
+    
+    \item[(d)] $z_1 = x_1+iy_1$, $z_2 = x_1-iy_1$
+    
+    \vspace{.5cm} % Space for graph
+\end{enumerate}
+
+\hrule
+
+\newpage
+\section*{Problem 3: Geometric Sets in the Complex Plane}
+In each case, sketch the set of points determined by the given condition:
+
+\begin{enumerate}
+    \item[(a)] $|z-1+i|=1$
+    
+    \vspace{.5cm} % Space for sketch
+    
+    \item[(b)] $|z+i| \leq 3$
+    
+    \vspace{.5cm} % Space for sketch
+    
+    \item[(c)] $|z-4i|\geq4$
+    
+    \vspace{.5cm} % Space for sketch
+\end{enumerate}
+
+\textit{Hint: Note that for any two complex numbers $z_1, z_2$, the absolute value $|z_1 - z_2|$ is the distance between $z_1$ and $z_2$ in the complex plane.}
+
+\hrule
+
+\newpage
+\section*{Problem 4: Principal Arguments}
+Find the principal argument $\text{Arg}(z)$ when:
+
+\begin{enumerate}
+    \item[(a)] $z = \frac{i}{-2-2i}$
+    
+    \vspace{.5cm} % Space for work
+    
+    \item[(b)] $z = (\sqrt{3}-i)^6$
+    
+    \vspace{.5cm} % Space for work
+\end{enumerate}
+
+Show your work.
+
+\hrule
+
+\newpage
+\section*{Problem 5: Argument Properties}
+For any two non-zero complex numbers $z_1, z_2$, show that any angle $\theta$ in the set $\arg{(z_1z_2)}$ can be written as
+\[ \theta = \theta_1 + \theta_2 \]
+where $\theta_1 \in \arg(z_1)$ and $\theta_2 \in \arg(z_2)$. Also find an example where the principal argument $\text{Arg} (z_1z_2)$ is not equal to $\text{Arg} (z_1) + \text{Arg} (z_2)$.
+
+\vspace{.5cm} % Space for proof and example
+
+\hrule
+
+\newpage
+\section*{Problem 6: Principal Argument Addition}
+Show that if $\text{Re}(z_1)>0$ and $\text{Re}(z_2)>0$, then $\text{Arg}(z_1z_2) = \text{Arg}(z_1)+\text{Arg}(z_2)$. Use polar form of $z_1$ and $z_2$ to do so.
+
+\vspace{.5cm} % Space for proof
+
+\end{document}
