@@ -1,0 +1,120 @@
+% --------------------------------------------------------------------
+% LaTeX Template for Math Worksheets
+% --------------------------------------------------------------------
+
+\documentclass{article}
+
+% --- PACKAGE IMPORTS ---
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{xcolor}   % Required for \textcolor
+\usepackage{cancel}   % Required for \cancelto
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref}
+
+% --- CUSTOM COMMANDS & OPERATORS ---
+% Defines a command \cancelled{new}{old}
+\newcommand{\canceling}[2]{\textcolor{red}{\cancelto{\textcolor{black}{#1}}{\textcolor{black}{#2}}}}
+
+% Defines a proper "Arg" operator for complex analysis
+\DeclareMathOperator{\Arg}{Arg}
+
+% --- DOCUMENT & AUTHOR INFORMATION ---
+\newcommand{\myauthor}{Miguel Gomez} % Define a custom command for your name
+\title{Worksheet 2}
+\author{
+  MATH 3160\\
+  \myauthor
+}
+\date{Completed: \today} % The due date is from the source 
+
+% --- HEADER & FOOTER CONFIGURATION ---
+\pagestyle{fancy}
+\fancyhf{}
+\chead{Math 3160 -- Worksheet 2}
+\rhead{\myauthor} % Use the same custom command for the header
+\rfoot{Page \thepage}
+
+\begin{document}
+
+\maketitle
+
+% ====================================================================
+% --- START OF PROBLEMS ---
+% ====================================================================
+
+\section*{Problem 1}
+Reduce each of these to a real number
+
+\hrule
+\begin{enumerate}
+\item[(a)] $ \frac{1+2i}{3-4i} + \frac{2-i}{5i}$
+  \begin{align*}
+    \frac{1+2i}{3-4i} &+ \frac{2-i}{5i} = \\
+    \frac{(1+2i)(3+4i)}{(3-4i)(3+4i)} &+ \frac{(2-i)(-5i)}{(5i)(-5i)} = \\
+    \frac{(1+2i)(3+4i)}{9-16i^2} &+ \frac{(2-i)(-5i)}{-25i^2} = \\
+    \frac{(3+4i+6i+8\canceling{-1}{i^2})}{9-16\canceling{-1}{i^2}} &+ \frac{(-10i+5\canceling{-1}{i^2})}{-25\canceling{-1}{i^2}} = \\
+    \frac{(3+4i+6i-8)}{25} &+ \frac{(-10i-5)}{25} = \\
+    \frac{(3+4i+6i-8)}{25} &+ \frac{(-10i-5)}{25} = \\
+    \frac{(-5+10i)}{25} &+ \frac{(-10i-5)}{25} = \\
+    \frac{(-5-5+10i -10i)}{25} = -\frac{2}{5}\\
+  \end{align*}
+\item[(b)] $ \frac{5i}{(1-i)(2-i)(3-i)}$
+  \begin{align*}
+    \frac{5i}{(1-i)(2-i)(3-i)} &= \frac{5i}{(2-i-2i+i^2)(3-i)} = \\
+    \frac{5i}{(1-3i)(3-i)} &= \frac{5i}{(1-3i)(3-i)} =\\
+    \frac{5i}{-10i} &= -\frac{1}{2}
+  \end{align*}
+\end{enumerate}
+
+\newpage
+\section*{Problem 2}
+Find the principal argument $\Arg z$ when..
+\hrule
+preliminary necessary expressions:
+  \begin{align*}
+    \text{arg}(z) &= \text{Arg}(z) + 2\cdot pi\cdot k\ \ \ ;k\in \mathbb{Z} \\
+    e^{i\theta} &= \cos\theta + i\sin{\theta}\\
+    -\pi & < \theta \le \pi 
+  \end{align*}
+
+\begin{enumerate}
+    \item[(a)] $z=\frac{-2}{1+\sqrt{3}i}$ 
+    \vspace{4cm}
+    
+    \item[(b)] $z=\frac{2i}{i-1}$ 
+    \vspace{4cm}
+    
+    \item[(c)] $z=(\sqrt{3}-i)^{6}$ 
+    \vspace{4cm}
+\end{enumerate}
+
+\hrule
+
+\section*{Problem 3}
+For the next few questions write the individual factors on the left in exponential form, perform the needed operations on complex numbers, and finally change back to rectangular coordinates \textit{Show that}: 
+
+\begin{enumerate}
+    \item[(a)] $i(1-\sqrt{3}i)(\sqrt{3}+i)=2(1+\sqrt{3}i)$ 
+    \vspace{5cm}
+    
+    \item[(b)] $(\sqrt{3}+i)^{6}=-64$ 
+    \vspace{5cm}
+    
+    \item[(c)] $(1+\sqrt{3}i)^{-10}=2^{-11}(-1+\sqrt{3}i)$ 
+    \vspace{5cm}
+\end{enumerate}
+
+\hrule
+
+\section*{Problem 4}
+Use exponential form to find $(1-i)^{5}$
+
+\vspace{6cm}
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
