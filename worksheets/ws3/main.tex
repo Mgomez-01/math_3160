@@ -1,0 +1,65 @@
+% --------------------------------------------------------------------
+% LaTeX Template for Math Worksheets
+% --------------------------------------------------------------------
+
+\documentclass{article}
+
+% --- PACKAGE IMPORTS ---
+% These packages add functionality for math symbols, formatting, etc.
+\usepackage[margin=.7in]{geometry}       % For setting page margins to 1 inch
+\usepackage{amsmath, amssymb, amsthm}   % American Mathematical Society packages for advanced math
+\usepackage{graphicx}                   % For including images
+\usepackage{fancyhdr}                   % For creating custom headers and footers
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref} % For clickable links
+\usepackage{cancel}
+
+
+% custom commands
+\newcommand{\myauthor}{Miguel Gomez}
+\newcommand{\canceling}[2]{\textcolor{red}{\cancelto{\textcolor{black}{#1}}{\textcolor{black}{#2}}}}
+\newcommand{\todo}[1]{\textcolor{blue}{TODO:#1}}
+% --- DOCUMENT & AUTHOR INFORMATION ---
+\title{Worksheet 3}
+\author{
+  MATH 3160\\
+  \myauthor
+}
+\date{Completed: \today} 
+
+% --- HEADER & FOOTER CONFIGURATION ---
+% This section sets up the header that will appear on each page.
+\pagestyle{fancy}
+\fancyhf{} % Clears the default header and footer
+\lhead{Math 3160 -- Worksheet 1} % Centered text in the header
+\rhead{\myauthor} % Puts the author's name (defined above) on the right side
+\rfoot{Page \thepage} % Puts the page number on the bottom right
+
+\begin{document}
+
+\maketitle % This command generates the title based on the information above.
+
+% ====================================================================
+% --- START OF PROBLEMS ---
+% ====================================================================
+
+% Note: \section* creates a section heading without a number.
+\section*{Problem 1: }
+\hrule % Adds a horizontal line to separate problems.
+\newpage
+\section*{Problem 2: }
+\hrule
+\newpage
+\section*{Problem 3: }
+
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
