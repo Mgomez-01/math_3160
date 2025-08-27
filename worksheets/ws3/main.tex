@@ -1,27 +1,35 @@
 % --------------------------------------------------------------------
 % LaTeX Template for Math Worksheets
 % --------------------------------------------------------------------
-
 \documentclass{article}
 
 % --- PACKAGE IMPORTS ---
 % These packages add functionality for math symbols, formatting, etc.
-\usepackage[margin=.7in]{geometry}       % For setting page margins to 1 inch
+\usepackage[margin=.7in]{geometry}       % For setting page margins to 0.7 inch
 \usepackage{amsmath, amssymb, amsthm}   % American Mathematical Society packages for advanced math
 \usepackage{graphicx}                   % For including images
 \usepackage{fancyhdr}                   % For creating custom headers and footers
 \usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref} % For clickable links
 \usepackage{cancel}
-
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage{amsxtra}
+\usepackage{epsfig}
+\usepackage{wasysym}
+\usepackage{relsize}
+\usepackage{tikz}
+\tikzset{every picture/.style={scale=1.2}}
+\renewcommand{\normalsize}{\fontsize{12}{20}\selectfont}
 
 % custom commands
-\newcommand{\myauthor}{Miguel Gomez}
+\newcommand{\myauthor}{Your Name Here}
 \newcommand{\canceling}[2]{\textcolor{red}{\cancelto{\textcolor{black}{#1}}{\textcolor{black}{#2}}}}
 \newcommand{\todo}[1]{\textcolor{blue}{TODO:#1}}
+
 % --- DOCUMENT & AUTHOR INFORMATION ---
-\title{Worksheet 3}
+\title{Worksheet \#}
 \author{
-  MATH 3160\\
+  MATH #### -- [Course Name]\\
   \myauthor
 }
 \date{Completed: \today} 
@@ -30,8 +38,8 @@
 % This section sets up the header that will appear on each page.
 \pagestyle{fancy}
 \fancyhf{} % Clears the default header and footer
-\lhead{Math 3160 -- Worksheet 1} % Centered text in the header
-\rhead{\myauthor} % Puts the author's name (defined above) on the right side
+\lhead{Math #### -- Worksheet \#} % Left side of header
+\rhead{\myauthor} % Puts the author's name on the right side
 \rfoot{Page \thepage} % Puts the page number on the bottom right
 
 \begin{document}
@@ -43,19 +51,51 @@
 % ====================================================================
 
 % Note: \section* creates a section heading without a number.
-\section*{Problem 1: }
+\section*{Problem 1: [Problem Title]}
+[Problem statement or work space goes here]
+
+\begin{align*}
+% Your mathematical work here
+\end{align*}
+
+\vspace{1cm} % Add space for additional work if needed
+% For graphs/diagrams, you can use TikZ:
+\begin{center}
+\begin{tikzpicture}
+    % Your TikZ code here
+    % Example: Draw axes
+    \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
+    \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
+\end{tikzpicture}
+\end{center}
+\vspace{1cm}
 \hrule % Adds a horizontal line to separate problems.
+
 \newpage
-\section*{Problem 2: }
+\section*{Problem 2: [Problem Title]}
+[Problem statement or work space goes here]
+
+\vspace{1cm} % Space for work
+
 \hrule
+
 \newpage
-\section*{Problem 3: }
+\section*{Problem 3: [Problem Title]}
+[Problem statement or work space goes here]
+
+\vspace{1cm} % Space for work
+
+\hrule
+
+% Add more problems as needed...
+% \newpage
+% \section*{Problem 4: [Problem Title]}
+% [Problem statement or work space goes here]
+% \hrule
 
 \end{document}
-
 
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: t
 %%% End:
-

@@ -28,9 +28,9 @@
 \newcommand{\todo}[1]{\textcolor{blue}{TODO:#1}}
 
 % --- DOCUMENT & AUTHOR INFORMATION ---
-\title{Homework \#: [Assignment Title]}
+\title{Homework \#2}
 \author{
-  MATH #### -- [Course Name]\\
+  MATH 3160 -- complex variables\\
   \myauthor
 }
 \date{Completed: \today}
@@ -39,7 +39,7 @@
 % This section sets up the header that will appear on each page.
 \pagestyle{fancy}
 \fancyhf{} % Clears the default header and footer
-\lhead{Math #### -- HW \#} % Left side of header
+\lhead{Math 3160 -- HW \#2} % Left side of header
 \rhead{\myauthor} % Puts the author's name on the right side
 \rfoot{Page \thepage} % Puts the page number on the bottom right
 
@@ -51,29 +51,212 @@
 % --- START OF PROBLEMS ---
 % ====================================================================
 
-\section*{Problem 1: [Problem Title]}
-[Problem statement goes here]
+\section*{Problem 1}
+By writing the individual factors on the left in exponential form, performing the needed
+operations, and finally changing back to rectangular coordinates, show that
 
 \begin{enumerate}
-\item[(a)] [Sub-problem a]
+\item[(a)] $i(1-\sqrt{3}i)(\sqrt{3} + i) = 2(1 + \sqrt{3}i)$
   \begin{align*}
     % Your work here
   \end{align*}
-  
-\item[(b)] [Sub-problem b]
+\hrule
+\item[(b)] $\frac{5i}{2+i} = 1+2i$
   \begin{align*}
     % Your work here
   \end{align*}
+\hrule
+\item[(c)] $(-1 + i)^7 = -8(1+i)$
+  \begin{align*}
+    % Your work here
+  \end{align*}
+\hrule
+\item[(d)] $(1 + \sqrt{3}i)^{-10}= 2^{-11}(-1 + \sqrt{3}i)$
+  \begin{align*}
+    % Your work here
+  \end{align*}
+\hrule
 \end{enumerate}
 
 \vspace{.5cm} % Space between problems
 
-\hrule % Adds a horizontal line to separate problems.
 
 \newpage
-\section*{Problem 2: [Problem Title]}
-[Problem statement goes here]
+\section*{Problem 2}
+Find the square roots of (a) $2i$ and (b) $(1-\sqrt{3}i)$ express them in rectangular coordinates
+\newpage
+\section*{Problem 3}
+Find all roots and indicate in rectangular coordinates
+\begin{enumerate}
+\item[(a)] $(-16)^{\frac{1}{4}}$
+  \begin{align*}
+    % Your work here
+  \end{align*}
+\hrule
+\item[(b)] $(-8-8\sqrt{3}i)^{\frac{1}{4}}$
+  \begin{align*}
+    % Your work here
+  \end{align*}
+\hrule
+\end{enumerate}
 
+
+\newpage
+
+\section*{Problem 4}
+ Find the four zeros of $z^4+4$
+\begin{align*}
+  
+\end{align*}
+ \vspace{1cm}
+ \hrule
+\newpage
+
+\section*{Problem 5}
+Show that if $c$ is an $n^{\text{th}}$ root of 1 other than 1 itself, then:
+\begin{align*}
+  1 + c + c^2 + &... + c^{n-1} = 0
+\end{align*}
+Hint: multiply above by $(c-1)$
+
+multiplying the above by $(c-1)$ gives the following
+\begin{align*}
+  (c-1)\cdot(1 + c + c^2 + &... + c^{n-1}) = (c-1)\cdot 0\\
+  c + c^2 + c^3 + &... + c^{n-1} + c^n +\ \ \ \text{ expanding }c \\
+  -1 -c -c^2 -&... -c^{n-1} \ \ \ \text{expanding }-1\\
+  -1 + (c-c) + (c^2-c^2) + (c^3-c^3) +&... + (c^{n-1}-c^{n-1}) + c^n = 0\\
+  -1 + \canceling{0}{(c-c)} + \canceling{0}{(c^2-c^2)} + \canceling{0}{(c^3-c^3)} +&... + \canceling{0}{(c^{n-1}-c^{n-1})} + c^n = 0\\
+  -1 + c^n &= 0\\
+  c^n &= 1\\
+  \sqrt[n]{c^n} &= \sqrt[n]{1}\\
+  c &= 1\\
+\end{align*}
+However, if this is the case and $c = 1$, then the lhs should equal 0 when we plug in 1 for $c$:
+\begin{align*}
+  1 + (1) + (1)^2 + &... + (1)^{n-1} = 0\\
+  1 + 1 + 1 + &... + 1 = n \neq 0\\
+\end{align*}
+This appears to be a contradiction. Now using something other than 1, i.e. $c\neq 1$, then the sum cannot be 0.
+\begin{align*}
+  1 + c + c^2 + &... + c^{n-1} = S\\
+  \text{same steps as before}&\\
+  -1 + c^n &= S(c-1) = Sc - S\\
+  c^n - Sc + S - 1 &= 0 \\
+\end{align*}
+
+ \vspace{1cm}
+ \hrule
+\newpage
+
+\section*{Problem 6}
+For each of the below, indicate the domain of definition.
+\begin{enumerate}
+  \item[(a)] $f(z) = \frac{1}{z^2+1}$
+\begin{align*}
+  
+\end{align*}
+ \vspace{1cm}
+ \hrule
+  \item[(b)] $f(z) = \text{Arg}\left(\frac{1}{z}\right)$
+\begin{align*}
+  
+\end{align*}
+ \vspace{1cm}
+ \hrule
+  \item[(c)] $f(z) = \frac{z}{z + \bar{z}}$
+\begin{align*}
+  
+\end{align*}
+ \vspace{1cm}
+ \hrule
+  \item[(d)] $f(z) = \frac{1}{(1-|z|^2)}$
+\end{enumerate}
+\newpage
+\section{Problem 7}
+ Sketch the region onto which the sector $r \le 1;\ 0 \le \theta \le \frac{\pi}{4}$ in the $z$-plane is mapped to
+ the $w = f(z)$-plane by the transformations
+\begin{enumerate}
+  \item[(a)] $w = z^2$
+% Method 2: Two separate TikZ environments using minipages
+
+\begin{center}
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
+        \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
+        % Add your content for left graph here
+    \end{tikzpicture}
+    
+    \text{$z$-plane}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
+        \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
+        % Add your content for right graph here
+    \end{tikzpicture}
+    
+    \text{$w$-plane}
+\end{minipage}
+\end{center}
+\newpage
+\item[(b)] $w = z^3$
+  \begin{center}
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
+        \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
+        % Add your content for left graph here
+    \end{tikzpicture}
+    
+    \text{$z$-plane}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
+        \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
+        % Add your content for right graph here
+    \end{tikzpicture}
+    
+    \text{$w$-plane}
+\end{minipage}
+\end{center}
+ \vspace{1cm}
+ \newpage
+\item[(c)] $w = z^4$
+  \begin{center}
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
+        \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
+        % Add your content for left graph here
+    \end{tikzpicture}
+    
+    \text{$z$-plane}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
+        \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
+        % Add your content for right graph here
+    \end{tikzpicture}
+    
+    \text{$w$-plane}
+\end{minipage}
+\end{center}
+
+\end{enumerate}
+% Add more problems as needed...
+\newpage
 % For graphs/diagrams, you can use TikZ:
 \begin{center}
 \begin{tikzpicture}
@@ -84,19 +267,31 @@
 \end{tikzpicture}
 \end{center}
 
-\vspace{.5cm} % Space between problems
+%example two planes side by side with minipage
+  \begin{center}
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
+        \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
+        % Add your content for left graph here
+    \end{tikzpicture}
+    
+    \text{$z$-plane}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
+        \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
+        % Add your content for right graph here
+    \end{tikzpicture}
+    
+    \text{$w$-plane}
+\end{minipage}
+\end{center}
 
-\hrule
-
-\newpage
-\section*{Problem 3: [Problem Title]}
-[Problem statement goes here]
-
-\vspace{.5cm} % Space for work
-
-\hrule
-
-% Add more problems as needed...
 
 \end{document}
 
