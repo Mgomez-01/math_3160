@@ -104,12 +104,42 @@ Find all roots and indicate in rectangular coordinates
 \newpage
 
 \section*{Problem 4}
- Find the four zeros of $z^4+4$
-\begin{align*}
-  
-\end{align*}
- \vspace{1cm}
- \hrule
+Find the four zeros of $z^4+4$
+
+Converting $z$ into exponential form for $|z| = 1$
+ \begin{align*}
+ z^4 &= (e^{i\theta})^4 = e^{i4\theta}
+ \end{align*}
+ Four windings for this, so we should have 4 equally spaced roots that give us the zeros.
+ \begin{align*}
+   z^4+4 &= 0\\
+   z^4 &= -4\\
+   \sqrt[4]{z^4} &= \sqrt[4]{-4}\\
+   z^{\frac{1}{4}4} &= \sqrt[4]{-4} = e^{\frac{1}{4}i4\theta}\\
+   z &= \sqrt[4]{-4} = e^{i\theta}\\
+         &= \sqrt[4]{-2\cdot 2} = \sqrt[4]{-\sqrt{2}^2\cdot \sqrt{2}^2} = \sqrt[4]{-\sqrt{2}^4}\\
+         &= \sqrt{2}\cdot \sqrt[4]{-1} 
+ \end{align*}
+ \begin{align*}
+   \sqrt{z^4} &= \pm z^2 = \sqrt{-4} = \pm 2\sqrt{-1}\\
+   \sqrt{\pm z^2} &= \{\sqrt{z^2}, \sqrt{-z^2}\} = \{\pm z, \pm z\sqrt{-1}\}\\
+   &= \{\pm z, \pm zi\}
+ \end{align*}
+ This is also the following:
+ \begin{align*}
+   z^4 + 4 &= z^4 - (-4) = z^4 - (i^22^2) = (z^2)^2 - (2i)^2\\
+           &=(z^2-2i)(z^2+2i)\\
+   \text{converting to exponential}\\
+   i &= e^{i\frac{\pi}{2}}\\
+   \therefore \sqrt{i} &= (e^{i\frac{\pi}{2}})^{\frac{1}{2}} = e^{i\frac{\pi}{4}}\\
+   (z^2-2i) &= (z^2-(\sqrt{2}\sqrt{i})^2) = (z-(\sqrt{2}\sqrt{i}))(z+(\sqrt{2}\sqrt{i}))\\
+   &= \boxed{(z-(\sqrt{2}\sqrt{i}))(z+(\sqrt{2}\sqrt{i}))}\\
+   \text{similarly, for the positive side}\\
+   (z^2+2i) &= (z^2-(-2i)) = (z^2-i^2(\sqrt{2}\sqrt{i})^2)\\
+           &= \boxed{(z - (\sqrt{2}\sqrt{i})i)(z+(\sqrt{2}\sqrt{i})i)} \\
+   i\sqrt{i} &= e^{\frac{i\pi}{2}}e^{i\frac{\pi}{4}} = e^{i\pi(\frac{1+2}{4})} = e^{i\frac{3\pi}{4}}\\
+   \therefore z &=\sqrt{2}\{\pm e^{i\frac{\pi}{4}}, \pm e^{i\frac{3\pi}{4}}\} = \sqrt{2}\{(1+i),(-1+i),(-1-i),(1-i)\}
+ \end{align*}
 \newpage
 
 \section*{Problem 5}
@@ -129,19 +159,17 @@ multiplying the above by $(c-1)$ gives the following
   -1 + c^n &= 0\\
   c^n &= 1\\
   \sqrt[n]{c^n} &= \sqrt[n]{1}\\
-  c &= 1\\
+  c &= 1
 \end{align*}
-However, if this is the case and $c = 1$, then the lhs should equal 0 when we plug in 1 for $c$:
-\begin{align*}
-  1 + (1) + (1)^2 + &... + (1)^{n-1} = 0\\
-  1 + 1 + 1 + &... + 1 = n \neq 0\\
-\end{align*}
-This appears to be a contradiction. Now using something other than 1, i.e. $c\neq 1$, then the sum cannot be 0.
+Now using something other than 1, i.e. $c\neq 1$, then the sum cannot be 0.
 \begin{align*}
   1 + c + c^2 + &... + c^{n-1} = S\\
   \text{same steps as before}&\\
-  -1 + c^n &= S(c-1) = Sc - S\\
-  c^n - Sc + S - 1 &= 0 \\
+  c^n -1 &= S(c-1)\\
+  \text{since }c^n = 1;\ \ &\text{and }c \neq 1\ \ \text{we can divide}\\
+  \frac{c^n -1}{c-1} &= S\\
+  \text{since }c \neq 1;\ (c-1)\ \text{is not}\ 0 & \text{ but }c^n = 1\\
+  \therefore \frac{\canceling{1}{c^n}-1}{c-1} &= \frac{0}{c-1} = S = 0 \quad \square
 \end{align*}
 
  \vspace{1cm}
@@ -151,10 +179,22 @@ This appears to be a contradiction. Now using something other than 1, i.e. $c\ne
 \section*{Problem 6}
 For each of the below, indicate the domain of definition.
 \begin{enumerate}
-  \item[(a)] $f(z) = \frac{1}{z^2+1}$
+\item[(a)] $f(z) = \frac{1}{z^2+1}$
+
+ We need $z^2 + 1 \neq 0$, which means $z^2 \neq -1$.
+
+Solving $z^2 = -1$:
 \begin{align*}
-  
+z^2 &= -1 = i^2 \\
+z &= \pm i\\
+(\pm i)^2 + 1 &= i^2 + 1 = -1 + 1 = 0
 \end{align*}
+
+undefined only at $z = i$ and $z = -i$.
+
+For all other complex numbers $z$, we have $z^2 + 1 \neq 0$, so the function is well-defined.
+
+$\therefore$ \text{Domain of Definition:} $\mathbb{C} \setminus \{\pm i\}$
  \vspace{1cm}
  \hrule
   \item[(b)] $f(z) = \text{Arg}\left(\frac{1}{z}\right)$
