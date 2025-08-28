@@ -23,4 +23,5 @@ auto/
 texput.log
 
 # Emacs temp files
-.#*
+**/#*#
+**/.#*
