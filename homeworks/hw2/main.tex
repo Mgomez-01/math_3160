@@ -23,7 +23,7 @@
 \renewcommand{\normalsize}{\fontsize{12}{20}\selectfont}
 
 % custom commands
-\newcommand{\myauthor}{Your Name Here}
+\newcommand{\myauthor}{Miguel Gomez}
 \newcommand{\canceling}[2]{\textcolor{red}{\cancelto{\textcolor{black}{#1}}{\textcolor{black}{#2}}}}
 \newcommand{\todo}[1]{\textcolor{blue}{TODO:#1}}
 
@@ -247,26 +247,51 @@ Note*: I mistakenly did this for minus in the denominator, it should be plus aft
 \end{align*}
  \vspace{1cm}
  \hrule
-  \item[(d)] $f(z) = \frac{1}{(1-|z|^2)}$
+\item[(d)] $f(z) = \frac{1}{(1-|z|^2)}$
+  Since $1-|z|^2$ is in the denominator, our condition here is as follows:
+  \begin{align*}
+    |z|^2 &\neq 1  ; \quad |z| = \sqrt{a^2 + b^2}\\
+    |z|^2 &= a^2 + b^2 \\
+    a^2 + b^2 &\neq 1
+  \end{align*}
+  This corresponds to all points on the unit circle.
+  \begin{align*}
+    \therefore \text{Domain of Definition: }\mathbb{C} \setminus \{|z| = a^2+b^2 = 1\}
+  \end{align*}
 \end{enumerate}
 \newpage
 \section{Problem 7}
- Sketch the region onto which the sector $r \le 1;\ 0 \le \theta \le \frac{\pi}{4}$ in the $z$-plane is mapped to
+Sketch the region onto which the sector $r \le 1;\ 0 \le \theta \le \frac{\pi}{4}$ in the $z$-plane is mapped to
  the $w = f(z)$-plane by the transformations
 \begin{enumerate}
-  \item[(a)] $w = z^2$
-% Method 2: Two separate TikZ environments using minipages
-
+\item[(a)] $w = z^2$
+  
+  \begin{align*}
+    z &= e^{i\theta} \\
+    z^2 &= (e^{i\theta})^2 = e^{i2\theta}  
+  \end{align*}
+  Corresponds to two windings of the angle $\theta$, essentially moving by $2\theta$ instead:
 \begin{center}
 \begin{minipage}{0.45\textwidth}
     \centering
     \begin{tikzpicture}
         \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
         \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
-        % Add your content for left graph here
-    \end{tikzpicture}
+        
+        % Draw the sector
+        \fill[blue!20] (0,0) -- (1,0) arc (0:45:1) -- cycle;
+        \draw[thick, blue] (0,0) -- (1,0);
+        \draw[thick, blue] (0,0) -- ({cos(45)},{sin(45)});
+        \draw[thick, blue] (1,0) arc (0:45:1);
+        
+        % Grid and labels
+        \draw[dashed] (1,0) arc (0:90:1);
+        \node at (1,-0.1) {$1$};
+        \node at (-0.1,1) {$i$};
+        \node at (0.3,0.15) {$\frac{\pi}{4}$};
+    \end{tikzpicture}    
     
-    \text{$z$-plane}
+    $z$-plane
 \end{minipage}
 \hfill
 \begin{minipage}{0.45\textwidth}
@@ -274,14 +299,24 @@ Note*: I mistakenly did this for minus in the denominator, it should be plus aft
     \begin{tikzpicture}
         \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
         \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
-        % Add your content for right graph here
+        
+        % Draw the transformed sector
+        \fill[red!20] (0,0) -- (1,0) arc (0:90:1) -- cycle;
+        \draw[thick, red] (0,0) -- (1,0);
+        \draw[thick, red] (0,0) -- (0,1);
+        \draw[thick, red] (1,0) arc (0:90:1);
+        
+        % Grid and labels  
+        \node at (1,-0.1) {$1$};
+        \node at (-0.1,1) {$i$};
+        \node at (0.2,0.2) {$\frac{\pi}{2}$};
     \end{tikzpicture}
     
-    \text{$w$-plane}
+    $w$-plane
 \end{minipage}
-\end{center}
-\newpage
+\end{center}\newpage
 \item[(b)] $w = z^3$
+  Corresponds to three windings of the angle like before but with $3\theta$:
   \begin{center}
 \begin{minipage}{0.45\textwidth}
     \centering
@@ -289,6 +324,17 @@ Note*: I mistakenly did this for minus in the denominator, it should be plus aft
         \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
         \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
         % Add your content for left graph here
+        % Draw the sector
+        \fill[blue!20] (0,0) -- (1,0) arc (0:45:1) -- cycle;
+        \draw[thick, blue] (0,0) -- (1,0);
+        \draw[thick, blue] (0,0) -- ({cos(45)},{sin(45)});
+        \draw[thick, blue] (1,0) arc (0:45:1);
+        
+        % Grid and labels
+        \draw[dashed] (1,0) arc (0:90:1);
+        \node at (1,-0.2) {$1$};
+        \node at (-0.2,1) {$i$};
+        \node at (0.3,0.15) {$\frac{\pi}{4}$};
     \end{tikzpicture}
     
     \text{$z$-plane}
@@ -300,6 +346,18 @@ Note*: I mistakenly did this for minus in the denominator, it should be plus aft
         \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
         \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
         % Add your content for right graph here
+        % Draw the transformed sector
+        \fill[red!20] (0,0) -- (1,0) arc (0:135:1) -- cycle;
+        \fill[red!20] (0,0) -- (1,0) arc (0:135:1) -- cycle;
+        \draw[thick, red] (0,0) -- (1,0);
+        \draw[thick, red] (0,0) -- (-0.707106781,0.707106781);
+        \draw[thick, red] (1,0) arc (0:135:1);
+        \draw[dashed, thick, red] (1,0) arc (0:180:1);
+
+        % Grid and labels  
+        \node at (1,-0.2) {$1$};
+        \node at (-0.2,1) {$i$};
+        \node at (0.2,0.2) {$\frac{\pi}{2}$};
     \end{tikzpicture}
     
     \text{$w$-plane}
@@ -308,6 +366,9 @@ Note*: I mistakenly did this for minus in the denominator, it should be plus aft
  \vspace{1cm}
  \newpage
 \item[(c)] $w = z^4$
+
+  Corresponds to three windings of the angle like before but with $4\theta$:
+
   \begin{center}
 \begin{minipage}{0.45\textwidth}
     \centering
@@ -332,43 +393,43 @@ Note*: I mistakenly did this for minus in the denominator, it should be plus aft
 \end{minipage}
 \end{center}
 
-\end{enumerate}
-% Add more problems as needed...
-\newpage
-% For graphs/diagrams, you can use TikZ:
-\begin{center}
-\begin{tikzpicture}
-    % Your TikZ code here
-    % Example: Draw axes
-    \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
-    \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
-\end{tikzpicture}
-\end{center}
+% \end{enumerate}
+% % Add more problems as needed...
+% \newpage
+% % For graphs/diagrams, you can use TikZ:
+% \begin{center}
+% \begin{tikzpicture}
+%     % Your TikZ code here
+%     % Example: Draw axes
+%     \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
+%     \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
+% \end{tikzpicture}
+% \end{center}
 
-%example two planes side by side with minipage
-  \begin{center}
-\begin{minipage}{0.45\textwidth}
-    \centering
-    \begin{tikzpicture}
-        \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
-        \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
-        % Add your content for left graph here
-    \end{tikzpicture}
+% %example two planes side by side with minipage
+%   \begin{center}
+% \begin{minipage}{0.45\textwidth}
+%     \centering
+%     \begin{tikzpicture}
+%         \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
+%         \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
+%         % Add your content for left graph here
+%     \end{tikzpicture}
     
-    \text{$z$-plane}
-\end{minipage}
-\hfill
-\begin{minipage}{0.45\textwidth}
-    \centering
-    \begin{tikzpicture}
-        \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
-        \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
-        % Add your content for right graph here
-    \end{tikzpicture}
+%     \text{$z$-plane}
+% \end{minipage}
+% \hfill
+% \begin{minipage}{0.45\textwidth}
+%     \centering
+%     \begin{tikzpicture}
+%         \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
+%         \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
+%         % Add your content for right graph here
+%     \end{tikzpicture}
     
-    \text{$w$-plane}
-\end{minipage}
-\end{center}
+%     \text{$w$-plane}
+% \end{minipage}
+% \end{center}
 
 
 \end{document}
