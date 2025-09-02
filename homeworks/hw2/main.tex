@@ -88,7 +88,10 @@ operations, and finally changing back to rectangular coordinates, show that
 \hrule
 \item[(d)] $(1 + \sqrt{3}i)^{-10}= 2^{-11}(-1 + \sqrt{3}i)$
   \begin{align*}
-    % Your work here
+    (1 + \sqrt{3}i)^{-10} &= \left(2 \frac{1 + \sqrt{3}i}{2}\right)^{-10} = 2^{-10}\left( \frac{1 + \sqrt{3}i}{2}\right)^{-10} = 2^{-10}\left(e^{i\frac{\pi}{3}}\right)^{-10} \\
+                          &= 2^{-10}e^{-i\frac{10\pi}{3}} = 2^{-10}e^{-i\frac{(6\pi + 4\pi)}{3}} = 2^{-10}e^{-i\frac{(4\pi)}{3}} \\
+                          &= 2^{-10}e^{i\frac{2\pi}{3}} = 2^{-10}\left(\frac{-1 + \sqrt{3}i}{2}\right) = 2^{-11}(-1 + \sqrt{3}i)
+                            \quad \square
   \end{align*}
 \hrule
 \end{enumerate}
@@ -99,18 +102,49 @@ operations, and finally changing back to rectangular coordinates, show that
 \newpage
 \section*{Problem 2}
 Find the square roots of (a) $2i$ and (b) $(1-\sqrt{3}i)$ express them in rectangular coordinates
+
+(a):
+\begin{align*}
+  \sqrt{2i} &= \sqrt{2}\sqrt{i} = \sqrt{2}i^{\frac{1}{2}} = \sqrt{2} (e^{i\frac{\pi}{2}})^{\frac{1}{2}} = \sqrt{2}e^{i\frac{\pi}{4}} \\
+  \sqrt{2}e^{i\frac{\pi}{4}} &= \sqrt{2}(1+1i)
+\end{align*}
+Second root is at $\frac{2\pi}{2} = \pi$ from this one:
+\begin{align*}
+\sqrt{2}e^{-i\frac{3\pi}{4}}
+\end{align*}
+
+(b):
+\begin{align*}
+  \sqrt{(1-\sqrt{3}i)} &=  \sqrt{2\left(\frac{1-\sqrt{3}i}{2}\right)} = \sqrt{2}\left(\frac{1-\sqrt{3}i}{2}\right)^{\frac{1}{2}} = \sqrt{2} (e^{-i\frac{\pi}{3}})^{\frac{1}{2}} \\
+  &= \sqrt{2}e^{-\i\frac{\pi}{6}} 
+\end{align*}
+Again the other root is $\pi$ away:
+\begin{align*}
+  &= \sqrt{2}e^{-i(\frac{\pi}{6} + \pi)} = \sqrt{2}e^{i\frac{5\pi}{6}}
+\end{align*}
 \newpage
+
 \section*{Problem 3}
 Find all roots and indicate in rectangular coordinates
 \begin{enumerate}
 \item[(a)] $(-16)^{\frac{1}{4}}$
   \begin{align*}
-    % Your work here
+    2^{4} &= 16\\
+    -1 &= i^2 \\
+    -16 &= i^216 = i^24^2 = \sqrt{i}^42^4 = (2\sqrt{i})^4 
+  \end{align*}
+  roots are the four angles corresponding to
+  \begin{align*}
+    &\{\pm \frac{\pi}{4},\ \pm \frac{3\pi}{4}\} \\
+      &\{(1+i),\ (-1+i),\ (-1-i),\ (1-i)\}
   \end{align*}
 \hrule
 \item[(b)] $(-8-8\sqrt{3}i)^{\frac{1}{4}}$
+  These make up a square with the first angle being $\frac{\pi}{3}$ with each separated by $90^{\circ}$.
   \begin{align*}
-    % Your work here
+    (-8-8\sqrt{3}i)^{\frac{1}{4}} &= \left(-16\left(\frac{1+\sqrt{3}i}{2}\right)\right)^{\frac{1}{4}} = \\
+    (-16e^{i\frac{\pi}{3}})^{\frac{1}{4}}
+    
   \end{align*}
 \hrule
 \end{enumerate}
@@ -376,6 +410,15 @@ Sketch the region onto which the sector $r \le 1;\ 0 \le \theta \le \frac{\pi}{4
         \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
         \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
         % Add your content for left graph here
+        % Draw the sector
+        \fill[blue!20] (0,0) -- (1,0) arc (0:45:1) -- cycle;
+        \draw[thick, blue] (0,0) -- (1,0);
+        \draw[thick, blue] (0,0) -- ({cos(45)},{sin(45)});
+        \draw[thick, blue] (1,0) arc (0:45:1);
+        \node at (1,-0.2) {$1$};
+        \node at (-0.2,1) {$i$};
+        \node at (0.2,0.2) {$\frac{\pi}{4}$};
+        
     \end{tikzpicture}
     
     \text{$z$-plane}
@@ -387,6 +430,15 @@ Sketch the region onto which the sector $r \le 1;\ 0 \le \theta \le \frac{\pi}{4
         \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
         \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
         % Add your content for right graph here
+        \fill[red!20] (0,0) -- (1,0) arc (0:180:1) -- cycle;
+        \fill[red!20] (0,0) -- (1,0) arc (0:180:1) -- cycle;
+        \draw[thick, red] (0,0) -- (1,0);
+        \draw[thick, red] (0,0) -- (-1,0);
+        \draw[thick, red] (1,0) arc (0:180:1);
+        \draw[dashed, thick, red] (1,0) arc (0:180:1);
+        \node at (1,-0.2) {$1$};
+        \node at (-0.2,1) {$i$};
+        \node at (0.2,0.2) {$\frac{\pi}{2}$};
     \end{tikzpicture}
     
     \text{$w$-plane}
