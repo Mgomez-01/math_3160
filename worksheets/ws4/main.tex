@@ -55,8 +55,25 @@
 Write the following functions $f(z)$ in the form $f(z) = u(x,y) + iv(x,y)$
 
 \begin{enumerate}
-  \item[(a)] $f(z) = z^3 + z + 1$
-  \item[(b)] $f(z) = \frac{\bar{z}^2}{z}$ for $z \neq 0$
+\item[(a)] $f(z) = z^3 + z + 1$
+
+  writing out each $z$ as $x+iy$ 
+  \begin{align*}
+    f(z) &= z^3 + z + 1 = (x+iy)^3 + (x+iy) + 1 \\
+    (x+iy)^3 &= (x+iy)(x+iy)(x+iy) = (x^2+2ixy+i^2y^2)(x+iy) = \\
+    (x^2+2ixy-y^2)(x+iy) &= x^3+ix^2y + 2ix^2y + 2i^2xy^2-y^2x-iy^3 = \\
+         &= x^3- 3xy^2+i(3x^2y -y^3) \\
+    f(z) &= x^3- 3xy^2+i(3x^2y -y^3) + (x+iy) + 1 = \\
+    &= \boxed{(x^3- 3xy^2+ x + 1) + i(3x^2y -y^3 + y)}
+  \end{align*}
+\item[(b)] $f(z) = \frac{\bar{z}^2}{z}$ for $z \neq 0$
+  \begin{align*}
+    f(z) &= \frac{\bar{z}^2}{z} = \frac{(\overline{x+iy})^2}{(x+iy)} = \frac{(x-iy)^2}{(x+iy)} = \\
+         &= \frac{(x^2-2ixy+i^2y^2)}{(x+iy)}= \frac{(x^2-2ixy-y^2)(x-iy)}{(x+iy)(x-iy)} =\\
+         &= \frac{(x^3-x^2iy-2ix^3y+2i^2xy^2-y^2x+iy^3)}{(x^2+iyx-iyx -i^2y^2)} =\\
+         &= \frac{(x^3-x^2iy-2ix^3y-2xy^2-y^2x+iy^3)}{(x^2+y^2)} = \\
+    &= \boxed{\frac{x^3-3xy^2}{x^2+y^2} + i\frac{-3x^2y+y^3}{x^2+y^2}}
+  \end{align*}
 \end{enumerate}
 \begin{align*}
 % Your mathematical work here
@@ -70,6 +87,11 @@ Write the following functions $f(z)$ in the form $f(z) = u(x,y) + iv(x,y)$
 Consider the mapping $z \xrightarrow{} z^2$.
 \begin{enumerate}
 \item[(a)] What is the image of the line $z  = x + i$?
+  \begin{align*}
+    z \xrightarrow{} z^2  &= (x+iy) \xrightarrow{} (x+iy)^2\\
+    (x^2+2ixy-y^2) &= (x^2+2ix(1)-(1)^2) = x^2 + 2xi - 1 \\
+    &= (x^2-1) + i(2x)   
+  \end{align*}
 \item[(a)] What is the image of the square bounded by the four lines $z  = \pm 1 + iy$ and $z = x \pm i$?  
 \end{enumerate}
 
