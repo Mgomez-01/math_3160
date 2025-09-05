@@ -1,0 +1,144 @@
+% --------------------------------------------------------------------
+% LaTeX Template for Math Homework
+% --------------------------------------------------------------------
+
+\documentclass{article}
+
+% --- PACKAGE IMPORTS ---
+% These packages add functionality for math symbols, formatting, etc.
+\usepackage[margin=.7in]{geometry}       % For setting page margins
+\usepackage{amsmath, amssymb, amsthm}   % American Mathematical Society packages for advanced math
+\usepackage{graphicx}                   % For including images
+\usepackage{fancyhdr}                   % For creating custom headers and footers
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref} % For clickable links
+\usepackage{cancel}
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage{amsxtra}
+\usepackage{epsfig}
+\usepackage{wasysym}
+\usepackage{relsize}
+\usepackage{tikz}
+\tikzset{every picture/.style={scale=1.2}}
+\renewcommand{\normalsize}{\fontsize{12}{20}\selectfont}
+
+% custom commands
+\newcommand{\myauthor}{Miguel Gomez}
+\newcommand{\canceling}[2]{\textcolor{red}{\cancelto{\textcolor{black}{#1}}{\textcolor{black}{#2}}}}
+\newcommand{\todo}[1]{\textcolor{blue}{TODO:#1}}
+
+% --- DOCUMENT & AUTHOR INFORMATION ---
+\title{Homework \# 3: }
+\author{
+	MATH 3160 -- Complex Variables\\
+	\myauthor
+}
+\date{Completed: \today}
+
+% --- HEADER & FOOTER CONFIGURATION ---
+% This section sets up the header that will appear on each page.
+\pagestyle{fancy}
+\fancyhf{} % Clears the default header and footer
+\lhead{Math 3160 -- HW \# 3} % Left side of header
+\rhead{\myauthor} % Puts the author's name on the right side
+\rfoot{Page \thepage} % Puts the page number on the bottom right
+
+\begin{document}
+
+\maketitle % This command generates the title based on the information above.
+
+% ====================================================================
+% --- START OF PROBLEMS ---
+% ====================================================================
+
+\section*{Problem 1: }
+\begin{enumerate}
+	\item  [(a)]
+
+
+	      Write the function
+	      \[
+		      f(z)=z+\frac{1}{z}\qquad (z\neq 0)
+	      \]
+	      in the form $f(z)=u(r,\theta)+iv(r,\theta)$.
+
+	\item [(b)] Show that the image of the points in the upper half plane ($y>0$) that are exterior to the circle $|z|=1$ are mapped under $f$ to the entire upper half plane $v>0$.
+\end{enumerate}
+
+\subsection*{(a)}
+
+\subsection*{(b)}
+  \begin{center}
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
+        \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
+        % Add your content for left graph here
+    \end{tikzpicture}
+    
+    \text{$z$-plane}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
+        \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
+        % Add your content for right graph here
+    \end{tikzpicture}
+    
+    \text{$f(z)$-plane}
+\end{minipage}
+\end{center}
+
+
+\hrule % Adds a horizontal line to separate problems.
+
+\newpage
+\section*{Problem 2: }
+Use the rectangular forms or exponential forms for the following functions to prove that
+		\begin{enumerate}
+			\item[(a)]  $\lim\limits_{z\to z_0} Re(z) = Re(z_0)$
+			\item[(b)] $\lim\limits_{z\to z_0} \bar{z} = \bar{z_0} $
+			\item[(c)] $\lim\limits_{z\to 0} \frac{\bar{z}^2}{z} = 0$
+		\end{enumerate}
+
+% For graphs/diagrams, you can use TikZ:
+% \begin{center}
+% 	\begin{tikzpicture}
+% 		% Your TikZ code here
+% 		% Example: Draw axes
+% 		\draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
+% 		\draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
+% 	\end{tikzpicture}
+% \end{center}
+
+\vspace{.5cm} % Space between problems
+
+\hrule
+
+\newpage
+\section*{Problem 3: }
+Show that the limit of the function 
+		\[ f(z) =\Big( \frac{z}{\bar{z}} \Big)^3\]
+		as $z$ tends to zero does not exist. Do so by examining several test paths going to zero.
+		
+\vspace{.5cm} % Space for work
+
+\hrule
+
+% Add more problems as needed...
+\newpage
+\section*{Problem 4: }
+Does $f(x+iy)=\displaystyle{\frac{x+iy}{x+2iy}}$ have a limit as $x+iy \to 0$\,?
+
+\vspace{.5cm} % Space for work
+
+\hrule
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
