@@ -66,7 +66,20 @@
 \end{enumerate}
 
 \subsection*{(a)}
-
+\begin{align*}
+  f(z)&=z+\frac{1}{z} =  (x+iy)+\frac{1}{(x+iy)}  = \frac{(x+iy)(x^2+y^2)}{(x^2+y^2)} + \frac{x-iy}{(x^2+y^2)}\\
+      &= \frac{1}{x^2+y^2}((x+iy)(x^2+y^2) + x-iy) = \frac{1}{x^2+y^2}(x(x^2+y^2) + x + i(y(x^2+y^2) - y))\\
+      & \therefore u(x,y) = \frac{1}{x^2+y^2}(x(x^2+y^2) + x)\quad \& \quad v(x,y) = \frac{1}{x^2+y^2}(y(x^2+y^2) - y)\\
+      & r^2 = x^2 + y^2\\
+      & x = r\cos{(\theta)}\\
+      & y = r\sin{(\theta)}
+\end{align*}
+\begin{align*}
+  \therefore u(r,\theta) = \frac{1}{r^2}(r^3\cos{(\theta)} + r\cos{(\theta)}) &= r\cos{(\theta)} + \frac{1}{r}\cos{(\theta)}\\
+                                                                              &= \boxed{\left(r + \frac{1}{r}\right)\cos{(\theta)}}\\
+  \quad \ v(r,\theta) = \frac{1}{r^2}(r^3\sin{(\theta)} - r\sin{(\theta)}) &= r\sin{(\theta)} - \frac{1}{r}\sin{(\theta)}\\
+                                                                              &= \boxed{\left(r - \frac{1}{r}\right)\sin{(\theta)}}
+\end{align*}
 \subsection*{(b)}
   \begin{center}
 \begin{minipage}{0.45\textwidth}
