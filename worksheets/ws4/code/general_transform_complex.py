@@ -9,7 +9,54 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # --- The Generalized Plotting Function ---
+def plot_region_transformation(z_boundaries, g, z_title="Original Region (z-plane)", w_title="Transformed Region (w-plane)"):
+    """
+    Transforms the boundaries of a region and plots the original and transformed shaded areas.
 
+    Args:
+        z_boundaries (list of np.ndarray): A list of arrays, where each array defines a
+                                           boundary of the region in a contiguous order.
+        g (callable): The transformation function g(z).
+        z_title (str): The title for the z-plane plot.
+        w_title (str): The title for the w-plane plot.
+    """
+    print(f"Plotting region transformation for: {z_title}")
+    
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 6))
+    
+    all_z_points = []
+    all_w_points = []
+
+    # Process and plot each boundary line
+    for z_line in z_boundaries:
+        w_line = g(z_line)
+        all_z_points.append(z_line)
+        all_w_points.append(w_line)
+        ax1.plot(z_line.real, z_line.imag, 'r-', linewidth=2.5)
+        ax2.plot(w_line.real, w_line.imag, 'b-', linewidth=2.5)
+
+    # Create a single array of vertices for filling the polygon
+    z_vertices = np.concatenate(all_z_points)
+    w_vertices = np.concatenate(all_w_points)
+
+    # Shade the region
+    ax1.fill(z_vertices.real, z_vertices.imag, 'red', alpha=0.2)
+    ax2.fill(w_vertices.real, w_vertices.imag, 'blue', alpha=0.2)
+
+    # Formatting for z-plane
+    ax1.set_xlabel('Re(z)'); ax1.set_ylabel('Im(z)'); ax1.set_title(z_title)
+    ax1.grid(True, linestyle='--', alpha=0.6); ax1.set_aspect('equal')
+    ax1.axhline(0, color='black', lw=0.5); ax1.axvline(0, color='black', lw=0.5)
+
+    # Formatting for w-plane
+    ax2.set_xlabel('Re(w)'); ax2.set_ylabel('Im(w)'); ax2.set_title(w_title)
+    ax2.grid(True, linestyle='--', alpha=0.6); ax2.set_aspect('equal')
+    ax2.axhline(0, color='black', lw=0.5); ax2.axvline(0, color='black', lw=0.5)
+
+    plt.tight_layout()
+    plt.show()
+
+    
 def plot_complex_transformation(z_values, g, num_points=11, z_title="Original Path (z-plane)", w_title="Transformed Path (w-plane)"):
     """
     Transforms a set of complex numbers and plots the original and transformed curves.
@@ -86,14 +133,22 @@ if __name__ == "__main__":
         
     # # --- EXAMPLE 1: Horizontal Line under w = z^2 (Your original case) ---
     # # A horizontal line z = x + ic maps to a parabola.
-    # x_vals = np.linspace(-2.5, 2.5, 200)
-    # z_horizontal_line = x_vals + 1j * 1.5 # Line at y=1.5
-    # plot_complex_transformation(
-    #     z_values=z_horizontal_line,
-    #     g=g_squared,
-    #     z_title='Horizontal Line: $z = x + 1.5i$',
-    #     w_title='Transformed Parabola: $w = z^2$'
-    # )
+    x_vals = np.linspace(-2.5, 2.5, 200)
+    z_horizontal_line = x_vals - 1j  # Line at 
+    plot_complex_transformation(
+        z_values=z_horizontal_line,
+        g=g_squared,
+        z_title='Horizontal Line: $z = x - 1i$',
+        w_title='Transformed Parabola: $w = z^2$'
+    )
+    x_vals = np.linspace(-2.5, 2.5, 200)
+    z_horizontal_line = x_vals + 1j  # Line at 
+    plot_complex_transformation(
+        z_values=z_horizontal_line,
+        g=g_squared,
+        z_title='Horizontal Line: $z = x + 1i$',
+        w_title='Transformed Parabola: $w = z^2$'
+    )
 
     # # --- EXAMPLE 2: Vertical Line under w = z^2 ---
     # # A vertical line z = c + iy also maps to a parabola.
@@ -109,24 +164,50 @@ if __name__ == "__main__":
     # --- EXAMPLE mine: Vertical Line under w = z^3 ---
     # A vertical line z = c + iy maps to z^3.
     y_vals = np.linspace(-3.5, 3.5, 200)
-    z_vertical_line = 1 + 1j * y_vals # Line at x=1
+    z_vertical_line = -1 + 1j * y_vals # Line at x=1
     plot_complex_transformation(
         z_values=z_vertical_line,
-        g=g_qubed,
-        z_title='Vertical Line: $z = 1 + iy$',
-        w_title='Transformed: $w = z^3$'
+        g=g_squared,
+        z_title='Vertical Line: $z = -1 + iy$',
+        w_title='Transformed: $w = z^2$'
     )
 
-    # --- EXAMPLE 3: Circle under w = 1/z ---
-    # A circle not passing through the origin maps to another circle.
-    theta = np.linspace(0, 2 * np.pi, 200)
-    z_circle = 2.5 + 1 * np.exp(1j * theta)  # Circle centered at z=2.5, radius 1
-    plot_complex_transformation(
-        z_values=z_circle,
-        g=g_inversion,
-        z_title='Original Circle: $|z - 2.5| = 1$',
-        w_title='Transformed Circle: $w = 1/z$'
+    # --- ⭐ NEW EXAMPLE 3: Rectangular Region under w = z^2 ⭐ ---
+    # Define the 4 sides of a rectangle in the first quadrant
+    N = 50 # Number of points per side
+
+    # 1. Bottom edge (travels from left to right)
+    line1 = np.linspace(-1, 1, N) - 1j      # Starts at -1-i, ends at 1-i
+
+    # 2. Right edge (travels from bottom to top)
+    line2 = 1 + 1j * np.linspace(-1, 1, N)   # Starts at 1-i, ends at 1+i
+
+    # 3. Top edge (travels from right to left)
+    line3 = np.linspace(1, -1, N) + 1j       # Starts at 1+i, ends at -1+i
+
+    # 4. Left edge (travels from top to bottom, closing the loop)
+    line4 = -1 + 1j * np.linspace(1, -1, N)  # Starts at -1+i, ends at -1-i
+
+    # This list now contains the boundaries in the correct sequential order for filling.
+    square_bounding_unit_circle = [line1, line2, line3, line4]    
+    
+    plot_region_transformation(
+        z_boundaries=square_bounding_unit_circle,
+        g=g_squared,
+        z_title='Original Rectangular Region',
+        w_title='Transformed Region: $w = z^2$'
     )
+    
+    # # --- EXAMPLE 3: Circle under w = 1/z ---
+    # # A circle not passing through the origin maps to another circle.
+    # theta = np.linspace(0, 2 * np.pi, 200)
+    # z_circle = 2.5 + 1 * np.exp(1j * theta)  # Circle centered at z=2.5, radius 1
+    # plot_complex_transformation(
+    #     z_values=z_circle,
+    #     g=g_inversion,
+    #     z_title='Original Circle: $|z - 2.5| = 1$',
+    #     w_title='Transformed Circle: $w = 1/z$'
+    # )
 
     # # --- EXAMPLE 4: Vertical Line under w = e^z ---
     # # A vertical line segment z = c + iy maps to a circular arc.
