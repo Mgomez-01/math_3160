@@ -26,6 +26,7 @@
 \newcommand{\myauthor}{Miguel Gomez}
 \newcommand{\canceling}[2]{\textcolor{red}{\cancelto{\textcolor{black}{#1}}{\textcolor{black}{#2}}}}
 \newcommand{\todo}[1]{\textcolor{blue}{TODO:#1}}
+\newcommand{\DNEpaths}[1]{\boxed{$\therefore$ The limit DNE #1 because different paths give different results.}}
 
 % --- DOCUMENT & AUTHOR INFORMATION ---
 \title{Homework \# 3: }
@@ -66,43 +67,93 @@
 \end{enumerate}
 
 \subsection*{(a)}
-
+\begin{align*}
+	f(z) & =z+\frac{1}{z} =  (x+iy)+\frac{1}{(x+iy)}  = \frac{(x+iy)(x^2+y^2)}{(x^2+y^2)} + \frac{x-iy}{(x^2+y^2)}        \\
+	     & = \frac{1}{x^2+y^2}((x+iy)(x^2+y^2) + x-iy) = \frac{1}{x^2+y^2}(x(x^2+y^2) + x + i(y(x^2+y^2) - y))            \\
+	     & \therefore u(x,y) = \frac{1}{x^2+y^2}(x(x^2+y^2) + x)\quad \& \quad v(x,y) = \frac{1}{x^2+y^2}(y(x^2+y^2) - y) \\
+	     & r^2 = x^2 + y^2                                                                                                \\
+	     & x = r\cos{(\theta)}                                                                                            \\
+	     & y = r\sin{(\theta)}
+\end{align*}
+\begin{align*}
+	\therefore u(r,\theta) = \frac{1}{r^2}(r^3\cos{(\theta)} + r\cos{(\theta)}) & = r\cos{(\theta)} + \frac{1}{r}\cos{(\theta)}        \\
+	                                                                            & = \boxed{\left(r + \frac{1}{r}\right)\cos{(\theta)}} \\
+	\quad \ v(r,\theta) = \frac{1}{r^2}(r^3\sin{(\theta)} - r\sin{(\theta)})    & = r\sin{(\theta)} - \frac{1}{r}\sin{(\theta)}        \\
+	                                                                            & = \boxed{\left(r - \frac{1}{r}\right)\sin{(\theta)}}
+\end{align*}
 \subsection*{(b)}
-  \begin{center}
-\begin{minipage}{0.45\textwidth}
-    \centering
-    \begin{tikzpicture}
-        \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
-        \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
-        % Add your content for left graph here
-    \end{tikzpicture}
-    
-    \text{$z$-plane}
-\end{minipage}
-\hfill
-\begin{minipage}{0.45\textwidth}
-    \centering
-    \begin{tikzpicture}
-        \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
-        \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
-        % Add your content for right graph here
-    \end{tikzpicture}
-    
-    \text{$f(z)$-plane}
-\end{minipage}
-\end{center}
+Since we have $r > 1$ for any point exterior to $|z| = 1$, then the condition for the $y$ value:
+\begin{align*}
+	v(r,\theta) & = \left(r - \frac{1}{r}\right)\sin{(\theta)}                                    \\
+	            & = \left(r - \frac{1}{r}\right) > 0 \quad \forall\ r > 1                         \\
+	            & = 0 \leq \sin{(\theta)} \leq 1 \quad \forall\ \theta\ |\ 0 \leq \theta \leq \pi
+\end{align*}
+Meaning all positive values for $y=r\sin{(\theta)}$ map to positive values for $v(r,\theta)$. Since a point inside the circle $|z|= 1$ would have $r \leq 1$, that would put the value of the factor on $\sin{(\theta)}$ less than $0$. Taking the simplest case of $r = 1+\epsilon$ where $\epsilon$ is a small increase, and the angle $\theta = 0$, we get a point $v$ that is equal to $0$. As we sweep the angle to $\frac{\pi}{2}$, we get a factor of $1$ multiplied by something larger than 0.
+\begin{align*}
+	v(r,\theta) & = \left(r - \frac{1}{r}\right)\sin{(\theta)} = \left((r+\epsilon) - \frac{1}{(r+\epsilon)}\right)\sin{(\theta)}                                                                                       \\
+	            & =\left(\frac{(r+\epsilon)^2}{(r+\epsilon)} - \frac{1}{r+\epsilon}\right)\sin{(\theta)}=\left(\frac{(r+\epsilon)^2-1}{r+\epsilon}\right)\sin{(\theta)}                                                 \\
+	            & =\left(\frac{((r+\epsilon)^2-1)(r-\epsilon)}{(r+\epsilon)(r-\epsilon)}\right)\sin{(\theta)}=\left(\frac{(r^2+2r\epsilon + \epsilon^2 -1)(r-\epsilon)}{r^2-\epsilon^2}\right)\sin{(\theta)}            \\
+	            & =\left(\frac{(r^2+2r\epsilon + \canceling{0}{\epsilon^2} -1)(r-\epsilon)}{r^2-\canceling{0}{\epsilon^2}}\right)\sin{(\theta)}=\left(\frac{(r^2+2r\epsilon  -1)(r-\epsilon)}{r^2}\right)\sin{(\theta)} \\
+	            & =\left(\frac{(r^2+2r\epsilon  -1)(r-\epsilon)}{r^2}\right)\sin{(\theta)} =\left(\frac{(r^3+2r^2\epsilon -r -r^2\epsilon-2r\epsilon^2+\epsilon)}{r^2}\right)\sin{(\theta)}                             \\
+	            & =\left(\frac{(r^3+r^2\epsilon -r -\canceling{0}{2r\epsilon^2}+\epsilon)}{r^2}\right)\sin{(\theta)}
+	=\left(\frac{(r^3+r^2\epsilon -r +\epsilon)}{r^2}\right)\sin{(\theta)}                                                                                                                                              \\
+	            & =\left(r + \epsilon - \frac{1}{r} + \frac{\epsilon}{r^2}\right)\sin{(\theta)} = \left(\left(r - \frac{1}{r}\right)+ \left(\epsilon  + \frac{\epsilon}{r^2}\right)\right)\sin{(\theta)}
+\end{align*}
+With $r = 1$ with the very small increase, we can plug $1$ in for $r$ and we see that the overall value is still positive.
+\begin{align*}
+	 & \left(\left(r - \frac{1}{r}\right)+ \left(\epsilon  + \frac{\epsilon}{r^2}\right)\right)\sin{(\theta)} = \left(\left(1 - \frac{1}{1}\right)+ \left(\epsilon  + \frac{\epsilon}{1}\right)\right)\sin{(\theta)} \\
+	 & \left((1-1)+ (2\epsilon)\right)\sin{(\theta)} = 2\epsilon\sin{(\theta)}
+\end{align*}
+\boxed{$\therefore$ all values in the upper half plane outside the circle $|z|= 1$ will map to the values such that $v > 0$.}
+\todo{Showing the condition maps to the entire half-plane is not yet shown, but I think this is a decent argument so far. Come up with a method for showing this condition satisfies and covers the entire half-plane.}
+%   \begin{center}
+% \begin{minipage}{0.45\textwidth}
+%     \centering
+%     \begin{tikzpicture}
+%         \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
+%         \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
+%         % Add your content for left graph here
+%     \end{tikzpicture}
 
+%     \text{$z$-plane}
+% \end{minipage}
+% \hfill
+% \begin{minipage}{0.45\textwidth}
+%     \centering
+%     \begin{tikzpicture}
+%         \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
+%         \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
+%         % Add your content for right graph here
+%     \end{tikzpicture}
 
-\hrule % Adds a horizontal line to separate problems.
+%     \text{$f(z)$-plane}
+% \end{minipage}
+% \end{center}
 
-\newpage
 \section*{Problem 2: }
 Use the rectangular forms or exponential forms for the following functions to prove that
-		\begin{enumerate}
-			\item[(a)]  $\lim\limits_{z\to z_0} Re(z) = Re(z_0)$
-			\item[(b)] $\lim\limits_{z\to z_0} \bar{z} = \bar{z_0} $
-			\item[(c)] $\lim\limits_{z\to 0} \frac{\bar{z}^2}{z} = 0$
-		\end{enumerate}
+\begin{enumerate}
+\item[(a)]  $\lim\limits_{z\to z_0} Re(z) = Re(z_0)$
+  \begin{align*}
+    \lim\limits_{z\to z_0} Re(z) &= \boxed{\lim\limits_{x\to x_0} x = x_0}
+  \end{align*}
+  We can stop here since this is sufficient.
+  
+\item[(b)] $\lim\limits_{z\to z_0} \bar{z} = \bar{z_0} $
+  \begin{align*}
+    \lim\limits_{z\to z_0} \bar{z} = \lim\limits_{(x,y)\to (x_0,y_0)} \overline{(x+iy)} &= \lim\limits_{(x,y)\to (x_0,y_0)}(x-iy) \\
+    &=\boxed{\lim\limits_{(x,y)\to (x_0,y_0)} = (x_0-iy_0)}
+  \end{align*}
+  We can stop here since this is sufficient.
+\item[(c)] $\lim\limits_{z\to 0} \frac{\bar{z}^2}{z} = 0$
+  \begin{align*}
+    \lim\limits_{z\to 0} \frac{\bar{z}^2}{z} &= \lim\limits_{r\to 0} \frac{\overline{re^{i\theta}}^2}{re^{i\theta}}\\
+                                             &= \lim\limits_{z\to 0} \frac{(re^{-i\theta})^2}{re^{i\theta}} = \lim\limits_{r\to 0}\frac{r^2e^{-i2\theta}}{re^{i\theta}}\\
+                                             &= \lim\limits_{r\to 0}r\frac{e^{-i2\theta}}{e^{i\theta}} = \lim\limits_{r\to 0}re^{-i2\theta}e^{-i\theta} \\
+    &= \boxed{\lim\limits_{r\to 0}re^{-i3\theta} = 0}
+  \end{align*}
+  For this, no matter the angle used, we still have a dependence on $r$ in the expression, so from any path, we will approach $0$.
+\end{enumerate}
 
 % For graphs/diagrams, you can use TikZ:
 % \begin{center}
@@ -120,10 +171,28 @@ Use the rectangular forms or exponential forms for the following functions to pr
 
 \newpage
 \section*{Problem 3: }
-Show that the limit of the function 
-		\[ f(z) =\Big( \frac{z}{\bar{z}} \Big)^3\]
-		as $z$ tends to zero does not exist. Do so by examining several test paths going to zero.
-		
+Show that the limit of the function
+\[ f(z) =\Big( \frac{z}{\bar{z}} \Big)^3\]
+as $z$ tends to zero does not exist. Do so by examining several test paths going to zero.
+
+\begin{align*}
+  z &= re^{i\theta}\\
+  \bar z &= re^{-i\theta} \\
+  \frac{z}{\bar z} = \frac{re^{i\theta}}{re^{-i\theta}} &= re^{i\theta}r^{-1}e^{i\theta} = e^{i2\theta} \\
+  \left(\frac{z}{\bar z}\right)^3 = (e^{i2\theta})^3 &= e^{i6\theta}
+\end{align*}
+We can see that the dependence on $r$ is now gone as the two canceled out. Evaluating two paths with differing value of $\theta$ will give two different magnitudes for the result. First with $\theta = 0$
+\begin{align*}
+  \lim\limits_{r \to 0}e^{i6\theta} = \lim\limits_{r \to 0}e^{0} = \lim\limits_{r \to 0} = 1
+\end{align*}
+as in it becomes $1$ from the positive side. Now with $\theta= \frac{\pi}{2}$: 
+\begin{align*}
+  \lim\limits_{r \to 0}e^{i6\theta} = \lim\limits_{r \to 0}e^{i6\frac{\pi}{2}} = \lim\limits_{r \to 0}e^{i3\pi} = -1
+\end{align*}
+Here it becomes $-1$ by approaching from the negative side.
+
+\DNEpaths
+
 \vspace{.5cm} % Space for work
 
 \hrule
@@ -132,6 +201,22 @@ Show that the limit of the function
 \newpage
 \section*{Problem 4: }
 Does $f(x+iy)=\displaystyle{\frac{x+iy}{x+2iy}}$ have a limit as $x+iy \to 0$\,?
+
+No the function does not have a limit as it tends to $0$ because the expression $x+iy$ can only become $0$ if both $x$ and $y$ tend to $0$:
+\begin{align*}
+  \frac{x+iy}{x+2iy} &= \frac{x+iy}{x+iy + iy} = \frac{x+iy}{(x+iy) + iy} \neq \frac{0}{iy}
+\end{align*}
+This cannot equal $0$ because if $x+iy$ implies that both $x$ and $y$ tend to $0$, then that implies that the denominator is also going to become $0$ which we know is an indeterminate form. Evaluating from two paths again as we have done previously. We can start with $y=0$ and evaluate the limit from the real axis.
+\begin{align*}
+  \frac{x+iy}{x+2iy} &= \frac{x+i(0)}{x+2i(0)} = \frac{x}{x} = 1
+\end{align*}
+This loses all dependence on the variables and is $1$ for any values approaching $0$. Approaching now from the imaginary axis.
+\begin{align*}
+  \frac{x+iy}{x+2iy} &= \frac{(0)+iy}{(0)+2iy} =\frac{iy}{2iy} =\frac{1}{2} 
+\end{align*}
+This loses all dependence on the variables and is $\frac{1}{2}$ for any values approaching $0$.
+
+\DNEpaths
 
 \vspace{.5cm} % Space for work
 
