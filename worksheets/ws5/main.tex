@@ -25,7 +25,8 @@
 \newcommand{\myauthor}{Miguel Gomez}
 \newcommand{\canceling}[2]{\textcolor{red}{\cancelto{\textcolor{black}{#1}}{\textcolor{black}{#2}}}}
 \newcommand{\todo}[1]{\textcolor{blue}{TODO:#1}}
-
+\newcommand{\der}[2]{\frac{d#1}{d#2}}
+\newcommand{\part}[2]{\frac{\partial#1}{\partial#2}}
 % --- DOCUMENT & AUTHOR INFORMATION ---
 \title{Worksheet \# 4}
 \author{
@@ -52,40 +53,46 @@
 
 % Note: \section* creates a section heading without a number.
 \section*{Problem 1}
+Recall that we have defined the complex exponential function $e^z$ by the formula $e^z = e^xe^{iy} = e^x(\cos{(y)} + i \sin{(y)})$, where $x = Re(z)$ and $y = Im(z)$.
+\\
 
+Calculate $f'(z)$ for each of the following functions:
 
-\begin{align*}
-% Your mathematical work here
-\end{align*}
+\begin{enumerate}
+\item[(a)] $f (z) = (z + 2)^5$
+  \begin{align*}
+    f (z) &= (z + 2)^5\\
+    f'(z) &= \der{f}{z} \\
+    f'(g(z)) &= \der{f}{g}\der{g}{z} =  5(z+2)^4(1) 
+  \end{align*}
+\item[(b)] $f (z) = e^{z^3+z+1}$
+  \begin{align*}
+    f(z) &= e^{z^3+z+1} = e^{z^3}e^{z}e^{1} = e(e^{z^3}e^{z})\\
+    \der{(ab)}{z} &= a'b+ab' \\
+    a &= e^{z^3} \to a' = e^{z^3}(3z^2) \\
+    b &= e^{z} \to b' = e^z(1)\\
+    a'b+ab' &= e^{z^3}(3z^2)e^z+e^{z^3}e^z = e^{z^3}e^z(3z^2 + 1)\\
+    \therefore f'(z) &= e^{z^3}e^ze(3z^2 + 1) = e^{z^3+z+1}(3z^2 + 1) 
+  \end{align*}
+\item[(c)] $f (z) = e^{1/z}$
+  \begin{align*}
+    f'(z) &= \der{}{z}e^{1/z} = \der{}{z}e^{z^{-1}} = e^{z^{-1}}(-1)z^{-2}\\
+    &= -e^{1/z}\frac{1}{z^2}
+  \end{align*}
+\end{enumerate}
 
-\vspace{1cm} % Add space for additional work if needed
-% For graphs/diagrams, you can use TikZ:
-\begin{center}
-\begin{tikzpicture}
-    % Your TikZ code here
-    % Example: Draw axes
-    \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
-    \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
-\end{tikzpicture}
-\end{center}
 \vspace{1cm}
 \hrule % Adds a horizontal line to separate problems.
 
-\newpage
 \section*{Problem 2}
+Use the Cauchy-Riemann equations to show that $f'(z)$ does not exist at any point for the following:
 
-
+\begin{enumerate}
+  \item[(a)] $f (z) = z - \bar z$
+  \item[(b)] $f (z) = e^xe^{-iy}$
+\end{enumerate}
 \vspace{1cm} % Space for work
 
-\hrule
-
-\newpage
-\section*{Problem 3}
-
-
-\vspace{1cm} % Space for work
-
-\hrule
 
 % Add more problems as needed...
 % \newpage
@@ -94,3 +101,8 @@
 % \hrule
 
 \end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

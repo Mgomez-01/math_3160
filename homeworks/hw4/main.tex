@@ -1,11 +1,12 @@
 % --------------------------------------------------------------------
-% LaTeX Template for Math Worksheets
+% LaTeX Template for Math Homework
 % --------------------------------------------------------------------
+
 \documentclass{article}
 
 % --- PACKAGE IMPORTS ---
 % These packages add functionality for math symbols, formatting, etc.
-\usepackage[margin=.7in]{geometry}       % For setting page margins to 0.7 inch
+\usepackage[margin=.7in]{geometry}       % For setting page margins
 \usepackage{amsmath, amssymb, amsthm}   % American Mathematical Society packages for advanced math
 \usepackage{graphicx}                   % For including images
 \usepackage{fancyhdr}                   % For creating custom headers and footers
@@ -22,23 +23,23 @@
 \renewcommand{\normalsize}{\fontsize{12}{20}\selectfont}
 
 % custom commands
-\newcommand{\myauthor}{Miguel Gomez}
+\newcommand{\myauthor}{Your Name Here}
 \newcommand{\canceling}[2]{\textcolor{red}{\cancelto{\textcolor{black}{#1}}{\textcolor{black}{#2}}}}
 \newcommand{\todo}[1]{\textcolor{blue}{TODO:#1}}
 
 % --- DOCUMENT & AUTHOR INFORMATION ---
-\title{Worksheet \# 4}
+\title{Homework \# 4}
 \author{
-  MATH 3160 -- Complex Variables\\
-  \myauthor
+	MATH 3160 -- Complex Variables\\
+	\myauthor
 }
-\date{Completed: \today} 
+\date{Completed: \today}
 
 % --- HEADER & FOOTER CONFIGURATION ---
 % This section sets up the header that will appear on each page.
 \pagestyle{fancy}
 \fancyhf{} % Clears the default header and footer
-\lhead{Math 3160 -- Worksheet \# 4} % Left side of header
+\lhead{Math 3160 -- HW \# 4} % Left side of header
 \rhead{\myauthor} % Puts the author's name on the right side
 \rfoot{Page \thepage} % Puts the page number on the bottom right
 
@@ -50,47 +51,62 @@
 % --- START OF PROBLEMS ---
 % ====================================================================
 
-% Note: \section* creates a section heading without a number.
 \section*{Problem 1}
+Find $f'(z)$ using differentiation rules.
+\begin{enumerate}
+	\item[(a)]  $f(z) = 3z^2-2z+4$
+	\item[(b)] $f(z) = (1-4z)^3$
+	\item[(c)] $f(z) = \frac{z-1}{2z+1}$, assume $z\neq -1/2$
+	\item[(d)] $f(z) = \frac{(z^2+1)^4}{z^2}$, assume $z\neq 0$
+	\item[(e)] $f(z) = z \, e^{z^2 + 3}$.
+\end{enumerate}
 
 
-\begin{align*}
-% Your mathematical work here
-\end{align*}
+\vspace{.5cm} % Space between problems
 
-\vspace{1cm} % Add space for additional work if needed
-% For graphs/diagrams, you can use TikZ:
-\begin{center}
-\begin{tikzpicture}
-    % Your TikZ code here
-    % Example: Draw axes
-    \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
-    \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
-\end{tikzpicture}
-\end{center}
-\vspace{1cm}
 \hrule % Adds a horizontal line to separate problems.
 
 \newpage
 \section*{Problem 2}
+Show that $f'(z_0)$ does not exist at any point $z_0$ in two ways: using the limit definition and using the Cauchy-Riemann equations. Here, $z = x + iy$ and $x,y \in \mathbb{R}$.
+		\begin{enumerate}
+			\item[(a)] $f(z) = 2x+ixy^2$
+			\item[(b)] $f(z) = e^{x}e^{-iy}$
+		\end{enumerate}
+	
 
-
-\vspace{1cm} % Space for work
+\vspace{.5cm} % Space between problems
 
 \hrule
 
 \newpage
 \section*{Problem 3}
+Using the exponential function $e^{z}$, we can now define the complex cosine and sine function for any $z \in \mathbb{C}$ as follows:
+		\[  \cos(z) = \frac{e^{iz} + e^{-iz}}{2} \]
+		
+		and 
+		\[  \sin(z) = \frac{e^{iz} - e^{-iz}}{2i}. \]
+		Using these formulas,
+		\begin{enumerate}
+			\item[(a)] express $\cos(z)$ and $\sin(z)$ in rectangular coordinates $u(x,y) + iv (x,y)$ where $z = x + iy$.
+			\item[(b)] show that the complex cosine and sine functions are analytic over $\mathbb{C}$ and calculate their derivatives.
+		\end{enumerate}
+		
 
-
-\vspace{1cm} % Space for work
+\vspace{.5cm} % Space for work
 
 \hrule
 
 % Add more problems as needed...
-% \newpage
-% \section*{Problem 4}
-% 
-% \hrule
 
 \end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
