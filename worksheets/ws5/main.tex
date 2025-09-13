@@ -5,7 +5,7 @@
 
 % --- PACKAGE IMPORTS ---
 % These packages add functionality for math symbols, formatting, etc.
-\usepackage[margin=.7in]{geometry}       % For setting page margins to 0.7 inch
+\usepackage[margin=.6in]{geometry}       % For setting page margins to 0.7 inch
 \usepackage{amsmath, amssymb, amsthm}   % American Mathematical Society packages for advanced math
 \usepackage{graphicx}                   % For including images
 \usepackage{fancyhdr}                   % For creating custom headers and footers
@@ -30,10 +30,10 @@
 % --- DOCUMENT & AUTHOR INFORMATION ---
 \title{Worksheet \# 4}
 \author{
-  MATH 3160 -- Complex Variables\\
-  \myauthor
+	MATH 3160 -- Complex Variables\\
+	\myauthor
 }
-\date{Completed: \today} 
+\date{Completed: \today}
 
 % --- HEADER & FOOTER CONFIGURATION ---
 % This section sets up the header that will appear on each page.
@@ -59,26 +59,26 @@ Recall that we have defined the complex exponential function $e^z$ by the formul
 Calculate $f'(z)$ for each of the following functions:
 
 \begin{enumerate}
-\item[(a)] $f (z) = (z + 2)^5$
-  \begin{align*}
-    f (z) &= (z + 2)^5\\
-    f'(z) &= \der{f}{z} \\
-    f'(g(z)) &= \der{f}{g}\der{g}{z} =  5(z+2)^4(1) 
-  \end{align*}
-\item[(b)] $f (z) = e^{z^3+z+1}$
-  \begin{align*}
-    f(z) &= e^{z^3+z+1} = e^{z^3}e^{z}e^{1} = e(e^{z^3}e^{z})\\
-    \der{(ab)}{z} &= a'b+ab' \\
-    a &= e^{z^3} \to a' = e^{z^3}(3z^2) \\
-    b &= e^{z} \to b' = e^z(1)\\
-    a'b+ab' &= e^{z^3}(3z^2)e^z+e^{z^3}e^z = e^{z^3}e^z(3z^2 + 1)\\
-    \therefore f'(z) &= e^{z^3}e^ze(3z^2 + 1) = e^{z^3+z+1}(3z^2 + 1) 
-  \end{align*}
-\item[(c)] $f (z) = e^{1/z}$
-  \begin{align*}
-    f'(z) &= \der{}{z}e^{1/z} = \der{}{z}e^{z^{-1}} = e^{z^{-1}}(-1)z^{-2}\\
-    &= -e^{1/z}\frac{1}{z^2}
-  \end{align*}
+	\item[(a)] $f (z) = (z + 2)^5$
+		\begin{align*}
+			f (z)    & = (z + 2)^5                           \\
+			f'(z)    & = \der{f}{z}                          \\
+			f'(g(z)) & = \der{f}{g}\der{g}{z} =  5(z+2)^4(1)
+		\end{align*}
+	\item[(b)] $f (z) = e^{z^3+z+1}$
+		\begin{align*}
+			f(z)             & = e^{z^3+z+1} = e^{z^3}e^{z}e^{1} = e(e^{z^3}e^{z})  \\
+			\der{(ab)}{z}    & = a'b+ab'                                          \\
+			a                & = e^{z^3} \to a' = e^{z^3}(3z^2)                    \\
+			b                & = e^{z} \to b' = e^z(1)                             \\
+			a'b+ab'          & = e^{z^3}(3z^2)e^z+e^{z^3}e^z = e^{z^3}e^z(3z^2 + 1) \\
+			\therefore f'(z) & = e^{z^3}e^ze(3z^2 + 1) = e^{z^3+z+1}(3z^2 + 1)
+		\end{align*}
+	\item[(c)] $f (z) = e^{1/z}$
+		\begin{align*}
+			f'(z) & = \der{}{z}e^{1/z} = \der{}{z}e^{z^{-1}} = e^{z^{-1}}(-1)z^{-2} \\
+			      & = -e^{1/z}\frac{1}{z^2}
+		\end{align*}
 \end{enumerate}
 
 \vspace{1cm}
@@ -88,17 +88,38 @@ Calculate $f'(z)$ for each of the following functions:
 Use the Cauchy-Riemann equations to show that $f'(z)$ does not exist at any point for the following:
 
 \begin{enumerate}
-  \item[(a)] $f (z) = z - \bar z$
-  \item[(b)] $f (z) = e^xe^{-iy}$
+	\item[(a)] $f (z) = z - \bar z$
+	\item[(b)] $f (z) = e^xe^{-iy}$
 \end{enumerate}
-\vspace{1cm} % Space for work
+The Cauchy-Riemann equations are the following:
+\begin{align*}
+	\der{u}{x} & = \der{v}{y}  \\
+	\der{u}{y} & = -\der{v}{x}
+\end{align*}
+$f'(z_0)  \iff$ these expressions above hold when evaluated at $(x_0,y_0)$.
 
-
-% Add more problems as needed...
-% \newpage
-% \section*{Problem 4}
-% 
-% \hrule
+\subsection*{(a)}
+\begin{align*}
+	f (z) = z - \bar z & = (x+iy) - (x-iy) = (x-x) + i(y+y) = i2y                                           \\
+	u(x,y)             & = 0 \quad \quad v(x,y) = 2y                                                        \\
+	\der{u}{x}         & = 0 \quad \quad \der{v}{y} = 2 \quad\quad \der{u}{y} = 0 \quad\quad \der{v}{x} = 0 \\
+	\der{u}{x}         & \neq \der{v}{y}                                                                    \\
+	\therefore f'(z)\ DNE
+\end{align*}
+\subsection*{(b)}
+\begin{align*}
+	f (z)         & = e^xe^{-iy} = e^x(\cos{(-y)} +i\sin{(-y)}) = e^x(\cos{(y)} - i\sin{(y)})                                                         \\
+	u(x,y)        & = e^x\cos{(y)} \quad \quad v(x,y) = -e^x\sin{(y)}                                                                                 \\
+	\der{u}{x}    & = e^x\cos{(y)} \quad \quad \der{v}{y} = -e^x\cos{(y)} \quad\quad \der{u}{y} = -e^x\sin{(y)} \quad\quad \der{v}{x} = -e^x\sin{(y)} \\
+	\der{u}{x}    & =  e^x\cos{(y)}                                                                                                                   \\
+	\der{v}{y}    & = -e^x\cos{(y)}                                                                                                                   \\
+	e^x\cos{(y)}  & = -e^x\cos{(y)} \to 2e^x\cos{(y)} = 0                                                                                             \\
+	              & \text{Only possible if }\cos{(y)} = 0\ \text{ and similar situation for the other equation}                                       \\
+	\der{u}{y}    & = -\der{v}{x}                                                                                                                     \\
+	-e^x\sin{(y)} & = e^x\sin{(y)} \to 2e^x\sin{(y)} = 0                                                                                              \\
+	              & \sin{(\theta)}\text{ and }\cos{(\theta)} \text{ cannot both be $0$ simultaneously}                                                \\
+	              & \therefore f'(z)\ DNE
+\end{align*}
 
 \end{document}
 

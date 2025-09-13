@@ -23,14 +23,16 @@
 \renewcommand{\normalsize}{\fontsize{12}{20}\selectfont}
 
 % custom commands
-\newcommand{\myauthor}{Your Name Here}
+\newcommand{\myauthor}{Miguel Gomez}
 \newcommand{\canceling}[2]{\textcolor{red}{\cancelto{\textcolor{black}{#1}}{\textcolor{black}{#2}}}}
 \newcommand{\todo}[1]{\textcolor{blue}{TODO:#1}}
+\newcommand{\der}[2]{\frac{d#1}{d#2}}
+\newcommand{\part}[2]{\frac{\partial#1}{\partial#2}}
 
 % --- DOCUMENT & AUTHOR INFORMATION ---
 \title{Homework \#: [Assignment Title]}
 \author{
-  MATH #### -- [Course Name]\\
+  MATH 3160 -- Complex Variables\\
   \myauthor
 }
 \date{Completed: \today}
@@ -39,7 +41,7 @@
 % This section sets up the header that will appear on each page.
 \pagestyle{fancy}
 \fancyhf{} % Clears the default header and footer
-\lhead{Math #### -- HW \#} % Left side of header
+\lhead{Math 3160 -- HW \#} % Left side of header
 \rhead{\myauthor} % Puts the author's name on the right side
 \rfoot{Page \thepage} % Puts the page number on the bottom right
 
