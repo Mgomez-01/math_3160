@@ -105,10 +105,99 @@ Show that $f'(z_0)$ does not exist at any point $z_0$ in two ways: using the lim
 	\item[(a)] $f(z) = 2x+ixy^2$
 	\item[(b)] $f(z) = e^{x}e^{-iy}$
 \end{enumerate}
+Via Cauchy-Riemann equations:
+The Cauchy-Riemann equations are the following:
+\begin{align*}
+	\der{u}{x} & = \der{v}{y}  \\
+	\der{u}{y} & = -\der{v}{x}
+\end{align*}
+\subsection*{(a)}
+\begin{align*}
+  f(z) &= 2x+ixy^2 \quad u(x,y) = 2x \quad v(x,y) =xy^2\\
+  \der{u}{x} &= 2 \quad \der{u}{y}= 0 \quad  \der{v}{x} = y^2 \quad \der{v}{y} = 2xy\\
+  \der{u}{x} &\neq \der{v}{y}\\
+  &\therefore \text{not differentiable}
+\end{align*}
+\subsection*{(b)}
+\begin{align*}
+  f(z) &= e^{x}e^{-iy} = e^{x}(\cos{(-y)} + i\sin{(-y)}) \\
+  u(x,y) &= e^{x}\cos{(-y)} \quad v(x,y) =e^{x}\sin{(-y)}\\
+  \der{u}{x} &= e^{x}\cos{(y)} \quad \der{u}{y}= -e^{x}\sin{(y)} \quad  \der{v}{x} = -e^{x}\sin{(y)} \quad \der{v}{y} = -e^{x}\cos{(y)}\\
+  e^{x}\cos{(y)} &= -e^{x}\cos{(y)} \to 2e^{x}\cos{(y)} = 0\\
+  &\text{Only possible if $\cos{(y)}$ = 0} \\
+  -e^{x}\sin{(y)} & = e^{x}\sin{(y)}  \to  2e^{x}\sin{(y)} = 0\\
+       &\text{only possible if $\sin{(y)}$ is 0} \\
+  &\text{Both $\sin$ and $\cos$ cannot be 0 simultaneously} \\
+       &\therefore \text{not differentiable}
+\end{align*}
 
-
+\hrule
 \vspace{.5cm} % Space between problems
+\newpage
+Now by using the limit definition:
 
+Limit definition:
+\begin{align*}
+  \lim\limits_{z \to z_0}&\frac{f(z)-f(z_0)}{z-z_o}\\
+  &= \lim\limits_{\Delta z \to 0} \frac{\Delta w}{\Delta z}\\
+  \Delta w &= f(z_0 + \Delta z) - f(z_0) \\
+  \Delta z &= z - z_0\\
+\end{align*}
+\subsection*{(a)}
+\begin{align*}
+  \Delta w &=  2(x_0+\Delta x)+i(x_0+\Delta x)(y_0+\Delta y)^2 - (2x_0+ix_0y_0^2)\\
+           &= 2x_0+2\Delta x - 2x_0 + i(x_0+\Delta x)(y_0+\Delta y)^2 - ix_0y_0^2 \\
+           &= 2\Delta x+ i(x_0+\Delta x)(y_0^2+2y_0\Delta y + \Delta y ^2)- ix_0y_0^2\\
+           &= 2\Delta x+ i((x_0y_0^2+2x_0y_0\Delta y + x_0\Delta y ^2)+(\Delta xy_0^2+2\Delta xy_0\Delta y + \Delta x\Delta y ^2))- ix_0y_0^2\\
+           &= 2\Delta x+ i((\canceling{0}{(x_0y_0^2- x_0y_0^2)}+2x_0y_0\Delta y + x_0\Delta y ^2)+(\Delta xy_0^2+2\Delta xy_0\Delta y + \Delta x\Delta y ^2))\\  
+           &= 2\Delta x+ i((2x_0y_0\Delta y + x_0\canceling{0}{\Delta y ^2})+(\Delta xy_0^2+\canceling{0}{2\Delta xy_0\Delta y} + \Delta x\canceling{0}{\Delta y ^2}))\\
+           &= 2\Delta x+ i(2x_0y_0\Delta y +\Delta xy_0^2)\\
+  \frac{\Delta w}{\Delta z} &= \frac{2\Delta x+ i(2x_0y_0\Delta y +\Delta xy_0^2)}{\Delta x + i\Delta y}
+\end{align*}
+Approach with $\Delta y = 0$:
+\begin{align*}
+  \frac{\Delta w}{\Delta z} &= \frac{2\Delta x+ i(2x_0y_0(0) +\Delta xy_0^2)}{\Delta x + i(0)}\\
+  &= \frac{2\Delta x+ i(\Delta xy_0^2)}{\Delta x} = 2+iy_0^2
+\end{align*}
+Approach with $\Delta x = 0$:
+\begin{align*}
+  \frac{\Delta w}{\Delta z} &= \frac{2(0)+ i(2x_0y_0\Delta y +(0)y_0^2)}{(0) + i\Delta y} \\
+  &= \frac{i2x_0y_0\Delta y}{i\Delta y} = 2x_0y_0
+\end{align*}
+Different paths give different results. only true if $2x_0y_0 = 2+iy_0$ and these cannot be true since $x_0 $ and $y_0 \in \mathbb{R}$.
+\newpage
+\subsection*{(b)}
+\begin{align*}
+  f(z) &= e^{x}e^{-iy}\\
+  \Delta w &= f(z_0 + \Delta z) - f(z_0) \\
+  \Delta z &= z - z_0\\
+  \Delta w &=e^{(x_0+\Delta x)}e^{-i(y_0+\Delta y)} - e^{x_0}e^{-iy_0} \\
+       &=e^{x_0}e^{\Delta x}e^{-iy_0}e^{-i\Delta y} - e^{x_0}e^{-iy_0} \\
+       &=e^{x_0}e^{-iy_0}e^{\Delta x}e^{-i\Delta y} - e^{x_0}e^{-iy_0} \\
+       &=e^{x_0}e^{-iy_0}(e^{\Delta x}e^{-i\Delta y} - 1) \\
+       &=e^{x_0}e^{-iy_0}(e^{\Delta x-i\Delta y} - 1) \\
+ \frac{\Delta w}{\Delta z} &=\frac{e^{x_0}e^{-iy_0}(e^{\Delta x-i\Delta y} - 1)}{\Delta x + i\Delta y}
+\end{align*}
+Approach with $\Delta y = 0$:
+\begin{align*}
+  \frac{\Delta w}{\Delta z}&= \frac{e^{x_0}e^{-iy_0}(e^{\Delta x-i(0)} - 1)}{\Delta x + i(0)} \\
+                           &= \frac{e^{x_0}e^{-iy_0}(e^{\Delta x} - 1)}{\Delta x} \\
+                           &= e^{x_0}e^{-iy_0}\lim\limits_{\Delta x \to 0}\frac{(e^{\Delta x} - 1)}{\Delta x} \\
+                           &\text{limit definition of exponential resolves to 1}\\
+                           &= = e^{x_0}e^{-iy_0}
+\end{align*}
+Approach with $\Delta x = 0$:
+\begin{align*}
+  \frac{\Delta w}{\Delta z}&= \frac{e^{x_0}e^{-iy_0}(e^{(0)-i\Delta y} - 1)}{(0) + i\Delta y} \\
+                           &= \frac{e^{x_0}e^{-iy_0}(e^{-i\Delta y} - 1)}{i\Delta y} \\
+                           &\text{limit definition of exponential resolves to -1}\\
+                           &= = -e^{x_0}e^{-iy_0}
+\end{align*}
+Different paths give different results:
+\begin{align*}
+  \therefore \text{Limit DNE}
+\end{align*}
+\vspace{.5cm} % Space between problems
 \hrule
 
 \newpage
@@ -124,7 +213,11 @@ Using these formulas,
 	\item[(b)] show that the complex cosine and sine functions are analytic over $\mathbb{C}$ and calculate their derivatives.
 \end{enumerate}
 
-
+\subsection*{(a)}
+\begin{align*}
+  \cos(z) &= \frac{e^{iz} + e^{-iz}}{2}  = \frac{e^{i(x+iy)} + e^{-i(x+iy)}}{2} \\
+  &= \frac{e^{ix-y} + e^{-ix+y}}{2} = \frac{e^{ix}e^{-y} + e^{-ix}e^{y}}{2}
+\end{align*}
 \vspace{.5cm} % Space for work
 
 \hrule
