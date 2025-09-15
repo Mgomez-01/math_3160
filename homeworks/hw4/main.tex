@@ -234,13 +234,33 @@ Using these formulas,
             &= \frac{\cos{(x)}(e^{-y} - e^{y})}{2i} + \frac{\sin{(x)}(e^{-y}+ e^{y})}{2} \\
   &=  \frac{\sin{(x)}(e^{-y}+ e^{y})}{2} -i\frac{\cos{(x)}(e^{-y} - e^{y})}{2} \\
 \end{align*}
-These two in rectangular coordinates appear to be the same thing with their respective $\sin$ and $\cos$ terms swapped. Another place where we see the $\sin$ and $\cos$ terms swap is when we perform a rotation by $90^\circ$. I suspect that including $i$ along with $z$ is performing a rotation on $z$ by $90^\circ$ and that is shown in the work. Therefore, proving the case for $\cos$ also proves the case for $\sin$ because we know a. priori that $\sin$ and $\cos$ are derivatives of each other in a cycle.
+These two in rectangular coordinates appear to be the same thing with their respective $\sin$ and $\cos$ terms swapped. Another place where we see the $\sin$ and $\cos$ terms swap is when we perform a rotation by $90^\circ$. I suspect that including $i$ along with $z$ is performing a rotation on $z$ by $90^\circ$ and that is shown in the work.
 
 \begin{align*}
-  \der{f}{z} &= \text{product rule here after splitting}\\
-  & \frac{\cos{(x)}(e^{-y} + e^{y})}{2}\\
-  & i\frac{\sin{(x)}(e^{-y}- e^{y})}{2}
+  f(z) = \cos{(z)} &= \frac{\cos{(x)}(e^{-y} + e^{y})}{2} + i\frac{\sin{(x)}(e^{-y}- e^{y})}{2}\\
+  u(x,y) &= \frac{\cos{(x)}(e^{-y} + e^{y})}{2} \quad v(x,y) = \frac{\sin{(x)}(e^{-y}- e^{y})}{2}\\
+  \der{u}{x} &= \frac{-\sin{(x)}(e^{-y} + e^{y})}{2} \quad \der{u}{y}= \frac{\cos{(x)}(-e^{-y} + e^{y})}{2} \\
+  \der{v}{x} &= \frac{\cos{(x)}(e^{-y}- e^{y})}{2} \quad \der{v}{y} = \frac{\sin{(x)}(-e^{-y}- e^{y})}{2} \\
+  \der{u}{x} &= \der{v}{y} \quad \quad \der{u}{y} = -\der{v}{x}
 \end{align*}
+Both conditions here hold and the function is analytic over $\mathbb{C}$.
+\begin{align*}
+  \therefore f'(z) &= u_x + iv_x =  \frac{-\sin{(x)}(e^{-y} + e^{y})}{2} + i\frac{\cos{(x)}(e^{-y}- e^{y})}{2}
+\end{align*}
+Note this is simply the definition we found for $f(z) = \sin{(z)}$ with a negative sign. meaning the cyclic nature of the derivatives holds. Same argument here holds for  $f(z) = \sin{(z)}$ and the derivative there will be the function $f(z) = \cos{(z)}$.
+
+\begin{align*}
+  f(z) = \sin{(z)} &= \frac{\sin{(x)}(e^{-y}+ e^{y})}{2} -i\frac{\cos{(x)}(e^{-y} - e^{y})}{2} \\
+  u(x,y) &= \frac{\sin{(x)}(e^{-y}+ e^{y})}{2} \quad v(x,y) = -\frac{\cos{(x)}(e^{-y} - e^{y})}{2}\\
+  \der{u}{x} &= \frac{\cos{(x)}(e^{-y} + e^{y})}{2} \quad \der{u}{y}= \frac{\sin{(x)}(-e^{-y} + e^{y})}{2} \\
+  \der{v}{x} &= \frac{\sin{(x)}(e^{-y}- e^{y})}{2} \quad \der{v}{y} = -\frac{\cos{(x)}(-e^{-y}- e^{y})}{2} \\
+  \der{u}{x} &= \der{v}{y} \quad \quad \der{u}{y} = -\der{v}{x}
+\end{align*}
+Both conditions here hold and the function is analytic over $\mathbb{C}$.
+\begin{align*}
+  \therefore f'(z) &= u_x + iv_x =  \frac{\cos{(x)}(e^{-y} + e^{y})}{2} + i\frac{\sin{(x)}(e^{-y}- e^{y})}{2}
+\end{align*}
+
 \vspace{.5cm} % Space for work
 
 \hrule
