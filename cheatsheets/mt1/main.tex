@@ -1,0 +1,237 @@
+\documentclass{../cheatsheet}
+\title{Complex Variables CheatSheet}
+\author{Miguel * adapted for Complex Analysis}
+\usepackage{amssymb}
+\usepackage{amsmath} % For align environment and better math formatting
+\usepackage{multicol}
+\usepackage{txfonts}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.5}
+\usepackage{hyperref}
+
+\begin{document}
+
+\begin{multicols}{3}
+\section{Complex Numbers & Algebra}
+
+\textbf{Fundamental Representations}
+\begin{itemize} 
+    \item Let $z \in \mathbb{C}$.
+    \item \textbf{Cartesian Form:} $z = x + iy$
+        \item $x = \text{Re}(z)$ is the real part.
+        \item $y = \text{Im}(z)$ is the imaginary part.
+    \item \textbf{Polar Form:} $z = r(\cos\theta + i\sin\theta)$
+        \item $r = |z| = \sqrt{x^2 + y^2}$ is the modulus (magnitude).
+        \item $\theta = \arg(z)$ is the argument (angle).
+    \item \textbf{Exponential Form (Euler's Formula):}
+        \item $e^{i\theta} = \cos\theta + i\sin\theta$
+        \item $z = re^{i\theta}$
+\end{itemize}
+
+\textbf{Complex Conjugate}
+\begin{itemize}
+    \item If $z = x+iy$, the conjugate is $\bar{z} = x-iy$.
+    \item $\bar{z} = re^{-i\theta}$
+    \item $z\bar{z} = |z|^2 = x^2+y^2$
+    \item $\text{Re}(z) = \frac{z+\bar{z}}{2}$, $\text{Im}(z) = \frac{z-\bar{z}}{2i}$
+\end{itemize}
+
+\textbf{Multiplication \& Division}
+\begin{itemize}
+    \item Let $z_1 = r_1 e^{i\theta_1}$ and $z_2 = r_2 e^{i\theta_2}$.
+    \item \textbf{Multiplication:} $z_1z_2 = r_1r_2e^{i(\theta_1+\theta_2)}$
+        \item Magnitudes multiply, angles add.
+    \item \textbf{Division:} $\frac{z_1}{z_2} = \frac{r_1}{r_2}e^{i(\theta_1-\theta_2)}$
+        \item Magnitudes divide, angles subtract.
+\end{itemize}
+
+\section{Functions of a Complex Variable}
+
+\textbf{Mapping}
+A complex function $f(z)$ maps a point $z$ in the complex plane (the domain) to a point $w=f(z)$ in another complex plane (the codomain or image).
+\begin{itemize}
+    \item $w = f(z) = u(x,y) + iv(x,y)$, where $z=x+iy$.
+    \item $u(x,y)$ is the real part of the output.
+    \item $v(x,y)$ is the imaginary part of the output.
+\end{itemize}
+
+\textbf{Limits}
+\begin{itemize}
+    \item $\lim_{z \to z_0} f(z) = L$ means $f(z)$ approaches $L$ as $z$ approaches $z_0$ \textbf{from any direction}.
+    \item If the limit differs along two different paths to $z_0$, the limit does not exist.
+\end{itemize}
+\textbf{Strategies for Evaluating Limits}
+\begin{enumerate}
+    \item \textbf{Direct Substitution:} If $f(z_0)$ is defined and the function is continuous, the limit is $f(z_0)$.
+    \item \textbf{Test Along Paths:} To show a limit DNE, approach $z_0$ along two paths and get different results.
+        \begin{itemize}
+            \item Along the real axis: let $z = x + iy_0$, take $x \to x_0$.
+            \item Along the imaginary axis: let $z = x_0 + iy$, take $y \to y_0$.
+            \item Along a line: let $z = z_0 + re^{i\phi}$, take $r \to 0$ (for fixed $\phi$).
+        \end{itemize}
+    \item \textbf{Squeeze Theorem:} If $|f(z)| \le g(z)$ and $\lim_{z \to z_0} g(z) = 0$, then $\lim_{z \to z_0} f(z) = 0$.
+\end{enumerate}
+
+\textbf{Continuity}
+A function $f(z)$ is continuous at $z_0$ if:
+\begin{enumerate}
+    \item $f(z_0)$ exists.
+    \item $\lim_{z \to z_0} f(z)$ exists.
+    \item $\lim_{z \to z_0} f(z) = f(z_0)$.
+\end{enumerate}
+
+\section{Derivatives & Analyticity}
+
+\textbf{The Complex Derivative}
+The derivative of $f(z)$ at $z_0$ is:
+$$f'(z_0) = \lim_{\Delta z \to 0} \frac{f(z_0 + \Delta z) - f(z_0)}{\Delta z}$$
+\begin{itemize}
+    \item The limit must be the same regardless of how $\Delta z$ approaches 0.
+\end{itemize}
+
+\textbf{Cauchy-Riemann Equations}
+A function $f(z) = u(x,y) + iv(x,y)$ is differentiable at a point $z=x+iy$ if and only if the partial derivatives of $u$ and $v$ exist and satisfy the Cauchy-Riemann (C-R) equations.
+
+\textbf{Cartesian Form:}
+$$\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \quad \text{and} \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}$$
+If these hold and the partials are continuous, the derivative is:
+$$f'(z) = \frac{\partial u}{\partial x} + i\frac{\partial v}{\partial x} = \frac{\partial v}{\partial y} - i\frac{\partial u}{\partial y}$$
+
+\textbf{Polar Form:} For $z=re^{i\theta}$ and $f(z)=u(r,\theta)+iv(r,\theta)$.
+$$\frac{\partial u}{\partial r} = \frac{1}{r}\frac{\partial v}{\partial \theta} \quad \text{and} \quad \frac{\partial v}{\partial r} = -\frac{1}{r}\frac{\partial u}{\partial \theta}$$
+If these hold and the partials are continuous, the derivative is:
+$$f'(z) = e^{-i\theta}\left(\frac{\partial u}{\partial r} + i\frac{\partial v}{\partial r}\right)$$
+
+\textbf{Analyticity}
+\begin{itemize}
+    \item A function $f(z)$ is \textbf{analytic} at a point $z_0$ if it is differentiable at $z_0$ and in a small disk around $z_0$.
+    \item A function is \textbf{analytic in a region} if it is analytic at every point in that region.
+    \item An \textbf{entire function} is analytic on the entire complex plane $\mathbb{C}$. Examples: $e^z, \sin(z), \cos(z)$, polynomials.
+    \item If C-R equations hold for a region, $f(z)$ is analytic there.
+\end{itemize}
+
+
+\section{Elementary Transformations}
+
+\textbf{Powers of z}
+\begin{itemize}
+    \item Let $z = re^{i\theta}$. The function $f(z)=z^n$ for integer $n$ is:
+    $$w = z^n = (re^{i\theta})^n = r^n e^{in\theta}$$
+    \item \textbf{Geometric Effect:}
+        \begin{itemize}
+            \item The magnitude is raised to the power $n$: $|w| = |z|^n$.
+            \item The angle is multiplied by $n$: $\arg(w) = n \cdot \arg(z)$.
+        \end{itemize}
+    \item This means points are rotated by a factor of $n$ and their distance from the origin is scaled by a power of $n$.
+    \item A sector of angle $\alpha$ in the z-plane is mapped to a sector of angle $n\alpha$ in the w-plane.
+\end{itemize}
+
+\textbf{Roots of Complex Numbers}
+\begin{itemize}
+    \item The $n$-th roots of a complex number $z_0 = r_0e^{i\theta_0}$ are the solutions to $w^n = z_0$.
+    \item There are exactly $n$ distinct roots, given by:
+    $$w_k = \sqrt[n]{r_0} \exp\left[i\left(\frac{\theta_0 + 2\pi k}{n}\right)\right]$$
+    \item for $k = 0, 1, 2, \dots, n-1$.
+\end{itemize}
+\textbf{How to Calculate Roots:}
+\begin{enumerate}
+    \item Write the number $z_0$ in exponential form $r_0e^{i\theta_0}$. Be sure to use the principal argument for $\theta_0$.
+    \item The magnitude of all roots is the same: $\sqrt[n]{r_0}$.
+    \item Find the angle of the first root ($k=0$): $\frac{\theta_0}{n}$.
+    \item The other roots are spaced evenly around a circle. Add increments of $\frac{2\pi}{n}$ to the angle for each subsequent root.
+\end{enumerate}
+
+\textbf{Example: Cube roots of $8i$}
+\begin{enumerate}
+    \item Polar form: $z = 8i = 8e^{i\pi/2}$. Here $r_0=8$, $\theta_0=\pi/2$, $n=3$.
+    \item Magnitude of roots: $\sqrt[3]{8} = 2$.
+    \item Angles: $\frac{\pi/2 + 2\pi k}{3}$ for $k=0,1,2$.
+        \begin{itemize}
+            \item $k=0: \frac{\pi/2}{3} = \frac{\pi}{6}$
+            \item $k=1: \frac{\pi/2 + 2\pi}{3} = \frac{5\pi}{6}$
+            \item $k=2: \frac{\pi/2 + 4\pi}{3} = \frac{9\pi}{6} = \frac{3\pi}{2}$
+        \end{itemize}
+    \item The roots are: $w_0 = 2e^{i\pi/6}$, $w_1 = 2e^{i5\pi/6}$, $w_2 = 2e^{i3\pi/2}$.
+\end{enumerate}
+
+\textbf{The Exponential Function}
+\begin{itemize}
+    \item $f(z) = e^z = e^{x+iy} = e^x e^{iy} = e^x(\cos y + i\sin y)$.
+    \item $|e^z| = e^x$ and $\arg(e^z) = y$.
+    \item Periodic with period $2\pi i$: $e^{z+2\pi i} = e^z$.
+    \item Maps horizontal lines ($y=c$) to rays from the origin.
+    \item Maps vertical lines ($x=c$) to circles of radius $e^c$.
+\end{itemize}
+
+\textbf{Logarithmic Function (Principal Value)}
+\begin{itemize}
+    \item The inverse of $e^z$, but multi-valued.
+    \item Principal Value: $\text{Log}(z) = \ln|z| + i\text{Arg}(z)$
+    \item where $\text{Arg}(z)$ is the principal argument, $-\pi < \text{Arg}(z) \le \pi$.
+    \item The "branch cut" is usually on the negative real axis.
+\end{itemize}
+
+
+\section{Complex Trigonometric Functions}
+
+\textbf{Definitions from Euler's Formula}
+\begin{itemize}
+    \item $\cos(z) = \frac{e^{iz} + e^{-iz}}{2}$
+    \item $\sin(z) = \frac{e^{iz} - e^{-iz}}{2i}$
+\end{itemize}
+These are entire functions. Unlike their real counterparts, complex sine and cosine are \textbf{unbounded}.
+
+\textbf{Hyperbolic Functions}
+\begin{itemize}
+    \item $\cosh(z) = \frac{e^{z} + e^{-z}}{2}$
+    \item $\sinh(z) = \frac{e^{z} - e^{-z}}{2}$
+\end{itemize}
+\textbf{Relations:}
+\begin{itemize}
+    \item $\cos(iy) = \cosh(y)$
+    \item $\sin(iy) = i\sinh(y)$
+    \item $\cosh(iz) = \cos(z)$
+    \item $\sinh(iz) = i\sin(z)$
+\end{itemize}
+
+\textbf{Rectangular Form of Sin/Cos}
+\begin{itemize}
+    \item $z=x+iy$
+    \item $\sin(z) = \sin(x)\cosh(y) + i\cos(x)\sinh(y)$
+    \item $\cos(z) = \cos(x)\cosh(y) - i\sin(x)\sinh(y)$
+\end{itemize}
+
+% \section{Cauchy's Integral Theorems}
+% (Assuming $f(z)$ is analytic inside and on a simple closed contour $C$)
+
+% \textbf{Cauchy's Integral Theorem}
+% If $f(z)$ is analytic inside and on $C$, then the integral along that path is zero.
+% $$\oint_C f(z) dz = 0$$
+
+% \textbf{Cauchy's Integral Formula}
+% Gives the value of an analytic function at any point inside a contour.
+% $$f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z-z_0} dz$$
+% where $z_0$ is any point inside $C$. This is a powerful tool for evaluating integrals.
+
+% \textbf{Generalized Integral Formula (for derivatives)}
+% $$f^{(n)}(z_0) = \frac{n!}{2\pi i} \oint_C \frac{f(z)}{(z-z_0)^{n+1}} dz$$
+
+\section{Important Definitions}
+
+\begin{itemize}
+    \item \textbf{Contour:} A continuous chain of a finite number of smooth curves.
+    \item \textbf{Simple Contour:} A contour that does not cross itself.
+    \item \textbf{Closed Contour:} A contour whose start and end points are the same.
+    \item \textbf{Domain:} An open connected set of points.
+    \item \textbf{Simply Connected Domain:} A domain with no "holes". Any simple closed contour in the domain encloses only points within the domain.
+    \item \textbf{Singular Point (Singularity):} A point where a function is not analytic.
+    \item \textbf{Harmonic Functions:} Real-valued functions $u(x,y)$ and $v(x,y)$ that satisfy Laplace's equation ($\nabla^2 u = u_{xx} + u_{yy} = 0$). The real and imaginary parts of an analytic function are harmonic conjugates.
+\end{itemize}
+
+\end{multicols}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
