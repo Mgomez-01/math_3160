@@ -25,6 +25,22 @@
 \newcommand{\myauthor}{Miguel Gomez}
 \newcommand{\canceling}[2]{\textcolor{red}{\cancelto{\textcolor{black}{#1}}{\textcolor{black}{#2}}}}
 \newcommand{\todo}[1]{\textcolor{blue}{TODO:#1}}
+% Save the original commands
+\let\oldcos\cos
+\let\oldsin\sin
+\let\oldcosh\cosh
+\let\oldsinh\sinh
+
+% Redefine with automatic parentheses
+\renewcommand{\cos}[1]{\oldcos\left(#1\right)}
+\renewcommand{\sin}[1]{\oldsin\left(#1\right)}
+\renewcommand{\cosh}[1]{\oldcosh\left(#1\right)}
+\renewcommand{\sinh}[1]{\oldsinh\left(#1\right)}
+
+\newcommand{\der}[2]{\frac{d#1}{d#2}}
+\newcommand{\secder}[2]{\frac{d^2#1}{d#2^2}}
+\newcommand{\parder}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\secparder}[2]{\frac{\partial^2#1}{\partial#2^2}}
 
 % --- DOCUMENT & AUTHOR INFORMATION ---
 \title{Worksheet \# x}
