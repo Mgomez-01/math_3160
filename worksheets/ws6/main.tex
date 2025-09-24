@@ -1,0 +1,125 @@
+% --------------------------------------------------------------------
+% LaTeX Template for Math Worksheets
+% --------------------------------------------------------------------
+\documentclass{article}
+
+% --- PACKAGE IMPORTS ---
+% These packages add functionality for math symbols, formatting, etc.
+\usepackage[margin=.7in]{geometry}       % For setting page margins to 0.7 inch
+\usepackage{amsmath, amssymb, amsthm}   % American Mathematical Society packages for advanced math
+\usepackage{graphicx}                   % For including images
+\usepackage{fancyhdr}                   % For creating custom headers and footers
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref} % For clickable links
+\usepackage{cancel}
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage{amsxtra}
+\usepackage{epsfig}
+\usepackage{wasysym}
+\usepackage{relsize}
+\usepackage{tikz}
+\tikzset{every picture/.style={scale=1.2}}
+\renewcommand{\normalsize}{\fontsize{12}{20}\selectfont}
+
+% custom commands
+\newcommand{\myauthor}{Miguel Gomez}
+\newcommand{\canceling}[2]{\textcolor{red}{\cancelto{\textcolor{black}{#1}}{\textcolor{black}{#2}}}}
+\newcommand{\todo}[1]{\textcolor{blue}{TODO:#1}}
+% Save the original commands
+\let\oldcos\cos
+\let\oldsin\sin
+\let\oldcosh\cosh
+\let\oldsinh\sinh
+
+% Redefine with automatic parentheses
+\renewcommand{\cos}[1]{\oldcos\left(#1\right)}
+\renewcommand{\sin}[1]{\oldsin\left(#1\right)}
+\renewcommand{\cosh}[1]{\oldcosh\left(#1\right)}
+\renewcommand{\sinh}[1]{\oldsinh\left(#1\right)}
+
+\newcommand{\der}[2]{\frac{d#1}{d#2}}
+\newcommand{\secder}[2]{\frac{d^2#1}{d#2^2}}
+\newcommand{\parder}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\secparder}[2]{\frac{\partial^2#1}{\partial#2^2}}
+% --- DOCUMENT & AUTHOR INFORMATION ---
+\title{Worksheet \# 6}
+\author{
+  MATH 3160 -- Complex Variables\\
+  \myauthor
+}
+\date{Completed: \today} 
+
+% --- HEADER & FOOTER CONFIGURATION ---
+% This section sets up the header that will appear on each page.
+\pagestyle{fancy}
+\fancyhf{} % Clears the default header and footer
+\lhead{Math 3160 -- Worksheet \# 6} % Left side of header
+\rhead{\myauthor} % Puts the author's name on the right side
+\rfoot{Page \thepage} % Puts the page number on the bottom right
+
+\begin{document}
+
+\maketitle % This command generates the title based on the information above.
+
+% ====================================================================
+% --- START OF PROBLEMS ---
+% ====================================================================
+
+% Note: \section* creates a section heading without a number.
+\section*{Problem 1}
+Show that $u(x,y)$ is harmonic and find the harmonic conjugate $v(x,y)$ when:
+\begin{enumerate}
+  \item[(a)] $u(x,y) = 2x(1-y)$
+  \item[(b)] $u(x,y) = \cos{x}\cosh{y}$ where $\cosh{y}=\frac{e^y+e^{-y}}{2}$
+  \item[(c)] $u(x,y) = \frac{y}{x^2+y^2}$
+  \item[(d)] $u(x,y) = \cos{x}e^y$
+\end{enumerate}
+
+A function $u(x,y):D\to\mathbb{R}$ is harmonic if:
+\begin{align*}
+\secparder{u(x,y)}{x} &+ \secparder{u(x,y)}{y} = 0
+\end{align*}
+\subsection*{(a)}
+For $u(x,y) = 2x(1-y)$, we must first find the partials of $u$ and then apply these to the usual Cauchy-Riemann equations:
+\begin{align*}
+  \parder{u}{x} &= 2(1-y)\\
+  \text{By Cauchy-Riemann, }&\text{this must equal} \quad \parder{v}{y} \\
+  \parder{v}{y} &= 2(1-y)\\
+\end{align*}
+Given this expression, we must integrate so that we have something that would give the result when evaluated as $\parder{v}{y}$.
+\begin{align*}
+  \parder{C}{y} &= \parder{}{y}\left(\int 2(1-y)dy\right) = 2(1-y)\\
+  \therefore &\int 2(1-y)dy = C = 2\left(y-\frac{1}{2}y^2 + c\right)
+\end{align*}
+Additionally, we need to have the derivative of $v$ wrt $x$ to be the negative of $u$ wrt $y$
+\begin{align*}
+    \parder{u}{y} &= -2x\\
+  \parder{v}{x} &= 2x\\
+  \therefore  v(x,y) &= x^2-y^2 + 2y + c
+\end{align*}
+
+\begin{align*}
+  u(x,y) &= 2x(1-y)\\
+  v(x,y) &= x^2-y^2 + 2y + c\\
+  \parder{u}{x} = &2(1-y) \quad \quad \parder{u}{y} = -2x\\
+  \parder{v}{y} = &2(1-y)  \quad \quad \parder{v}{x} = 2x \\
+\end{align*}
+
+Using these expressions for $u$ and $v$ now satisfy the CR equations. In order for this to be harmonic, the second derivatives must cancel to 0.
+\begin{align*}
+  \secparder{u(x,y)}{x} &+ \secparder{u(x,y)}{y} = 0\\
+  \secparder{u(x,y)}{x} &= 0\\
+  \secparder{u(x,y)}{y} &= 0 \\
+  \therefore &u(x,y) \text{ is harmonic and }\\
+  v(x,y) = x^2-y^2 + 2y + c &\text{ is the harmonic conjugate.}
+\end{align*}
+\subsection*{(b)}
+\subsection*{(c)}
+\subsection*{(d)}
+
+\newpage
+\section*{Problem 2}
+Suppose that $v$ is a harmonic conjugate of $u$ and $u$ is a harmonic conjugate of $v$ on some domain $D$. Show that $u,v$ must then be constant on $D$. (Hint: show that all partial derivatives of $u,v$ vanish on $D$)
+
+
+\end{document}
