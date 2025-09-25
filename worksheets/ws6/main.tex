@@ -114,9 +114,50 @@ Using these expressions for $u$ and $v$ now satisfy the CR equations. In order f
   v(x,y) = x^2-y^2 + 2y + c &\text{ is the harmonic conjugate.}
 \end{align*}
 \subsection*{(b)}
+Once again, we will follow the same steps as above but I will only show the work now for the rest to save space. $u(x,y) = \cos{x}\cosh{y}$.
+\begin{align*}
+  \parder{u}{x} = -\sin{x}&\cosh{y} \quad \quad \parder{u}{y} = \cos{x}\sinh{y}\\
+  \parder{v}{y} &= \parder{u}{x} = -\sin{x}\cosh{y}\\
+  \parder{u}{y} &=-\parder{v}{x} = -\cos{x}\sinh{y}\\
+  \secparder{u(x,y)}{x} &+ \secparder{u(x,y)}{y} = 0\\
+-\cos{x}\cosh{y} &+ \cos{x}\cosh{y} = 0 \\
+  \therefore v(x,y) & \text{ is harmonic and}\\
+  \therefore v(x,y) &= -\sin{x}\sinh{y} + c \quad \text{ is the HC}
+\end{align*}
 \subsection*{(c)}
+\begin{align*}
+  u(x,y) &= \frac{y}{x^2+y^2} = y(x^2+y^2)^{-1}\\
+  \parder{u}{x} &= (-1)y(x^2+y^2)^{-2}(2x)\\
+  \parder{u}{y} &= \parder{(fg)}{y} = f'g+g'f\\
+  f &= y \quad \quad f' = 1\\
+  g &= (x^2+y^2)^{-1} \quad \quad g' = (-1)(x^2+y^2)^{-2}(2y)\\
+  f'g+g'f &= (1)(x^2+y^2)^{-1} + y(-1)(x^2+y^2)^{-2}(2y) \\
+         &= (x^2+y^2)^{-1} - 2y^2(x^2+y^2)^{-2}\\
+  \parder{u}{x} &= \parder{v}{y} = -2xy(x^2+y^2)^{-2}
+\end{align*}
+This appears to be a form that looks to be related to a complex number divided by its magnitude. We can try to guess the function from here:
+\begin{align*}
+  \frac{z}{|z|^2} &= \frac{x+iy}{x^2+y^2} = \frac{x}{x^2+y^2} + i\frac{y}{x^2+y^2}
+\end{align*}
+Rotating it by $i$:
+\begin{align*}
+  \frac{-iz}{|z|^2} &= -i\frac{x+iy}{x^2+y^2} = -i\frac{x}{x^2+y^2} -i^2\frac{y}{x^2+y^2}\\
+  &= \frac{y}{x^2+y^2}-i\frac{x}{x^2+y^2}
+\end{align*}
+\todo{actually work this out. and show this is correct}
 \subsection*{(d)}
-
+\begin{align*}
+  u(x,y) &= \cos{x}e^y
+\end{align*}
+This one is the real part of a complex number defined as $f = e^z$ where $z = y+ix$:
+\begin{align*}
+  f = e^y(\cos{x}+i\sin{x})
+\end{align*}
+using this we can infer that the HC is the following:
+\begin{align*}
+  v(x,y) = \sin{x}e^y
+\end{align*}
+\todo{actually work this out.}
 \newpage
 \section*{Problem 2}
 Suppose that $v$ is a harmonic conjugate of $u$ and $u$ is a harmonic conjugate of $v$ on some domain $D$. Show that $u,v$ must then be constant on $D$. (Hint: show that all partial derivatives of $u,v$ vanish on $D$)
