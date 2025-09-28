@@ -142,24 +142,32 @@ This appears to be a form that looks to be related to a complex number divided b
 Rotating it by $i$:
 \begin{align*}
   \frac{-iz}{|z|^2} &= -i\frac{x+iy}{x^2+y^2} = -i\frac{x}{x^2+y^2} -i^2\frac{y}{x^2+y^2}\\
-  &= \frac{y}{x^2+y^2}-i\frac{x}{x^2+y^2}
+                    &= \frac{y}{x^2+y^2}-i\frac{x}{x^2+y^2}\\
+  |z|^2 &= z\bar z \\
+  \therefore f = \frac{-iz}{|z|^2} &= \frac{-iz}{z\bar z} = -\frac{i}{\bar z}\\
+  \text{HC } &= \text{Im}\left(-\frac{i}{\bar z}\right)
 \end{align*}
-\todo{actually work this out. and show this is correct}
 \subsection*{(d)}
 \begin{align*}
   u(x,y) &= \cos{x}e^y
 \end{align*}
-This one is the real part of a complex number defined as $f = e^z$ where $z = y+ix$:
+This one is the real part of a complex number defined as $f = e^w$ where $w = y+ix$:
 \begin{align*}
-  f = e^y(\cos{x}+i\sin{x})
+  f &= e^y(\cos{x}+i\sin{x}) \\
+  \parder{u}{x} &= -e^y\sin{x} \quad \parder{u}{y} = e^y\cos{x}\\
+  \parder{v}{x} &= -e^y\cos{x} \quad \parder{v}{y} = e^y\sin{x}\\
+  \parder{u}{x} &= \parder{v}{y}
+\end{align*}
+$\parder{v}{y}$ needs a minus sign to be present implying that we need to have $v$ be negative.
+\begin{align*}
+  \secparder{u}{x} &+ \secparder{u}{y} = 0  \\
+  -e^y\cos{x} &+ e^y\cos{x} = 0
 \end{align*}
 using this we can infer that the HC is the following:
 \begin{align*}
-  v(x,y) = \sin{x}e^y + c
+  v(x,y) = -\sin{x}e^y + c
 \end{align*}
 
-
-\todo{actually work this out.}
 \newpage
 \section*{Problem 2}
 Suppose that $v$ is a harmonic conjugate of $u$ and $u$ is a harmonic conjugate of $v$ on some domain $D$. Show that $u,v$ must then be constant on $D$. (Hint: show that all partial derivatives of $u,v$ vanish on $D$)
