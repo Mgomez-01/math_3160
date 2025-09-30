@@ -1,0 +1,155 @@
+% --------------------------------------------------------------------
+% LaTeX Template for Math Homework
+% --------------------------------------------------------------------
+
+\documentclass{article}
+
+% --- PACKAGE IMPORTS ---
+% These packages add functionality for math symbols, formatting, etc.
+\usepackage[margin=.7in]{geometry}       % For setting page margins
+\usepackage{amsmath, amssymb, amsthm}   % American Mathematical Society packages for advanced math
+\usepackage{graphicx}                   % For including images
+\usepackage{fancyhdr}                   % For creating custom headers and footers
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref} % For clickable links
+\usepackage{cancel}
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage{amsxtra}
+\usepackage{epsfig}
+\usepackage{wasysym}
+\usepackage{relsize}
+\usepackage{tikz}
+\tikzset{every picture/.style={scale=1.2}}
+\renewcommand{\normalsize}{\fontsize{12}{20}\selectfont}
+
+% custom commands
+\newcommand{\myauthor}{Miguel Gomez}
+\newcommand{\canceling}[2]{\textcolor{red}{\cancelto{\textcolor{black}{#1}}{\textcolor{black}{#2}}}}
+\newcommand{\todo}[1]{\textcolor{blue}{TODO:#1}}
+% Save the original commands
+\let\oldcos\cos
+\let\oldsin\sin
+\let\oldcosh\cosh
+\let\oldsinh\sinh
+
+% Redefine with automatic parentheses
+\renewcommand{\cos}[1]{\oldcos\left(#1\right)}
+\renewcommand{\sin}[1]{\oldsin\left(#1\right)}
+\renewcommand{\cosh}[1]{\oldcosh\left(#1\right)}
+\renewcommand{\sinh}[1]{\oldsinh\left(#1\right)}
+
+\newcommand{\der}[2]{\frac{d#1}{d#2}}
+\newcommand{\secder}[2]{\frac{d^2#1}{d#2^2}}
+\newcommand{\parder}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\secparder}[2]{\frac{\partial^2#1}{\partial#2^2}}
+
+% --- DOCUMENT & AUTHOR INFORMATION ---
+\title{Homework \#5}
+\author{
+	MATH 3160 -- Complex Variables\\
+	\myauthor
+}
+\date{Completed: \today}
+
+% --- HEADER & FOOTER CONFIGURATION ---
+% This section sets up the header that will appear on each page.
+\pagestyle{fancy}
+\fancyhf{} % Clears the default header and footer
+\lhead{Math 3160 -- HW \# 5} % Left side of header
+\rhead{\myauthor} % Puts the author's name on the right side
+\rfoot{Page \thepage} % Puts the page number on the bottom right
+
+\begin{document}
+
+\maketitle % This command generates the title based on the information above.
+
+% ====================================================================
+% --- START OF PROBLEMS ---
+% ====================================================================
+
+\section*{Problem 1}
+Consider the analytic function $f(z) = z e^{z^2}$.
+\begin{enumerate}
+	\item [(a)] Show that the function $u(x,y) = x \ e^{(x^2 - y^2)} \cos{2xy} - y \ e^{(x^2 - y^2)} \sin{2xy}$ is the real component of $f(z)$.
+	\item [(b)] What is a harmonic conjugate for $u(x,y)$?
+	\item [(c)] Without computing the second partial derivatives of $u(x,y)$, explain why you know that $u(x,y)$ is harmonic.
+\end{enumerate}
+
+\vspace{.5cm} % Space between problems
+
+\hrule % Adds a horizontal line to separate problems.
+
+\newpage
+\section*{Problem 2}
+Consider the function  $u(x,y) = x^3 - 3 x y^2 - 3 x^2 y + y^3$.
+
+\begin{enumerate}
+	\item [(a)] Show that $u(x,y)$ is harmonic.
+	\item [(b)] Find a harmonic conjugate for $u(x,y)$.
+\end{enumerate}
+
+
+\vspace{.5cm} % Space between problems
+
+\hrule
+
+\newpage
+\section*{Problem 3}
+Recall we learned of the following fact in class:
+
+\begin{center}
+	{\em Let $u(x,y)$ be a harmonic function defined on a simply connected domain $D$. \\ Then $u(x,y)$ has a harmonic conjugate on $D$.}
+\end{center}
+
+\begin{enumerate}
+	\item [(a)] Show that $u(x,y) = \ln(\sqrt{x^2 + y^2})$ is a harmonic function.
+
+	\item [(b)] What is the domain of definition of $u(x,y)$?
+
+	\item [(c)] An aside: show that if $f(z)$ and $g(z)$ are two analytic functions on the same domain $D$, and we have $\text{Re}(f(z)) = \text{Re}(g(z))$ for all $z \in D$, then $f(z) = g(z) + c$ for some constant $c \in \mathbb{C}$.
+
+          [{\em Hint: show that the function $h(z) = f(z) - g(z)$ has $\text{Re}(h(z)) = 0$, and then use a result from class to conclude $h(z)$ is a constant.}]
+
+	\item [(d)] Explain why $u(x,y)$ does {\it not} have a harmonic conjugate on its domain.
+
+          [{\em Hint: if such a conjugate existed, then $u(x,y)$ would be the real component of some analytic function $f(z)$, but $u(x,y)$ is already the real component of a familiar analytic function, which is discontinuous at its branch cut}]
+
+	\item Why does this not contradict the fact from class?
+\end{enumerate}
+
+\vspace{.5cm} % Space for work
+
+\hrule
+
+\newpage
+\section*{Problem 4}
+Find the following values, on the branches given:
+\begin{enumerate}
+	\item [(a)] $ \log(3) \ \ (-2\pi \leq \theta < 0)$
+	\item [(b)] $ \log(-1 + i) \ \ (-\pi/2 < \theta \leq 3 \pi / 2)$
+	\item [(c)] $ \log(1 - i \sqrt 3) \ \ (\pi \leq \theta < 3 \pi)$.
+\end{enumerate}
+\vspace{.5cm} % Space for work
+
+\hrule
+\newpage
+\section*{Problem 5}
+Recall that power functions are defined by $z^c = e^{c \log(z)}$. In this exercise, we compute all power functions by using the branch $(0 \leq \theta < 2 \pi)$ for $\log(z)$.
+\begin{enumerate}
+	\item [(a)] For $z = -i$ and $c = i$, compute the values of $(z^c)^2$, $(z^2)^c$, and $z^{(2c)}$.
+	\item [(b)] With the notation as in (a), which of these are true or false?
+	      $$ (z^c)^2 = (z^2)^c, \hspace{20pt} (z^c)^2 = z^{(2c)}, \hspace{20pt} (z^2)^c = z^{(2c)}.$$
+
+\end{enumerate}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+
+
+
+
