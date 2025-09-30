@@ -171,6 +171,15 @@ using this we can infer that the HC is the following:
 \newpage
 \section*{Problem 2}
 Suppose that $v$ is a harmonic conjugate of $u$ and $u$ is a harmonic conjugate of $v$ on some domain $D$. Show that $u,v$ must then be constant on $D$. (Hint: show that all partial derivatives of $u,v$ vanish on $D$)
+if $v$ were a harmonic conjugate of $u$, then the following expressions should hold:
+\begin{align*}
+  \parder{u}{x} = \parder{v}{y} \quad(1)&\quad \quad \parder{u}{y} = -\parder{v}{x} \quad(2)\\
+  \parder{v}{x} = \parder{u}{y} \quad(3)&\quad \quad \parder{v}{y} = -\parder{u}{x} \quad(4)\\
+  \secparder{u}{x} &+ \secparder{u}{y} = 0\quad (5)\\
+  \secparder{v}{x} &+ \secparder{v}{x} = 0 \quad (6)\\
+\end{align*}
+Notice that if this were the case for both $u$ and $v$, there would be an issue with fulfilling the first Cauchy equation for both $x$ and $y$. If $v$ were a harmonic conjugate of $u$. then  $(1)$ must hold. But if this were the case, and $u$ is also a harmonic conjugate of $v$, then the same would have to hold in the case of $(4)$.
 
+This means that $\parder{u}{x}$ must be positive and negative, but the only case where this could be possible is in the case that it is $0$. We have a similar problem in the case of expressions $(3)$ and  $(2)$. Meaning that $\parder{v}{x}$ must be positive and negative. Once again, this is only possible in the case that it is $0$.
 
 \end{document}
