@@ -78,7 +78,22 @@ Consider the analytic function $f(z) = z e^{z^2}$.
 \vspace{.5cm} % Space between problems
 
 \hrule % Adds a horizontal line to separate problems.
-
+Expanding $f(z) = z e^{z^2}$ to see what the $u$ and $v$ turn out to be.
+\subsection*{(a)}
+\begin{align*}
+  f(z) &= z e^{z^2} = (x+iy)e^{(x+iy)^2} = (x+iy)e^{x^2-y^2+2ixy} = (x+iy)e^{x^2-y^2}e^{2ixy}\\
+  &= e^{x^2-y^2}(x+iy)(\cos{2xy}+i\sin{2xy}) \\
+       &= e^{x^2-y^2}(x\cos{2xy}+ix\sin{2xy} + iy\cos{2xy}+i^2y\sin{2xy})\\
+       &=  e^{x^2-y^2}(x\cos{2xy}-y\sin{2xy} + i(x\sin{2xy} + y\cos{2xy}))\\
+       &\therefore u(x,y) = e^{x^2-y^2}(x\cos{2xy}-y\sin{2xy})
+\end{align*}
+\subsection{(b)}
+Utilizing the imaginary part of $f$, $v$ can serve as a conjugate up to an arbitrary constant, which we could set to 0 to recover $f$. 
+\begin{align*}
+e^{x^2-y^2} (x\sin{2xy} + y\cos{2xy}) + C
+\end{align*}
+\subsection{(c)}
+Since we know that $f$ is analytic as stated, and $u$ is the real part of $f$, an analytic function, then $u$ must be harmonic. This is due to the fact that the real and imaginary parts of any analytic function are harmonic functions.
 \newpage
 \section*{Problem 2}
 Consider the function  $u(x,y) = x^3 - 3 x y^2 - 3 x^2 y + y^3$.
@@ -125,13 +140,35 @@ Recall we learned of the following fact in class:
 \section*{Problem 4}
 Find the following values, on the branches given:
 \begin{enumerate}
-	\item [(a)] $ \log(3) \ \ (-2\pi \leq \theta < 0)$
+	\item [(a)] $ \log(3) \ \ (-2\pi \leq \theta < 0)$ 
 	\item [(b)] $ \log(-1 + i) \ \ (-\pi/2 < \theta \leq 3 \pi / 2)$
 	\item [(c)] $ \log(1 - i \sqrt 3) \ \ (\pi \leq \theta < 3 \pi)$.
 \end{enumerate}
+\hrule
 \vspace{.5cm} % Space for work
 
-\hrule
+\begin{align*}
+  \log(z) &= \log{|z|} + iarg(z) = \log{|z|} + i(Arg(z) + 2\pi k)\ \forall k \in \mathbb{Z}
+\end{align*}
+\subsection*{(a)}
+$ \log{(3)} \ \ (-2\pi \leq \theta < 0)$
+\begin{align*}
+  \log{(3)} &=  \log{|3|} + i(Arg(3) + 2\pi k)= \log{(3)} + i(0 +  2\pi k)\\
+  \log{(3)} &+ i(2\pi k)\ k \in [-1,0) = \log{(3)} - i2\pi
+\end{align*}
+\subsection*{(b)}
+$ \log(-1 + i) \ \ (-\pi/2 < \theta \leq 3 \pi / 2)$
+\begin{align*}
+  \log{(-1 + i)} &=  \log{|-1 + i|} + i(Arg(-1 + i) + 2\pi k)= \log{(\sqrt{2})} + i\left(\frac{3\pi}{4} +  2\pi k\right)\\
+  \log{(\sqrt{2})} &+ i\left(\frac{3\pi}{4}+2\pi k\right)\ k \in \left(-\frac{\pi}{2}, \frac{3\pi}{2}\right]\\
+                 &= \log{(\sqrt{2})} + i\left(\frac{3\pi}{4}+2\pi k\right) \\
+                 &= \log{(\sqrt{2})} + i\frac{3\pi}{4}
+\end{align*}
+\subsection*{(c)}
+$ \log(1 - i \sqrt 3) \ \ (\pi \leq \theta < 3 \pi)$
+\begin{align*}
+  
+\end{align*}
 \newpage
 \section*{Problem 5}
 Recall that power functions are defined by $z^c = e^{c \log(z)}$. In this exercise, we compute all power functions by using the branch $(0 \leq \theta < 2 \pi)$ for $\log(z)$.
