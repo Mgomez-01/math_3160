@@ -90,7 +90,7 @@ Expanding $f(z) = z e^{z^2}$ to see what the $u$ and $v$ turn out to be.
 \subsection{(b)}
 Utilizing the imaginary part of $f$, $v$ can serve as a conjugate up to an arbitrary constant, which we could set to 0 to recover $f$. 
 \begin{align*}
-e^{x^2-y^2} (x\sin{2xy} + y\cos{2xy}) + C
+v(x,y) &= e^{x^2-y^2} (x\sin{2xy} + y\cos{2xy}) + C
 \end{align*}
 \subsection{(c)}
 Since we know that $f$ is analytic as stated, and $u$ is the real part of $f$, an analytic function, then $u$ must be harmonic. This is due to the fact that the real and imaginary parts of any analytic function are harmonic functions.
@@ -107,7 +107,28 @@ Consider the function  $u(x,y) = x^3 - 3 x y^2 - 3 x^2 y + y^3$.
 \vspace{.5cm} % Space between problems
 
 \hrule
-
+\subsection*{(a)}
+For this, we can start by showing that the expression for $u$ satisfies the Laplacian:
+\begin{align*}
+  \secparder{u}{x} &+ \secparder{u}{y} = 0\\
+  \parder{u}{x} &= 3x^2 - 3 y^2 - 6xy\\
+  \secparder{u}{x} &= 6x - 6y\\
+  \parder{u}{y} &= - 6 x y - 3 x^2  + 3y^2\\
+  \secparder{u}{y} &= - 6 x  + 6y\\
+  \secparder{u}{x} &+ \secparder{u}{y} = 6x - 6y + (- 6 x  + 6y) = 0\\
+  \therefore &\ u(x,y)\ \text{is harmonic.}
+\end{align*}
+For a conjugate, we can back solve to get the $v$ expression that works.
+\begin{align*}
+  \parder{u}{x} &= \parder{v}{y} \\
+  v(x,y) = \int 3x^2 - 3 y^2 - 6xy dy &= 3x^2y - y^3 - 3xy^2 + G(x)\\
+  \parder{u}{y} &= -\parder{v}{x} \\
+  v(x,y) = \int  6 x y + 3 x^2  - 3y^2 dx &= 3x^2y + x^3 -3x^2y + G(y)\\
+  \therefore  v(x,y)_1 &= v(x,y)_2 \\
+  G(x) &= x^3 + C\\
+  G(y) &= -y^3 + C\\
+  \therefore v(x,y) &= \boxed{ 3x^2y + x^3 -3x^2y + -y^3 + C}
+\end{align*}
 \newpage
 \section*{Problem 3}
 Recall we learned of the following fact in class:
