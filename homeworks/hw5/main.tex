@@ -118,6 +118,7 @@ For this, we can start by showing that the expression for $u$ satisfies the Lapl
   \secparder{u}{x} &+ \secparder{u}{y} = 6x - 6y + (- 6 x  + 6y) = 0\\
   \therefore &\ u(x,y)\ \text{is harmonic.}
 \end{align*}
+\subsection*{(b)}
 For a conjugate, we can back solve to get the $v$ expression that works.
 \begin{align*}
   \parder{u}{x} &= \parder{v}{y} \\
@@ -156,7 +157,33 @@ Recall we learned of the following fact in class:
 \vspace{.5cm} % Space for work
 
 \hrule
-
+\subsection*{(a)}
+\begin{align*}
+  u(T) = \ln(T),\ \ T(S) &= \sqrt{S}, \ \ S = x^2+y^2 \\ 
+  \der{u}{T} = \frac{1}{T} \ \ \der{T}{S} &= \frac{1}{2\sqrt{S}}\ \ \parder{S}{x|y} = 2x|2y\\
+  \parder{u}{x} = \parder{}{x}(\ln{((x^2+y^2)^{\frac{1}{2}})}) &= ((x^2+y^2)^{-\frac{1}{2}})\left(\frac{1}{2}(x^2+y^2)^{-\frac{1}{2}}\right)(2x) \\
+  &=\left(\frac{2x}{2(x^2+y^2)}\right)\\
+  \parder{u}{x} &=\left(\frac{x}{x^2+y^2}\right)\\
+  \parder{u}{y} &= \left(\frac{y}{x^2+y^2}\right)
+\end{align*}
+\begin{align*}
+  \secparder{u}{x} =\frac{f'g-fg'}{g^2} &= \left(\frac{(x)'(x^2+y^2)-(x)(x^2+y^2)'}{(x^2+y^2)^2}\right)\\
+                                        &= \left(\frac{(x^2+y^2)-(x)(2x)}{(x^2+y^2)^2}\right)\\
+  \secparder{u}{x} &= \left(\frac{(y^2-x^2)}{(x^2+y^2)^2}\right)\\
+  \secparder{u}{y}&= \left(\frac{(x^2-y^2)}{(x^2+y^2)^2}\right)\\
+  \secparder{u}{x} &+ \secparder{u}{y} =  \frac{y^2-x^2 + x^2-y^2}{(x^2+y^2)^2} = 0
+\end{align*}
+\subsection*{(b)}
+\begin{align*}
+  \ln{(\sqrt{x^2+y^2})} &= \frac{1}{2}\ln{(x^2+y^2)} = \frac{1}{2}\ln{(|z|)}
+\end{align*}
+Domain of definition is anywhere that the magnitude is not zero.
+\begin{align*}
+  \mathbb{C}\setminus \{0\}
+\end{align*}
+\subsection*{(c)}
+\subsection*{(d)}
+It does not because it is a function that has a behavior that exhibits periodicity due to the arg$(z)$. Because of this, the answers repeat for integer values $k$. The inclusion of the branch cut means that it cannot be continuous across branch cuts.
 \newpage
 \section*{Problem 4}
 Find the following values, on the branches given:
@@ -175,20 +202,23 @@ Find the following values, on the branches given:
 $ \log{(3)} \ \ (-2\pi \leq \theta < 0)$
 \begin{align*}
   \log{(3)} &=  \log{|3|} + i(Arg(3) + 2\pi k)= \log{(3)} + i(0 +  2\pi k)\\
-  \log{(3)} &+ i(2\pi k)\ k \in [-1,0) = \log{(3)} - i2\pi
+  \log{(3)} &+ i(2\pi k)\ k \in [-1,0) \quad \k = -1\\
+  &= \log{(3)} - i2\pi
 \end{align*}
 \subsection*{(b)}
 $ \log(-1 + i) \ \ (-\pi/2 < \theta \leq 3 \pi / 2)$
 \begin{align*}
   \log{(-1 + i)} &=  \log{|-1 + i|} + i(Arg(-1 + i) + 2\pi k)= \log{(\sqrt{2})} + i\left(\frac{3\pi}{4} +  2\pi k\right)\\
-  \log{(\sqrt{2})} &+ i\left(\frac{3\pi}{4}+2\pi k\right)\ k \in \left(-\frac{\pi}{2}, \frac{3\pi}{2}\right]\\
-                 &= \log{(\sqrt{2})} + i\left(\frac{3\pi}{4}+2\pi k\right) \\
+  \log{(\sqrt{2})} &+ i\left(\frac{3\pi}{4}+2\pi k\right)\ k \in \left(-\frac{1}{4}, \frac{3}{4}\right]\\
+                 &= \log{(\sqrt{2})} + i\left(\frac{3\pi}{4}+2\pi k\right) \ k = 0\\
                  &= \log{(\sqrt{2})} + i\frac{3\pi}{4}
 \end{align*}
 \subsection*{(c)}
 $ \log(1 - i \sqrt 3) \ \ (\pi \leq \theta < 3 \pi)$
 \begin{align*}
-  
+  \log{(1-i\sqrt{3})} &=  \log{|1-i\sqrt{3}|} + i(Arg(1-i\sqrt{3}) + 2\pi k)= \log{(2)} - i\left(\frac{\pi}{3} +  2\pi k\right)\\
+  &= \log{(2)} - i\left(\frac{\pi}{3} +  2\pi k\right) \ k\in \left[\frac{1}{2},\frac{3}{2}\right) \quad k = 1\\
+  &= \log{(2)} +i\frac{5\pi}{3} 
 \end{align*}
 \newpage
 \section*{Problem 5}
