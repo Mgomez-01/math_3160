@@ -94,7 +94,9 @@ v(x,y) &= e^{x^2-y^2} (x\sin{2xy} + y\cos{2xy}) + C
 \end{align*}
 \subsection{(c)}
 Since we know that $f$ is analytic as stated, and $u$ is the real part of $f$, an analytic function, then $u$ must be harmonic. This is due to the fact that the real and imaginary parts of any analytic function are harmonic functions.
-\newpage
+\vspace{.2cm}
+\hrule
+
 \section*{Problem 2}
 Consider the function  $u(x,y) = x^3 - 3 x y^2 - 3 x^2 y + y^3$.
 
@@ -182,8 +184,15 @@ Domain of definition is anywhere that the magnitude is not zero.
   \mathbb{C}\setminus \{0\}
 \end{align*}
 \subsection*{(c)}
+Defining a function $h=f-g$ as the hint suggests. If both $f$ and $g$ are analytic and their real parts are the same:
+\begin{align*}
+  h(z) &= f(z) - g(z) = g(z) + c - g(z) =  i*(\text{Im}{(f)} + \text{Im}(g)) 
+\end{align*}
+Since $h$ is equal to $c$ from this definition, because both $f$ and $g$ are analytic, then we know that the real part of $h$ is $0$, meaning we have $u(x,y) = 0$ for  $h$. From the CR equations, we must have the partial derivative of $h_{u_x}$ be the same as $h_{u_y}$. but we know that this should be $0$, therefore all of $h$ must be constant.
 \subsection*{(d)}
 It does not because it is a function that has a behavior that exhibits periodicity due to the arg$(z)$. Because of this, the answers repeat for integer values $k$. The inclusion of the branch cut means that it cannot be continuous across branch cuts.
+\subsection*{Why no contradiction?}
+If I recall correctly, it is because we use the branch cut to define the domain and this kind of domain is not simply connected. Because of this, it does not contradict the definitions we discussed.
 \newpage
 \section*{Problem 4}
 Find the following values, on the branches given:
@@ -224,11 +233,38 @@ $ \log(1 - i \sqrt 3) \ \ (\pi \leq \theta < 3 \pi)$
 \section*{Problem 5}
 Recall that power functions are defined by $z^c = e^{c \log(z)}$. In this exercise, we compute all power functions by using the branch $(0 \leq \theta < 2 \pi)$ for $\log(z)$.
 \begin{enumerate}
-	\item [(a)] For $z = -i$ and $c = i$, compute the values of $(z^c)^2$, $(z^2)^c$, and $z^{(2c)}$.
-	\item [(b)] With the notation as in (a), which of these are true or false?
-	      $$ (z^c)^2 = (z^2)^c, \hspace{20pt} (z^c)^2 = z^{(2c)}, \hspace{20pt} (z^2)^c = z^{(2c)}.$$
-
+\item [(a)] For $z = -i$ and $c = i$, compute the values of $(z^c)^2$, $(z^2)^c$, and $z^{(2c)}$.
+\item [(b)] With the notation as in (a), which of these are true or false?
+  $$ (z^c)^2 = (z^2)^c, \hspace{20pt} (z^c)^2 = z^{(2c)}, \hspace{20pt} (z^2)^c = z^{(2c)}.$$
 \end{enumerate}
+\begin{align*}
+  \text{case: } (z^c)^2 &= (z^2)^c \\
+  ((-i)^i)^2 &= (e^{i(\log{(-i)})})^2\\
+  e^{i(\log{(-i)})} &= e^{i(\log{(|-i|) + \text{arg}(-i)+2\pi k})}\\
+          &= e^{i(0 + \frac{3\pi}{2}+2\pi k)}\\
+          &= e^{i(\frac{3\pi}{2}+0)} = e^{i(\frac{3\pi}{2})}\\
+  (e^{i(\frac{3\pi}{2})})^2 &= e^{i3\pi}\\
+  (z^2)^c &= ((-i)^2)^i = ((-1)^2(i)^2)^i \\
+          &= (-1)^i = e^{i(\log{(-1)})}= e^{i(\Log{|-1|} + \text{arg}(-1) + 2\pi k)}\\
+          &= e^{i(\Log{1} + \pi + 0)} = e^{i\pi} \\
+  \therefore (z^c)^2 &\neq (z^2)^c \text{ given the branch cut.}
+\end{align*}
+\begin{align*}
+  \text{case: } (z^c)^2 &= z^{(2c)} \\
+  (z^c)^2 &= e^{i3\pi}\\
+  z^{(2c)} &= (-i)^{(2i)} = e^{2i(\log{(-i)})}\\
+  &= e^{2i(\log{|-i| + \text{arg}(-i) + 2\pi k})}\\
+  &= e^{2i(0 + \frac{3\pi}{2} + 0)} = e^{i3\pi}\\
+  \therefore (z^c)^2 &= z^{(2c)} \text{ given the branch cut.}
+\end{align*}
+\begin{align*}
+  \text{case: } (z^2)^c &= z^{(2c)} \\
+  (z^2)^c &= e^{i\pi}\\
+  z^{(2c)} &= e^{i3\pi}\\
+\therefore (z^2)^c &\neq z^{(2c)} \text{ given the branch cut.}  
+\end{align*}
+
+
 
 \end{document}
 
