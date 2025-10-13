@@ -1,0 +1,112 @@
+% --------------------------------------------------------------------
+% LaTeX Template for Math Worksheets
+% --------------------------------------------------------------------
+\documentclass{article}
+
+% --- PACKAGE IMPORTS ---
+% These packages add functionality for math symbols, formatting, etc.
+\usepackage[margin=.7in]{geometry}       % For setting page margins to 0.7 inch
+\usepackage{amsmath, amssymb, amsthm}   % American Mathematical Society packages for advanced math
+\usepackage{graphicx}                   % For including images
+\usepackage{fancyhdr}                   % For creating custom headers and footers
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref} % For clickable links
+\usepackage{cancel}
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage{amsxtra}
+\usepackage{epsfig}
+\usepackage{wasysym}
+\usepackage{relsize}
+\usepackage{tikz}
+\tikzset{every picture/.style={scale=1.2}}
+\renewcommand{\normalsize}{\fontsize{12}{20}\selectfont}
+
+% custom commands
+\newcommand{\myauthor}{Miguel Gomez}
+\newcommand{\canceling}[2]{\textcolor{red}{\cancelto{\textcolor{black}{#1}}{\textcolor{black}{#2}}}}
+\newcommand{\todo}[1]{\textcolor{blue}{TODO:#1}}
+% Save the original commands
+\let\oldcos\cos
+\let\oldsin\sin
+\let\oldcosh\cosh
+\let\oldsinh\sinh
+
+% Redefine with automatic parentheses
+\renewcommand{\cos}[1]{\oldcos\left(#1\right)}
+\renewcommand{\sin}[1]{\oldsin\left(#1\right)}
+\renewcommand{\cosh}[1]{\oldcosh\left(#1\right)}
+\renewcommand{\sinh}[1]{\oldsinh\left(#1\right)}
+
+\newcommand{\der}[2]{\frac{d#1}{d#2}}
+\newcommand{\secder}[2]{\frac{d^2#1}{d#2^2}}
+\newcommand{\parder}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\secparder}[2]{\frac{\partial^2#1}{\partial#2^2}}
+
+% --- DOCUMENT & AUTHOR INFORMATION ---
+\title{Worksheet \# 7}
+\author{
+  MATH 3160 -- Complex Variables\\
+  \myauthor
+}
+\date{Completed: \today} 
+
+% --- HEADER & FOOTER CONFIGURATION ---
+% This section sets up the header that will appear on each page.
+\pagestyle{fancy}
+\fancyhf{} % Clears the default header and footer
+\lhead{Math 3160 -- Worksheet \# 7} % Left side of header
+\rhead{\myauthor} % Puts the author's name on the right side
+\rfoot{Page \thepage} % Puts the page number on the bottom right
+
+\begin{document}
+
+\maketitle % This command generates the title based on the information above.
+
+% ====================================================================
+% --- START OF PROBLEMS ---
+% ====================================================================
+
+% Note: \section* creates a section heading without a number.
+\section*{Problem 1}
+
+
+\begin{align*}
+% Your mathematical work here
+\end{align*}
+
+\vspace{1cm} % Add space for additional work if needed
+% For graphs/diagrams, you can use TikZ:
+\begin{center}
+\begin{tikzpicture}
+    % Your TikZ code here
+    % Example: Draw axes
+    \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
+    \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
+\end{tikzpicture}
+\end{center}
+\vspace{1cm}
+\hrule % Adds a horizontal line to separate problems.
+
+\newpage
+\section*{Problem 2}
+
+
+\vspace{1cm} % Space for work
+
+\hrule
+
+\newpage
+\section*{Problem 3}
+
+
+\vspace{1cm} % Space for work
+
+\hrule
+
+% Add more problems as needed...
+% \newpage
+% \section*{Problem 4}
+% 
+% \hrule
+
+\end{document}
