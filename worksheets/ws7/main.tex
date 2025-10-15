@@ -68,36 +68,39 @@
 
 % Note: \section* creates a section heading without a number.
 \section*{Problem 1}
+suppose $l_1(z)$ and $l_2(z)$ denote two different branches of log. What can you say about the function $l_1(z)-l_2(z)$?
+How many different values can the difference take? Use this to conclude that $\der{}{z} (l(z)) = \frac{1}{z}$ for any branch of log (away from its branch cut).
+\vspace{.5cm}
+\hrule % Adds a horizontal line to separate problems.
+\vspace{.5cm}
 
-
+This seems similar to the argument made in class about the arg of a complex number and the value it could take in a branch. Some similar reasoning will need to be made here to show that the result must be $\frac{1}{z}$.
 \begin{align*}
-% Your mathematical work here
+  
 \end{align*}
 
-\vspace{1cm} % Add space for additional work if needed
-% For graphs/diagrams, you can use TikZ:
-\begin{center}
-\begin{tikzpicture}
-    % Your TikZ code here
-    % Example: Draw axes
-    \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
-    \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
-\end{tikzpicture}
-\end{center}
 \vspace{1cm}
 \hrule % Adds a horizontal line to separate problems.
 
 \newpage
 \section*{Problem 2}
-
-
-\vspace{1cm} % Space for work
-
+Check that for any $c_1\ c_2 \in \mathbb{C}$, and any $ 0 \neq z \in \mathbb{C}$, we have $z^{(c_1+c_2)} = z^{c_1} z^{c_2}$ using the similar rule for the exponential function.
+\vspace{.5cm} % Space for work
 \hrule
+\vspace{.5cm} % Space for work
+
+\begin{align*}
+  c_1\text{ , } c_2 &= x_1 + iy_1 \quad\text{,}\quad x_2 + iy_2 \\
+  w = c_1+c_2 &= x_1 + iy_1 + x_2 + iy_2 = x_1 + x_2 + iy_1 + iy_2\\
+  z^w &= z^{(c_1+c_2)} = z^{x_1 + iy_1 + x_2 + iy_2} = z^{x_1 + x_2 + iy_1 + iy_2}\\
+                    &= z^{x_1}z^{ x_2 }z^{iy_1 }z^{ iy_2} = z^{x_1}z^{iy_1}z^{x_2}z^{iy_2} \\
+                    &= z^{x_1+iy_1}z^{x_2+iy_2} = z^{c_1}z^{c_2}\\
+                    \therefore z^{(c_1+c_2)} &= z^{c_1}z^{c_2}\ \   \forall x\text{,}y \in \mathbb{R} | z \neq 0 
+\end{align*}
 
 \newpage
 \section*{Problem 3}
-
+Using the chain rule, show that $\der{}{z} z^c = cz^{c−1}$.
 
 \vspace{1cm} % Space for work
 
