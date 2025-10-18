@@ -102,19 +102,34 @@ Write down the parametrization of the following contour:
         mark=at position 0.5 with {\arrow{>}},
         mark=at position 0.75 with {\arrow{>}}},
         postaction={decorate}, thick]  (2, 0) -- (2,2) node[right] {$2+2i$};
-    \draw[->] (2, -.15) -- (2,.15) node[below] {$2$};
-    \draw[->] (-2, -.15) -- (-2,.15) node[below] {$-2$};
-                \draw[->, decoration={markings, 
-        mark=at position 0.25 with {\arrow{>}},
-        mark=at position 0.5 with {\arrow{>}},
-        mark=at position 0.75 with {\arrow{>}}},
-        postaction={decorate}, thick] (2,0) arc (0:180:2);
+    \draw[->] (2, -.15) -- (2,.15) node[below=3mm] {$2$};
+    \draw[->] (-2, -.15) -- (-2,.15) node[below=3mm] {$-2$};
+                \draw[<-, decoration={markings, 
+        mark=at position 0.25 with {\arrow{<}},
+        mark=at position 0.5 with {\arrow{<}},
+        mark=at position 0.75 with {\arrow{<}}},
+      postaction={decorate}, thick] (2,0) arc (0:180:2);
+      \draw (1,1.7) node[above] {$\gamma_1$};
+      \draw (2,1) node[right] {$\gamma_2$};
+      \draw[thick, blue, fill=blue!100] (-2,0) circle (0.05);
+      \draw[thick, red, fill=red!100] (2,0) circle (0.05);
+      \draw[thick, purple, fill=purple!100] (2,2) circle (0.05);
     
 \end{tikzpicture}
 \end{center}
-\vspace{1cm}
+\vspace{0.5cm}
 \hrule % Adds a horizontal line to separate problems.
-\vspace{1cm} % Space for work
+\vspace{0.5cm} % Space for work
+Starting from the blue point above, we move in a circular path along the arc, landing us at the red point. The following is the parametrization of that arc:
+\begin{align*}
+  \gamma_1(t) : \ [0,1] \xrightarrow{} 2e^{-i\pi (t + 1)} =2e^{-i(\pi t) }e^{ -i\pi} \quad 0 \leq t \leq 1 
+\end{align*}
+We start gamma at $\pi$ by including the factor of $e^{-i\pi}$. Then as $t$ sweeps from 0 to 1, we end at $e^{-i2\pi}$, effectively rotating the semicircular path on the bottom of the circle around the origin. Then for $\gamma_2$ we will then do the following:
+\begin{align*}
+  \gamma_2 : [1,2] \xrightarrow{} 2+2i(t-1) \quad 1 \leq t \leq 2
+\end{align*}
+
+\vspace{0.5cm} % Space for work
 
 \hrule
 
