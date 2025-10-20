@@ -198,6 +198,119 @@ Sketch the oriented curve defined by the following four contours and compute $\i
 \vspace{.5cm} % Space for work
 
 \hrule
+\subsection*{(1)}
+\begin{center}
+\begin{tikzpicture}
+    % Your TikZ code here
+    % Example: Draw axes
+    \draw[->] (-3,0) -- (3,0) node[right] {$\mathbb{R}$};
+    \draw[->] (0,0) -- (0,-3) node[below] {$\mathbb{I}$};
+    \draw[thick, blue, fill=blue!100] (2,0) circle (0.05)node[above] {$(2,0)$};
+    \draw[thick, red, fill=red!100] (-2,0) circle (0.05) node[above] {$(-2,0)$};
+                \draw[>-, decoration={markings, 
+        mark=at position 0.25 with {\arrow{>}},
+        mark=at position 0.5 with {\arrow{>}},
+        mark=at position 0.75 with {\arrow{>}}},
+      postaction={decorate}, thick] (-2, 0) arc (0:180:-2 and -2);
+      \draw (1,-.85035) node[above] {$\gamma(t)$};
+\end{tikzpicture}
+\end{center}
+\vspace{.5cm} % Space for work
+
+\hrule
+\newpage
+\subsection*{(2)}
+The oriented curve is defined as follows:
+\begin{center}
+\begin{tikzpicture}
+    % Your TikZ code here
+    % Example: Draw axes
+    \draw[->] (-3,0) -- (3,0) node[right] {$\mathbb{R}$};
+    \draw[->] (0,-3) -- (0,3) node[above] {$\mathbb{I}$};
+    \draw[thick, blue, fill=blue!100] (2,0) circle (0.05)node[below right] {$(2,0)$};
+    \draw[thick, red, fill=red!100] (-2,0) circle (0.05) node[below left] {$(-2,0)$};
+                \draw[>-, decoration={markings, 
+        mark=at position 0.10 with {\arrow{>}},
+        mark=at position 0.20 with {\arrow{>}},
+        mark=at position 0.30 with {\arrow{>}},
+        mark=at position 0.40 with {\arrow{>}},
+        mark=at position 0.50 with {\arrow{>}},
+        mark=at position 0.60 with {\arrow{>}},
+        mark=at position 0.70 with {\arrow{>}},
+        mark=at position 0.80 with {\arrow{>}},
+        mark=at position 0.90 with {\arrow{>}}},
+      postaction={decorate}, thick] (2, 0) arc (0:360:2 and 2);
+      \draw (1,.85035) node[above] {$\gamma(t)$};
+\end{tikzpicture}
+\end{center}
+Since we know that the curve here starts and ends at the same point, we know that the overall expression here should evaluate to 0 by the Fundamental Theorem of Calculus. the path $\gamma$
+ here has the same starting and ending point, and the function $f(z)$ is continuous everywhere with no discontinuities or issues with branch cuts. The result is then:
+\begin{align*}
+  f(z) &= z-1 \\
+  \gamma(t) &= 2e^{i\pi t}\\
+  \int_0^{2}f(\gamma(t))\gamma(t)'dt &=  \int_0^{2}(\gamma(t)-1)\gamma(t)'dt \\
+  &=  \int_0^{2}(2e^{i\pi t}-1)(2i\pi e^{i\pi t})dt \\
+  &=  \int_0^{2}(2e^{i\pi t}e^{i\pi t}-e^{i\pi t})(2i\pi)dt \\
+  &=  (2i\pi)\int_0^{2}(2e^{i2\pi t}-e^{i\pi t})dt \\
+  &=  (2i\pi)\left(\frac{2}{i2\pi}e^{i2\pi t}-\frac{1}{i\pi}e^{i\pi t}\right)|_0^{2} \\
+  &=  \left(2e^{i2\pi t}-2e^{i\pi t}\right)|_0^{2} \\
+  &=  \left(2e^{i4\pi}-2e^{i2\pi}\right) - \left(2e^{0}-2e^{0}\right) \\
+  &=  \left(2\cdot 1-2\cdot 1\right) - \left(2-2\right) \\
+  &= 0
+\end{align*}
+\vspace{.5cm} % Space for work
+
+\hrule
+\subsection*{(3)}
+\begin{center}
+\begin{tikzpicture}
+    % Your TikZ code here
+    % Example: Draw axes
+    \draw[->] (-3,0) -- (3,0) node[right] {$\mathbb{R}$};
+    \draw[->] (0,0) -- (0,2) node[above] {$\mathbb{I}$};
+    \draw[thick, blue, fill=blue!100] (2,0) circle (0.05)node[below right] {$(2,0)$};
+    \draw[thick, red, fill=red!100] (-2,0) circle (0.05) node[below left] {$(-2,0)$};
+                \draw[->, decoration={markings, 
+        mark=at position 0.10 with {\arrow{>}},
+        mark=at position 0.20 with {\arrow{>}},
+        mark=at position 0.30 with {\arrow{>}},
+        mark=at position 0.40 with {\arrow{>}},
+        mark=at position 0.50 with {\arrow{>}},
+        mark=at position 0.60 with {\arrow{>}},
+        mark=at position 0.70 with {\arrow{>}},
+        mark=at position 0.80 with {\arrow{>}},
+        mark=at position 0.90 with {\arrow{>}}},
+      postaction={decorate}, thick] (2, 0) -- (-2,0);
+      \draw (1,.25035) node[above] {$\gamma(t)$};
+\end{tikzpicture}
+\end{center}
+\vspace{.5cm} % Space for work
+
+\hrule
+\subsection*{(4)}
+\begin{center}
+\begin{tikzpicture}
+    % Your TikZ code here
+    % Example: Draw axes
+    \draw[->] (-3,0) -- (3,0) node[right] {$\mathbb{R}$};
+    \draw[->] (0,0) -- (0,-3) node[below] {$\mathbb{I}$};
+    \draw[thick, blue, fill=blue!100] (2,0) circle (0.05)node[above] {$(2,0)$};
+    \draw[thick, red, fill=red!100] (-2,0) circle (0.05) node[above] {$(-2,0)$};
+                \draw[->, decoration={markings, 
+        mark=at position 0.25 with {\arrow{>}},
+        mark=at position 0.5 with {\arrow{>}},
+        mark=at position 0.75 with {\arrow{>}}},
+      postaction={decorate}, thick, blue] (-2, 0) arc (0:180:-2 and -2);
+      \draw (1,-1.5035) node[above] {$\gamma_1(t)$};
+                \draw[->, decoration={markings, 
+        mark=at position 0.20 with {\arrow{>}},
+        mark=at position 0.40 with {\arrow{>}},
+        mark=at position 0.60 with {\arrow{>}},
+        mark=at position 0.80 with {\arrow{>}}},
+      postaction={decorate}, thick, red] (2, 0) -- (-2,0);
+      \draw (1,.25035) node[above] {$\gamma_3(t)$};
+\end{tikzpicture}
+\end{center}
 
 % Add more problems as needed...
 
