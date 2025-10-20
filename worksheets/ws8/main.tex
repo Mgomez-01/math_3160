@@ -72,8 +72,9 @@
 A contour $C$ is parametrized by $\gamma(t) = e^{i(\pi - t)} \quad (0 \leq t \leq \pi)$. Draw the contour $C$, carefully indicating its starting point and ending point. 
 
 \begin{align*}
-% Your mathematical work here
+  e^{i(\pi-t)} &= e^{i\pi}e^{-it}
 \end{align*}
+This can be understood as taking the path for $e^{-it}$ which from $0$ to $\pi$ should sweep around clockwise from 0 to $-\pi$. Every point in this path is then rotated in a counter-clockwise rotation by $\pi$. So the path is the following: 
 
 \vspace{1cm} % Add space for additional work if needed
 % For graphs/diagrams, you can use TikZ:
@@ -81,8 +82,16 @@ A contour $C$ is parametrized by $\gamma(t) = e^{i(\pi - t)} \quad (0 \leq t \le
 \begin{tikzpicture}
     % Your TikZ code here
     % Example: Draw axes
-    \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
-    \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
+    \draw[->] (-2,0) -- (2,0) node[right] {$\mathbb{R}$};
+    \draw[->] (0,-2) -- (0,2) node[above] {$\mathbb{I}$};
+    \draw[thick, blue, fill=blue!100] (-1,0) circle (0.05);
+    \draw[thick, red, fill=red!100] (1,0) circle (0.05);
+                \draw[<-, decoration={markings, 
+        mark=at position 0.25 with {\arrow{<}},
+        mark=at position 0.5 with {\arrow{<}},
+        mark=at position 0.75 with {\arrow{<}}},
+      postaction={decorate}, thick] (1,0) arc (0:180:1);
+      \draw (.5,.85035) node[above] {$\gamma(t)$};
 \end{tikzpicture}
 \end{center}
 \vspace{1cm}
@@ -95,8 +104,8 @@ Write down the parametrization of the following contour:
 \begin{tikzpicture}
     % Your TikZ code here
     % Example: Draw axes
-    \draw[->] (-2,0) -- (3,0) node[right] {};
-    \draw[->] (0,-2) -- (0,3) node[above] {};
+    \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
+    \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
             \draw[->, decoration={markings, 
         mark=at position 0.25 with {\arrow{>}},
         mark=at position 0.5 with {\arrow{>}},
@@ -133,8 +142,8 @@ We start gamma at $\pi$ by including the factor of $e^{-i\pi}$. Then as $t$ swee
 
 \hrule
 
-\newpage
-\section*{Problem 3}
+%\newpage
+%\section*{Problem 3}
 
 
 \vspace{1cm} % Space for work

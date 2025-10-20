@@ -20,6 +20,7 @@
 \usepackage{relsize}
 \usepackage{tikz}
 \tikzset{every picture/.style={scale=1.2}}
+\usetikzlibrary{decorations.markings} 
 \renewcommand{\normalsize}{\fontsize{12}{20}\selectfont}
 
 % custom commands
@@ -68,45 +69,131 @@
 % ====================================================================
 
 \section*{Problem 1}
-[Problem statement goes here]
-
+Find parameterized representations $z(t)$ of the following contours in the plane including $t$-ranges.
 \begin{enumerate}
-\item[(a)] [Sub-problem a]
-  \begin{align*}
-    % Your work here
-  \end{align*}
-  
-\item[(b)] [Sub-problem b]
-  \begin{align*}
-    % Your work here
-  \end{align*}
+\item  A straight line from point $(1+2i)$ to point $(i+2)$
+\item A line from $(0,0)$ to point $(1+\sqrt{3}i)$
+\item A half-ellipse from point $2$ to $-2$ passing through $i$ centered at the origin. Recall that such an ellipse is defined by an equation of the form $ \left ( \frac{x}{a} \right )^2 + \left ( \frac{y}{b} \right )^2 = 1$ in the $xy$-plane (for some real constants $a,b >0$). {\it Hint: First find the suitable values of $a$ and $b$ defining the said ellipse. Then try parametrizing it similar to how $(\cos{t}, \sin{t})$ parametrizes the unit cirle.}
 \end{enumerate}
 
-\vspace{.5cm} % Space between problems
+\vspace{.5cm} 
+\hrule 
+\vspace{.5cm}
+\subsection*{(a)}
+A straight line from point $(1+2i)$ to point $(i+2)$
 
-\hrule % Adds a horizontal line to separate problems.
-
-\newpage
-\section*{Problem 2}
-[Problem statement goes here]
-
-% For graphs/diagrams, you can use TikZ:
+This one will require the expression for a line between points: $P + t(Q-P)$ where $P$ and $Q$ are the points and $t$ runs from $0\leq t\leq1$.
+\begin{align*}
+  P &= (1+2i)\\
+  Q &= (i+2)\\
+  Q-P &= (i+2) - (1+2i) = 1 - i\\
+  \gamma(t) &= 1+2i + t(1-i)
+\end{align*}
 \begin{center}
 \begin{tikzpicture}
     % Your TikZ code here
     % Example: Draw axes
-    \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
-    \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
+    \draw[->] (-1,0) -- (2,0) node[right] {$\mathbb{R}$};
+    \draw[->] (0,-1) -- (0,2) node[above] {$\mathbb{I}$};
+    \draw[thick, blue, fill=blue!100] (1,2) circle (0.05) node[above] {$(1+2i)$};
+    \draw[thick, red, fill=red!100] (2,1) circle (0.05) node[below] {$(2+i)$};
+                \draw[<-, decoration={markings, 
+        mark=at position 0.25 with {\arrow{<}},
+        mark=at position 0.5 with {\arrow{<}},
+        mark=at position 0.75 with {\arrow{<}}},
+      postaction={decorate}, thick] (2,1) -- (1,2);
+      \draw (1,1) node[above] {$\gamma(t)$};
 \end{tikzpicture}
 \end{center}
+\vspace{.5cm} 
+\hrule 
+\vspace{.5cm}
+\subsection*{(b)}
+A line from $(0,0)$ to point $(1+\sqrt{3}i)$.
+
+This one is quite simple as we only have to multiply the point by $t$ as the first point $P$ is the origin and that handles moving from the origin to the point $(1+\sqrt{3}i)$ as it moves from $0\leq t\leq1$.
+\begin{center}
+\begin{tikzpicture}
+    % Your TikZ code here
+    % Example: Draw axes
+    \draw[->] (0,0) -- (2,0) node[right] {$\mathbb{R}$};
+    \draw[->] (0,0) -- (0,2) node[above] {$\mathbb{I}$};
+    \draw[thick, blue, fill=blue!100] (0,0) circle (0.05)node[left] {$(0, 0)$};
+                \draw[<-, decoration={markings, 
+        mark=at position 0.25 with {\arrow{<}},
+        mark=at position 0.5 with {\arrow{<}},
+        mark=at position 0.75 with {\arrow{<}}},
+      postaction={decorate}, thick] (1, 1.73) -- (0,0);
+    \draw[thick, red, fill=red!100] (1, 1.73) circle (0.05) node[above] {$(1+i\sqrt{3})$};
+    \draw (1,.5035) node[above] {$\gamma(t)$};
+\end{tikzpicture}
+\end{center}
+\vspace{.5cm} 
+\hrule 
+\vspace{.5cm}
+\subsection*{(c)}
+A half-ellipse from point $2$ to $-2$ passing through $i$ centered at the origin.
+\begin{align*}
+   x & = a \cos{t} = 2\cos{t}\\
+  y & = b \sin{t} = \sin{t}\\
+  z(t) &= x + iy = 2\cos{t} + \sin{t}
+\end{align*}
+\begin{center}
+\begin{tikzpicture}
+    % Your TikZ code here
+    % Example: Draw axes
+    \draw[->] (-2,0) -- (2,0) node[right] {$\mathbb{R}$};
+    \draw[->] (0,0) -- (0,2) node[above] {$\mathbb{I}$};
+    \draw[thick, blue, fill=blue!100] (2,0) circle (0.05)node[below] {$(-2,0)$};
+    \draw[thick, red, fill=red!100] (-2,0) circle (0.05) node[below] {$(2,0)$};
+                \draw[<-, decoration={markings, 
+        mark=at position 0.25 with {\arrow{>}},
+        mark=at position 0.5 with {\arrow{>}},
+        mark=at position 0.75 with {\arrow{>}}},
+      postaction={decorate}, thick] (2, 0) arc (0:180:2 and 1);
+      \draw (.5,.85035) node[above] {$\gamma(t)$};
+\end{tikzpicture}
+\end{center}
+
+
+\newpage
+\section*{Problem 2}
+Evaluate the following integrals: 
+\begin{enumerate}
+\item  $\int_1^2 (\frac{1}{t}-i)^2 dt $
+\item $\int_0^{\pi/6} e^{i2t}dt$
+\item $\int_0^{\infty} e^{izt}dt$ where $Im(z)>0$ 
+\end{enumerate}
 
 \vspace{.5cm} % Space between problems
 
 \hrule
-
+\subsection*{(a)}
+\begin{align*}
+  \int_1^2 (\frac{1}{t}-i)^2 dt &= \int_1^2 (\frac{1}{t^2} - 2i\frac{1}{t} -i^2) dt \\
+  &= \int_1^2\frac{1}{t^2}dt -2i\int_1^2\frac{1}{t}dt + \int_1^2dt \\ 
+  &= -\frac{1}{3}\int_1^2-3t^{-2}dt -2i\ln{(t)}|_1^2 + t|_1^2 \\ 
+                                &=  -\frac{1}{3}t^{-3}|_1^2 + -2i\ln{(t)}|_1^2 + t|_1^2 \\
+                                &= \left(\frac{1}{3}-\frac{1}{3*2^3}\right) - 2i(\ln{(2)}-\ln{(1)}) + 1 \\
+                                &= \left(\frac{1}{3}-\frac{1}{3*2^3} + 1 \right) - 2i(\ln{(2)}-\ln{(1)}) 
+\end{align*}
+\hrule
+\subsection*{(b)}
+\begin{align*}
+  \int_0^{\pi/6} e^{i2t}dt &= \frac{1}{2i}\int_0^{\pi/6} 2ie^{i2t}dt \\
+  &= \frac{1}{2i} e^{i2t}|_0^{\pi/6} = -\frac{1}{2}i(e^{i\pi/3} - 1)
+\end{align*}
+\hrule
+\subsection*{(c)}
 \newpage
 \section*{Problem 3}
-[Problem statement goes here]
+Sketch the oriented curve defined by the following four contours and compute $\int_{C}f(z) dz$ where $f (z) = z-1$:
+\begin{enumerate}
+\item $C_1$: A semicircle $z=2e^{i\theta}$ for $\theta\in [\pi, 2\pi]$.
+\item $C_2$: A full circle $z=2e^{i\theta}$  for $\theta\in [0, 2\pi]$.
+\item $C_3$: A line on the real axis from $2$ to $-2$.
+\item $C_4 = C_1+C_3$ where $+$ denotes concatenation.
+\end{enumerate}
 
 \vspace{.5cm} % Space for work
 
