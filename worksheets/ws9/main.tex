@@ -1,0 +1,128 @@
+% --------------------------------------------------------------------
+% LaTeX Template for Math Worksheets
+% --------------------------------------------------------------------
+\documentclass{article}
+
+% --- PACKAGE IMPORTS ---
+% These packages add functionality for math symbols, formatting, etc.
+\usepackage[margin=.7in]{geometry}       % For setting page margins to 0.7 inch
+\usepackage{amsmath, amssymb, amsthm}   % American Mathematical Society packages for advanced math
+\usepackage{graphicx}                   % For including images
+\usepackage{fancyhdr}                   % For creating custom headers and footers
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref} % For clickable links
+\usepackage{cancel}
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage{amsxtra}
+\usepackage{epsfig}
+\usepackage{wasysym}
+\usepackage{relsize}
+\usepackage{tikz}
+\tikzset{every picture/.style={scale=1.2}}
+\renewcommand{\normalsize}{\fontsize{12}{20}\selectfont}
+
+% custom commands
+\newcommand{\myauthor}{Miguel Gomez}
+\newcommand{\canceling}[2]{\textcolor{red}{\cancelto{\textcolor{black}{#1}}{\textcolor{black}{#2}}}}
+\newcommand{\todo}[1]{\textcolor{blue}{TODO:#1}}
+% Save the original commands
+\let\oldcos\cos
+\let\oldsin\sin
+\let\oldcosh\cosh
+\let\oldsinh\sinh
+
+% Redefine with automatic parentheses
+\renewcommand{\cos}[1]{\oldcos\left(#1\right)}
+\renewcommand{\sin}[1]{\oldsin\left(#1\right)}
+\renewcommand{\cosh}[1]{\oldcosh\left(#1\right)}
+\renewcommand{\sinh}[1]{\oldsinh\left(#1\right)}
+
+\newcommand{\der}[2]{\frac{d#1}{d#2}}
+\newcommand{\secder}[2]{\frac{d^2#1}{d#2^2}}
+\newcommand{\parder}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\secparder}[2]{\frac{\partial^2#1}{\partial#2^2}}
+
+% --- DOCUMENT & AUTHOR INFORMATION ---
+\title{Worksheet \# 9}
+\author{
+  MATH 3160 -- Complex Variables\\
+  \myauthor
+}
+\date{Completed: \today} 
+
+% --- HEADER & FOOTER CONFIGURATION ---
+% This section sets up the header that will appear on each page.
+\pagestyle{fancy}
+\fancyhf{} % Clears the default header and footer
+\lhead{Math 3160 -- Worksheet \# 9} % Left side of header
+\rhead{\myauthor} % Puts the author's name on the right side
+\rfoot{Page \thepage} % Puts the page number on the bottom right
+
+\begin{document}
+
+\maketitle % This command generates the title based on the information above.
+
+% ====================================================================
+% --- START OF PROBLEMS ---
+% ====================================================================
+
+% Note: \section* creates a section heading without a number.
+\section*{Problem 1}
+let C be the contour shown below, traversed counter-clockwise:
+
+\vspace{1cm} % Add space for additional work if needed
+
+% steal fig from the latex given on canvas
+
+find $\int_C \frac{1}{z}dz$ (Hint: Consider a new branch of the logarithm function by $\log{(re^{i\theta})} = \ln{(r)} + i\theta$, where $\3\pi/2 < \theta \leq \pi/2$, and check that this is an anti-derivative of $1/z$.)
+\vspace{1cm}
+\hrule % Adds a horizontal line to separate problems.
+
+\begin{align*}
+% Your mathematical work here
+\end{align*}
+
+\newpage
+\section*{Problem 2}
+Show that $\int_C f(z)dz = 0$ for $C$ the unit circle and :
+\begin{enumerate}
+  \item[(i)] $f(z) = \frac{z^2}{z+3}$
+  \item[(ii)] $f(z) = \frac{1}{z^2 + 2z + 2}$
+\end{enumerate}
+\subsection*{(i)}
+Since we are evaluating with $C$ begin the unit circle, any point which lies outside of the unit circle does not matter for our evaluation as we only need the curve and its interior to be a simply connected domain $D$. in the denominator, we see that we have $z+3$, meaning that it only becomes 0 if Re$(z)$ is $-3$. So the vertical line $x = -3$ in the complex plane will give a divide by zero issue. The unit circle only contains points where the magnitude of $z$ is less than or equal to $1$.
+
+$\therefore$ the C-G equation holds and we have a path with a simply connected interior region with the same starting and ending point whose integral evaluates to $0$. 
+\vspace{1cm} % Space for work
+
+\hrule
+
+\newpage
+\section*{Problem 3}
+Let $C_1$ denote the positively oriented boundary of the square whose sides lie along the lines $x = \pm 1$, and $y=\pm i$, and let $C_2$ denote the positively oriented circle $|z| = 4$. Explain why:
+\begin{align*}
+  \int_{C_1}f(z)dz &= \int_{C_2}f(z)dz
+\end{align*}
+when
+\begin{enumerate}
+  \item[(a)] $f(z) = \frac{1}{2x^2+1}$
+  \item[(b)] $f(z) = \frac{z+2}{sin(z/2)}$
+  \item[(c)] $f(z) = \frac{z}{1-e^z}$
+\end{enumerate}
+
+\vspace{1cm} % Space for work
+
+\hrule
+
+% Add more problems as needed...
+% \newpage
+% \section*{Problem 4}
+% 
+% \hrule
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

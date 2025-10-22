@@ -175,7 +175,10 @@ Evaluate the following integrals:
   &= -\frac{1}{3}\int_1^2-3t^{-2}dt -2i\ln{(t)}|_1^2 + t|_1^2 \\ 
                                 &=  -\frac{1}{3}t^{-3}|_1^2 + -2i\ln{(t)}|_1^2 + t|_1^2 \\
                                 &= \left(\frac{1}{3}-\frac{1}{3*2^3}\right) - 2i(\ln{(2)}-\ln{(1)}) + 1 \\
-                                &= \left(\frac{1}{3}-\frac{1}{3*2^3} + 1 \right) - 2i(\ln{(2)}-\ln{(1)}) 
+                                &= \left(\frac{1}{3}-\frac{1}{3*2^3} + 1 \right) - 2i(\ln{(2)}-0) \\
+                                &= \left(\frac{4}{3}-\frac{1}{3*8} \right) - 2i\ln{(2)} \\
+                                &= \left(\frac{32}{24}-\frac{1}{24} \right) - 2i\ln{(2)} \\
+                                &= \left(\frac{31}{24} \right) - 2i\ln{(2)} 
 \end{align*}
 \hrule
 \subsection*{(b)}
@@ -185,6 +188,14 @@ Evaluate the following integrals:
 \end{align*}
 \hrule
 \subsection*{(c)}
+\begin{align*}
+  \int_0^{\infty} e^{izt}dt &=  \frac{1}{iz}e^{izt}|_0^{\infty} = \frac{1}{iz}(e^{iz\infty}-1) \\
+  &= \frac{1}{iz}(e^{i(x+iy)\infty}-1) = \frac{1}{iz}(e^{(ix-y)\infty}-1) = \frac{1}{iz}(e^{ix\infty}e^{-y\infty}-1) \\
+\end{align*}
+$e^{ix\infty}$ oscillates forever and always has a magnitude equal to $1$ no matter the $x$ value. $e^{-y\infty}$ reveals why we need to have the imaginary part grater than $0$. If the imaginary part is greater than 0, we then get exponential decay for the expression involving the negative sign. With this, this eventually dissipates as t approaches infinity.
+\begin{align*}
+\therefore  \int_0^{\infty} e^{izt}dt &= -\frac{1}{iz}
+\end{align*}
 \newpage
 \section*{Problem 3}
 Sketch the oriented curve defined by the following four contours and compute $\int_{C}f(z) dz$ where $f (z) = z-1$:
@@ -216,6 +227,19 @@ Sketch the oriented curve defined by the following four contours and compute $\i
 \end{tikzpicture}
 \end{center}
 \vspace{.5cm} % Space for work
+\begin{align*}
+f(z) &= z-1 \\
+  \gamma(t) &= 2e^{i\pi t}\\
+  1 &\leq t \leq 2\\
+  t &= 1 \xrightarrow{} e^{i\pi}\\
+  t &= 2 \xrightarrow{} e^{i2\pi}\\
+  \int_1^{2}f(\gamma(t))\gamma(t)'dt &=  \int_1^{2}(\gamma(t)-1)\gamma(t)'dt\\
+  =  \int_1^{2}(2e^{i\pi t}-1)(2i\pi e^{i\pi t})dt &=  2\int_1^{2}(2i\pi e^{i2\pi t})dt- 2\int_1^{2}i\pi e^{i\pi t}dt\\
+     &=  2\int_1^{2}(2i\pi e^{i2\pi t})dt- 2\int_1^{2}i\pi e^{i\pi t}dt\\
+     &= 2e^{i2\pi t}|_1^2 - 2e^{i\pi t}|_1^2 = 2[(e^{i4\pi}-e^{i2\pi}) - (e^{i2\pi}-e^{i\pi})]\\
+     &= 2[(\canceling{1}{e^{i4\pi}}-\canceling{1}{e^{i2\pi}}) - (\canceling{1}{e^{i2\pi}}-\canceling{-1}{e^{i\pi}})] = 2[(1-1) - (1-(-1))] \\
+  &= 2(-2) = -4
+\end{align*}
 
 \hrule
 \newpage
@@ -285,8 +309,19 @@ Since we know that the curve here starts and ends at the same point, we know tha
 \end{tikzpicture}
 \end{center}
 \vspace{.5cm} % Space for work
-
+\begin{align*}
+  f(z) &= z-1 \\
+  \gamma(t) &= z(t) = x(t)+iy(t)\\
+  y(t) &= 0 \\
+  \x(t) = P + t(Q-P) &= (2,0) + t[(-2,0) - (2,0)] = 2-4t\\
+  \gamma(t) &= x(t) = 2-4t\\
+  0 &\leq t \leq 1\\
+  \int_0^{1}f(\gamma(t))\gamma(t)'dt &=  \int_0^{1}(\gamma(t)-1)\gamma(t)'dt \\
+       &=  \int_0^{1}(2-4t-1)(-4)dt =  (-4)\int_0^{1}(1-4t)dt  \\
+  &= -4(t-2t^2)|_0^1 = -4[(1-2)-(0)] = -4*(-1) = 4
+\end{align*}
 \hrule
+\newpage
 \subsection*{(4)}
 \begin{center}
 \begin{tikzpicture}
@@ -311,7 +346,10 @@ Since we know that the curve here starts and ends at the same point, we know tha
       \draw (1,.25035) node[above] {$\gamma_3(t)$};
 \end{tikzpicture}
 \end{center}
-
+Similar to the case in two, we have a path that that is closed between two points. Since we have evaluated the path previously, we can conclude that this path will also resolve to 0. Taking the answers for 1 and 3 and taking their sum shows this resolves to 0.
+\begin{align*}
+  \int C_1 + \int C_3 = -4 + 4 = 0
+\end{align*}
 % Add more problems as needed...
 
 \end{document}
