@@ -44,7 +44,7 @@
 \newcommand{\secparder}[2]{\frac{\partial^2#1}{\partial#2^2}}
 
 % --- DOCUMENT & AUTHOR INFORMATION ---
-\title{Homework \# x}
+\title{Homework \# 7}
 \author{
   MATH 3160 -- Complex Variables\\
   \myauthor
@@ -55,7 +55,7 @@
 % This section sets up the header that will appear on each page.
 \pagestyle{fancy}
 \fancyhf{} % Clears the default header and footer
-\lhead{Math 3160 -- HW \# x} % Left side of header
+\lhead{Math 3160 -- HW \# 7} % Left side of header
 \rhead{\myauthor} % Puts the author's name on the right side
 \rfoot{Page \thepage} % Puts the page number on the bottom right
 
@@ -68,51 +68,62 @@
 % ====================================================================
 
 \section*{Problem 1}
-[Problem statement goes here]
-
-\begin{enumerate}
-\item[(a)] [Sub-problem a]
-  \begin{align*}
-    % Your work here
-  \end{align*}
-  
-\item[(b)] [Sub-problem b]
-  \begin{align*}
-    % Your work here
-  \end{align*}
-\end{enumerate}
-
+Compute the integral \[ \int_{C_i} z^{1/2} dz\] where $ z^{1/2} $ is taken on the branch $0<arg(z)<2\pi$ and along the contours $C_1 , C_2$,  where $C_1$ is any contour from $-3$ to $3$ lying in the domain except the point $3$ that approaches $3$ from above the real axis, while $C_2$ approaches $3$ from below the real axis.
+               
 \vspace{.5cm} % Space between problems
 
 \hrule % Adds a horizontal line to separate problems.
 
 \newpage
 \section*{Problem 2}
-[Problem statement goes here]
+Apply the Cauchy-Goursat theorem to show that \[  \int_C f(z)dz = 0\] for the contour $C$ being the unit circle about the origin, or determine that Cauchy-Goursat theorem does not apply.
 
-% For graphs/diagrams, you can use TikZ:
-\begin{center}
-\begin{tikzpicture}
-    % Your TikZ code here
-    % Example: Draw axes
-    \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
-    \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
-\end{tikzpicture}
-\end{center}
-
+\begin{enumerate}
+\item[(a)] $f(z) = \frac{z^2}{z-3}$
+\item[(b)] $f(z) = ze^{-z}$
+\item[(c)] $f(z) = \frac{z}{2z-i}$ 
+\item[(d)] $f(z) = \tan(z)$
+\item[(e)] $f(z) = Log(z+2)$ 
+\item[(f)] $f(z) = \frac{1}{z^2+3z+2}$
+\item[(g)] $f(z) = log(z)$, any branch.
+\end{enumerate}
+		
 \vspace{.5cm} % Space between problems
 
 \hrule
 
 \newpage
 \section*{Problem 3}
-[Problem statement goes here]
+ Let C denote the positively oriented boundary of the square whose sides lie along $x\pm2$ and $y\pm2$. Evaluate the following integrals.
+ 
+ \begin{enumerate}
+ \item[(a)] $\int_C \frac{e^{-z}}{z-\frac{\pi i}{2}}dz$
+ \item[(b)] $\int_C \frac{z}{2z+1}dz$
+ \item[(c)] $\int_C \frac{\cosh{z}}{z}$
+ \end{enumerate}
+ 
+\vspace{.5cm} % Space for work
+
+\hrule
+\newpage
+\section*{Problem 4}
+Use the Cauchy integral formula to integrate $\int_C f(z)dz$ for $f(z) = \frac{1}{(z-i)(z-1)}$ over a contour $C$ being a positive-oriented circle at the origin with radius 2. 
+	
+\vspace{.5cm} % Space for work
+
+\hrule
+\newpage
+\section*{Problem 5}
+Using the extended Cauchy integral formula, compute \[ \int_C \frac{e^{2i z}}{(z-3i)^4} dz \] on the curve $C$ being a positive-oriented circle with radius 4 centered at the origin.
+	
 
 \vspace{.5cm} % Space for work
 
 \hrule
-
-% Add more problems as needed...
+\newpage
+\section*{Problem 6}
+Using the extended Cauchy integral formula, compute \[ \int_C \frac{\cosh{z}}{(z-i)^2} dz \] on the contour $C$ being the positive-oriented circle with radius 2 centered at the origin. Recall that $\cosh{z} := \frac{e^z + e^{-z}}{2}.$
+	
 
 \end{document}
 

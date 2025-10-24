@@ -19,6 +19,7 @@
 \usepackage{relsize}
 \usepackage{tikz}
 \tikzset{every picture/.style={scale=1.2}}
+\usetikzlibrary{decorations.markings} 
 \renewcommand{\normalsize}{\fontsize{12}{20}\selectfont}
 
 % custom commands
@@ -68,8 +69,42 @@
 
 % Note: \section* creates a section heading without a number.
 \section*{Problem 1}
-let C be the contour shown below, traversed counter-clockwise:
+let C be the contour shown below, traversed counter-clockwise from the blue point to the red:
+\begin{center}
+\begin{tikzpicture}
+    % Draw grid
+    \draw[gray!30, very thin] (-2.5,-2.5) grid (2.5,2.5);
+    
+    % Draw axes
+    \draw[->] (-2.5,0) -- (2.5,0) node[right] {};
+    \draw[->] (0,-2.5) -- (0,2.5) node[above] {};
+    
+    % Add axis labels
+    \foreach \x in {-2,-1,1,2}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+    \foreach \y in {-2,-1,1,2}
+        \draw (0.1,\y) -- (-0.1,\y) node[left] {\y};
+    
+    % Draw the wavy circle with arrow decorations
+    \draw[thick] plot[domain=-225:45, samples=300, smooth] 
+        ({\x}: {sqrt(2) + 0.05*sin(40*\x)});
+        % Draw the wavy circle with arrow decorations
+    \draw[gray!30, decoration={markings, 
+        mark=at position 0.15 with {\arrow[black]{>}},
+        mark=at position 0.35 with {\arrow[black]{>}},
+        mark=at position 0.55 with {\arrow[black]{>}},
+        mark=at position 0.75 with {\arrow[black]{>}},
+        mark=at position 0.95 with {\arrow[black]{>}}},
+        postaction={decorate}] 
+        plot[domain=-225:45, samples=300, smooth] 
+        ({\x}: {sqrt(2.8)});
 
+
+    % Add dots at start and end points
+    \fill[red] (45:{sqrt(2)}) circle (2pt);
+    \fill[blue] (-225:{sqrt(2)}) circle (2pt);
+\end{tikzpicture}
+\end{center}
 \vspace{1cm} % Add space for additional work if needed
 
 % steal fig from the latex given on canvas
@@ -90,9 +125,13 @@ Show that $\int_C f(z)dz = 0$ for $C$ the unit circle and :
   \item[(ii)] $f(z) = \frac{1}{z^2 + 2z + 2}$
 \end{enumerate}
 \subsection*{(i)}
-Since we are evaluating with $C$ begin the unit circle, any point which lies outside of the unit circle does not matter for our evaluation as we only need the curve and its interior to be a simply connected domain $D$. in the denominator, we see that we have $z+3$, meaning that it only becomes 0 if Re$(z)$ is $-3$. So the vertical line $x = -3$ in the complex plane will give a divide by zero issue. The unit circle only contains points where the magnitude of $z$ is less than or equal to $1$.
+Since we are evaluating with $C$ within the unit circle, any point which lies outside of the unit circle does not matter for our evaluation as we only need the curve and its interior to be a simply connected domain $D$. in the denominator, we see that we have $z+3$, meaning that it only becomes 0 if Re$(z)$ is $-3$. So the vertical line $x = -3$ in the complex plane will give a divide by zero issue. The unit circle only contains points where the magnitude of $z$ is less than or equal to $1$.
 
 $\therefore$ the C-G equation holds and we have a path with a simply connected interior region with the same starting and ending point whose integral evaluates to $0$. 
+
+\begin{align*}
+  
+\end{align*}
 \vspace{1cm} % Space for work
 
 \hrule
