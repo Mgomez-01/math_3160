@@ -69,7 +69,7 @@
 
 % Note: \section* creates a section heading without a number.
 \section*{Problem 1}
-let C be the contour shown below, traversed counter-clockwise from the blue point to the red:
+let C be the contour shown below, traversed counter-clockwise from the blue point to the red. I have reconstructed this image from the worksheet and am confident this is similar to how it was done, but I must admit I am making an assumption about the structure. 
 \begin{center}
 \begin{tikzpicture}
     % Draw grid
@@ -105,18 +105,40 @@ let C be the contour shown below, traversed counter-clockwise from the blue poin
     \fill[blue] (-225:{sqrt(2)}) circle (2pt);
 \end{tikzpicture}
 \end{center}
-\vspace{1cm} % Add space for additional work if needed
+\vspace{0.5cm} % Add space for additional work if needed
 
 % steal fig from the latex given on canvas
 
-find $\int_C \frac{1}{z}dz$ (Hint: Consider a new branch of the logarithm function by $\log{(re^{i\theta})} = \ln{(r)} + i\theta$, where $\3\pi/2 < \theta \leq \pi/2$, and check that this is an anti-derivative of $1/z$.)
-\vspace{1cm}
+find $\int_C \frac{1}{z}dz$ (Hint: Consider a new branch of the logarithm function by $\log{(re^{i\theta})} = \ln{(r)} + i\theta$, where $-3\pi/2 < \theta \leq \pi/2$, and check that this is an anti-derivative of $1/z$.)
+\vspace{0.5cm}
 \hrule % Adds a horizontal line to separate problems.
-
+\vspace{0.5cm}
+I get the hint, but I saw this from the start and wanted to work it out. In checking this path, we know that the result should have a value because it is not a closed path. Parametrizing this path works as follows given the diagram. placing a circle of radius $\sqrt{2}$ cuts through the sinusoid and it oscillates around it.  
 \begin{align*}
-% Your mathematical work here
+  z &= (\sqrt{2}+A\sin{\omega\theta})e^{i\theta} \\
+  z_0 &= \sqrt{2}e^{-i\frac{5\pi}{4}} \quad A\sin{-\omega\frac{5\pi}{4}} = 0 \\
+  z_f &= \sqrt{2}e^{i\frac{\pi}{4}}  \quad A\sin{\omega\frac{\pi}{4}} = 0\\
+  r(t) &= \sqrt{2}+A\sin{\omega\theta(t)}
 \end{align*}
 
+The path has a sinusoidal signal in superposition such that there is a change $A\sin{\omega\theta}$ in the magnitude of $z$. Instead of writing out so much, we can continue by treating this more generally:
+
+\begin{align*}
+  z(t) &= r(t)e^{i\theta(t)} \\
+  z'(t) &= r'(t)e^{i\theta(t)}+r(t)(i\theta'(t))e^{i\theta(t)}\\
+  \int_{\gamma}f(z)dz &= \int_{t_0}^{t_1}f(z(t))z'(t)dt \\
+  \int_{\gamma}f(z)dz &= \int_{t_0}^{t_1}\frac{1}{r(t)e^{i\theta(t)}}[r'(t)e^{i\theta(t)}+r(t)(i\theta'(t))e^{i\theta(t)}]dt \\
+&= \int_{t_0}^{t_1}\frac{e^{i\theta(t)}}{r(t)e^{i\theta(t)}}[r'(t)+r(t)(i\theta'(t))]dt \\
+       &= \int_{t_0}^{t_1}\left[\frac{r'(t)}{r(t)}+i\theta'(t)\right]dt \\
+  &= \int_{t_0}^{t_1}\frac{r'(t)}{r(t)}dt +i\int_{t_0}^{t_1} \theta'(t)dt \\
+  &= \ln{(r(t))}|_{t_0}^{t_1} +i \theta(t)|_{t_0}^{t_1} \\
+  &= (\ln{(r(t_1))} - \ln{(r(t_0))}) + i (\theta(t_1)-\theta(t_0)) \\
+\end{align*}
+Now, we can see that no matter the function $r(t)$, we get the final expressions by recognizing that the  sinusoidal signal for the magnitude has the same value at $t_0$ and $t_1$, then $r(t_1) = r(t_0)$, and therefore $\ln{(r(t_1))} = \ln{(r(t_0))}$. This then leaves us with the final expression:
+\begin{align*}
+\int_{\gamma}f(z)dz &=  i (\theta(t_1)-\theta(t_0))
+\end{align*}
+This shows that the integral value only depends on the angle difference and would not change for any radius used. Therefore, since the angular difference is $3/4$ of the unit circle, and we know the integral of $1/z$ is $2\pi i$, this integral is therefore $\frac{3\pi}{2} i$. Which is nice because it confirms the given hint and why it works as an antiderivative.
 \newpage
 \section*{Problem 2}
 Show that $\int_C f(z)dz = 0$ for $C$ the unit circle and :
@@ -125,14 +147,14 @@ Show that $\int_C f(z)dz = 0$ for $C$ the unit circle and :
   \item[(ii)] $f(z) = \frac{1}{z^2 + 2z + 2}$
 \end{enumerate}
 \subsection*{(i)}
-Since we are evaluating with $C$ within the unit circle, any point which lies outside of the unit circle does not matter for our evaluation as we only need the curve and its interior to be a simply connected domain $D$. in the denominator, we see that we have $z+3$, meaning that it only becomes 0 if Re$(z)$ is $-3$. So the vertical line $x = -3$ in the complex plane will give a divide by zero issue. The unit circle only contains points where the magnitude of $z$ is less than or equal to $1$.
+Since we are evaluating with $C$ within the unit circle, any point which lies outside of the unit circle does not matter for our evaluation as we only need the curve and its interior to be a simply connected domain $D$. in the denominator, we see that we have $z+3$, meaning that it only becomes 0 if $z$ is $-3$. So the point $z = -3$ in the complex plane will give a divide by zero issue. Since $|−3| = 3 > 1$, the unit circle only contains points where the magnitude of $z$ is less than or equal to $1$, meaning it is analytic inside and on the unit circle.
 
-$\therefore$ the C-G equation holds and we have a path with a simply connected interior region with the same starting and ending point whose integral evaluates to $0$. 
+$\therefore$ the C-G theorem holds and we have a path with a simply connected interior region with the same starting and ending point whose integral evaluates to $0$. 
 
-\begin{align*}
-  
-\end{align*}
-\vspace{1cm} % Space for work
+\subsection*{(ii)}
+In this problem, we have a similar result as the denominator is $0$ only where $z = -1 \pm i$ given the factoring of the denominator. Notice that the magnitude of $z$ for these points will be $\sqrt{2}$, and therefore the points are also outside of the unit circle. With $\sqrt{2} > 1$ and the unit circle only contains points where $|z| \leq 1$, then we again have an integral that evaluates to $0$. 
+
+\vspace{0.5cm} % Space for work
 
 \hrule
 
@@ -149,7 +171,7 @@ when
   \item[(c)] $f(z) = \frac{z}{1-e^z}$
 \end{enumerate}
 
-\vspace{1cm} % Space for work
+\vspace{0.5cm} % Space for work
 
 \hrule
 
