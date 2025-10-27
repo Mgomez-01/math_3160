@@ -166,7 +166,7 @@ Let $C_1$ denote the positively oriented boundary of the square whose sides lie 
 \end{align*}
 when
 \begin{enumerate}
-  \item[(a)] $f(z) = \frac{1}{2x^2+1}$
+  \item[(a)] $f(z) = \frac{1}{3z^2+1}$
   \item[(b)] $f(z) = \frac{z+2}{sin(z/2)}$
   \item[(c)] $f(z) = \frac{z}{1-e^z}$
 \end{enumerate}
@@ -175,11 +175,67 @@ when
 
 \hrule
 
-% Add more problems as needed...
-% \newpage
-% \section*{Problem 4}
-% 
-% \hrule
+\begin{center}
+\begin{tikzpicture}
+    % Draw grid
+    \draw[gray!30, very thin] (-6.5,-6.5) grid (6.5,6.5);
+    
+    % Draw axes
+    \draw[->] (-6.5,0) -- (6.5,0) node[right] {};
+    \draw[->] (0,-6.5) -- (0,6.5) node[above] {};
+    
+    % Add axis labels
+    \foreach \x in {-6,-1,1,6}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+    \foreach \y in {-6,-1,1,6}
+        \draw (0.1,\y) -- (-0.1,\y) node[below] {\y};
+    
+    % Add dots at start and end points
+    \fill[blue] (0,4) circle (2pt);
+    \draw[blue, ->, decoration={markings, 
+        mark=at position 0.25 with {\arrow{>}},
+        mark=at position 0.5 with {\arrow{>}},
+        mark=at position 0.75 with {\arrow{>}}},
+      postaction={decorate}, thick] (4,0) arc (0:360:4);
+      \draw[blue] (3, 3) node[] {$C_2$};
+\fill[blue!30, opacity=0.7] (0,0) circle (113pt);
+\fill[blue!05, opacity=0.5] (-1,-1) rectangle (1,1);        
+        \fill[black] (0,1) circle (2pt);
+    \draw[thick, black, ->] (1,1) -- (-1,1);
+    \draw[thick, black, ->] (-1,1) -- (-1,-1);
+    \draw[thick, black, ->] (-1,-1) -- (1,-1);
+    \draw[thick, black, ->] (1,-1) -- (1,1) node[right] {$C_1$};    
+      \draw[Black] (-2, -2) node[] {$D$};
+
+      \fill[red] (0,.577) circle (2pt) node[right] {$z_{a_{1}}$};
+      \fill[red] (0,-.577) circle (2pt) node[right] {$z_{a_{2}}$};
+
+      \fill[purple] (6.28, 0) circle (2pt) node[above] {$z_{b_{1}}$};
+      \fill[purple] (-6.28, 0) circle (2pt) node[above] {$z_{b_{2}}$};
+
+      \fill[blue] (0, 6.28) circle (2pt) node[right] {$z_{c_{1}}$};
+      \fill[blue] (0, -6.28) circle (2pt) node[right] {$z_{c_{2}}$};
+      
+\end{tikzpicture}
+\end{center}
+
+\subsection*{(a)}
+The poles for the expression $\frac{1}{3z^2 + 1}$ lie within the region defined by $C_1$ as shown in the figure as $D$ in the darker blue shaded region minus the interior. Since we are evaluating things within the region bound by $C_1$ and $C_2$, we can use Cauchy's theorem to evaluate. The theorem states an analytic function on a domain $D$ and its boundary resolves in 0. Since the expression is analytic on the boundaries and the region, then we know the two integrals will evaluate to 0, making the overall expression, with the two integrals on the boundaries being equal, true.
+
+i.e.
+\begin{align*}
+  \int_{C_1}f(z)dz &- \int_{C_2}f(z)dz = 0 \\
+  \int_{C_1}f(z)dz &= \int_{C_2}f(z)dz
+\end{align*}
+
+\subsection*{(b)}
+Similarly here, the poles for this expression lie on complex number values of $z/2 = n\pi$ which are values of $2n\pi$. Looking at the first few values:
+\begin{align*}
+  z = \{0, \pm 2\pi, \pm 4\pi, ...\}
+\end{align*}
+The first two of these are pictured in the figure and lie within the first boundary being $0$, and the outside due to $|4| < |\pm 2\pi|$. Since the poles lie outside the domain $D$, same as in $(a)$, we can see that Cauchy's theorem again holds true as $f$ is analytic on the boundaries and the domain $D$. 
+\subsection*{(c)}
+This expression has poles only when $1-e^z = 0$ which happens when $z = n2\pi i$. These too are pictured on the figure. These show the same situation as $(b)$, with the poles rotated by $90\circ$ as we would expect with the extra factor of $i$. In the same fashion as $(b)$, the poles lie outside the circle of radius $4$, making Cauchy's theorem apply and we can evaluate the integrals over the domain $D$ and along their boundaries, making the overall equality true.  
 
 \end{document}
 
