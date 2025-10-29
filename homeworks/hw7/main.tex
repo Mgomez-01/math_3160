@@ -68,16 +68,38 @@
 % ====================================================================
 
 \section*{Problem 1}
-Compute the integral \[ \int_{C_i} z^{1/2} dz\] where $ z^{1/2} $ is taken on the branch $0<arg(z)<2\pi$ and along the contours $C_1 , C_2$,  where $C_1$ is any contour from $-3$ to $3$ lying in the domain except the point $3$ that approaches $3$ from above the real axis, while $C_2$ approaches $3$ from below the real axis.
+Compute the integral \[ \int_{C_i} z^{\frac{1}{2}} dz\] where $ z^{\frac{1}{2}} $ is taken on the branch $0<arg(z)<2\pi$ and along the contours $C_1 , C_2$,  where $C_1$ is any contour from $-3$ to $3$ lying in the domain except the point $3$ that approaches $3$ from above the real axis, while $C_2$ approaches $3$ from below the real axis.
                
 \vspace{.5cm} % Space between problems
-
 \hrule % Adds a horizontal line to separate problems.
+\vspace{.5cm} % Space between problems
 
+Path $C_1$:
+
+\begin{align*}
+  &\int_{C_i} z^{\frac{1}{2}} dz\\
+  z^{\frac{1}{2}} = e^{\frac{1}{2} \log{(z)}} &= e^{\frac{(\ln{|z|} + i \text{arg}(z))}{2}} = \sqrt{|z|}e^{\frac{i \text{arg}(z)}{2}} \\
+  f(z) &= \sqrt{|z|}e^{\frac{i \text{arg}(z)}{2}}\\
+  z_1(t) &= 3e^{i\pi (1-t)} \quad \quad 0 \leq t < 1
+\end{align*}
+This path takes us above in a circular motion clockwise from $-3$ to $3$. to get the path on the lower side, we can remove the negative in the exponential:
+
+Path $C_2$:
+\begin{align*}
+  &\int_{C_2} z^{\frac{1}{2}} dz\\
+  z^{\frac{1}{2}} = e^{\frac{1}{2} \log{(z)}} &= e^{\frac{(\ln{|z|} + i \text{arg}(z))}{2}} = \sqrt{|z|}e^{\frac{i \text{arg}(z)}{2}} \\
+  f(z) &= \sqrt{|z|}e^{\frac{i \text{arg}(z)}{2}}\\
+  z_2(t) &= 3e^{i\pi t} \quad \quad 1 \leq t < 2
+\end{align*}
+
+\newpage
+\textcolor{white}{a}
 \newpage
 \section*{Problem 2}
 Apply the Cauchy-Goursat theorem to show that \[  \int_C f(z)dz = 0\] for the contour $C$ being the unit circle about the origin, or determine that Cauchy-Goursat theorem does not apply.
 
+\subsection*{(used below)}
+The theorem states that a function $f(z)$ is analytic on and inside a simple closed contour, then  \[  \int_C f(z)dz = 0\].  
 \begin{enumerate}
 \item[(a)] $f(z) = \frac{z^2}{z-3}$
 \item[(b)] $f(z) = ze^{-z}$
@@ -94,25 +116,32 @@ Apply the Cauchy-Goursat theorem to show that \[  \int_C f(z)dz = 0\] for the co
 \subsection*{(a)}
 $f(z) = \frac{z^2}{z-3}$
 
-\vspace{3cm} % Space between problems
+Only one issue in denominator and getting a pole at $z = 3$. However, this is outside the unit circle and therefore the function being a ratio of polynomial functions which are analytic over the domain of the unit disk, the CG theorem applies. 
 \subsection*{(b)}
 $f(z) = ze^{-z}$
-\newpage
+
+There are no singularities within the unit circle for this function and both $z$ and $e^{-z}$ are analytic everywhere. Therefore, the CG theorem applies here again. 
 \subsection*{(c)}
 $f(z) = \frac{z}{2z-i}$
-\vspace{7cm} % Space between problems
+
+Here we have a singularity within the unit circle. $z = \frac{i}{2}$ is a singularity within the bounds of the unit circle, therefore it is not analytic in the boundary of $C$. CG theorem does not apply.
 \subsection*{(d)}
-$f(z) = \tan(z)$
-\vspace{7cm} % Space between problems
+$f(z) = \tan{(z)}$
+
+$\tan{(z)}$ is the ratio of $\sin{z}$ and $\cos{z}$. This is only zero when $\cos{z} = 0$. This can happen if $z = \pm\pi(2n+1)/2$ or any odd multiple of $\pi/2$. For any of these points, the smallest of them is greater than unity and as such, all sigularities would exist outside the unit circle. Making the CG theorem apply.
 \subsection*{(e)}
 $f(z) = Log(z+2)$
 
-\newpage
+The Log function has branch cuts. In addition to this, we see that the point $z = -2$ would be a problem as that would be undefined. The pole at $z = -2$ is not an issue with the unit circle as it lies outside of it. However, back to the branch cuts, we have the branch cut occurring at $z = -2$, we can evaluate the function as it is no longer in the space where the branch cut occurs, meaning CG applies. 
 \subsection*{(f)}
 $f(z) = \frac{1}{z^2+3z+2}$
-\vspace{3cm} % Space between problems
+
+Similar as before, we need the poles below to be outside the unit circle. This factors nicely to $(z+1)(z+2)$. meaning one of the poles is on the unit circle. And since it must be analytic on the boundary, CG does not apply.
 \subsection*{(g)}
 $f(z) = log(z)$, any branch.
+
+For this problem, the CG theorem does not apply as with any branch cut, we will have the issue of discontinuity at the starting point of the cut on the unit circle. When we evaluate this integral, it is dependent on the angle $\theta$ as a function of $t$. Without shifting the point away as we did in $(e)$, we will be unable to form a simple closed contour. Additionally, there is a discontinuity within as $|z|$ cannot be zero. As such, with a pole at the center, the CG theorem does not apply. 
+
 \newpage
 \section*{Problem 3}
  Let C denote the positively oriented boundary of the square whose sides lie along $x\pm2$ and $y\pm2$. Evaluate the following integrals.
@@ -128,34 +157,111 @@ $f(z) = log(z)$, any branch.
 
 \subsection*{(a)}
 $\int_C \frac{e^{-z}}{z-\frac{\pi i}{2}}dz$
+
+For this function, we see we have a pole at $z = i\frac{\pi}{2}$ This is within the boundary of our contour as the value is approximately $1.5708 < 2$. Therefore, we must use the Cauchy Integral Formula to evaluate this.
+
+The CIF is the means to evaluate a keyhole contour effectively trimming out the discontinuity. 
+\begin{align*}
+2\pi i f(z_0) &= \int_C \frac{f(z)}{z-z_0} dz 
+\end{align*}
+we can take the function $f(z)$ to be $e^{-z}$ and our evaluation point $z_0$ to be the discontinuity
+\begin{align*}
+  \therefore \int_C \frac{e^{-z}}{z-\frac{i\pi}{2}} dz &= 2\pi i\ e^{-\frac{i\pi}{2}}\\
+                                                       &= 2\pi i\ \canceling{-i}{e^{-\frac{i\pi}{2}}} \\
+  & = -2\pi i^2 = 2\pi
+\end{align*}
 \vspace{7cm} % Space for work
 
 \subsection*{(b)}
 $\int_C \frac{z}{2z+1}dz$
 
-\vspace{7cm} % Space for work
+Similar situation for this one. we have a discontinuity at $z = -\frac{1}{2}$ and we will have to evaluate this with the CIF.
+\begin{align*}
+\int_C \frac{f(z)}{z-\left(-\frac{1}{2}\right)} dz  &= 2\pi i f\left(-\frac{1}{2}\right)
+\end{align*}
+We must first change the expression within the integral to match the form of the CIF.
+\begin{align*}
+  \frac{z}{2z+1} &= \frac{1}{2}\frac{z}{z+\frac{1}{2}} = \frac{1}{2}\frac{z}{z-\left(-\frac{1}{2}\right)}
+\end{align*}
+meaning our new $f(z) = \frac{z}{2}$
+\begin{align*}
+ 2\pi i f\left(-\frac{1}{2}\right) &= 2\pi i \cdot\left(-\frac{1}{2\cdot 2}\right) = -i\frac{\pi}{2}
+\end{align*}
 \subsection*{(c)}
 $\int_C \frac{\cosh{z}}{z}$
+
+This is another situation in which we must use the CIF to evaluate. The simple example where the discontinuity at the origin is $z_0$ and the function we evaluate will be $\cosh{z}$.
+\begin{align*}
+  \int_C \frac{\cosh{z}}{z} &= 2\pi i \cosh{0} = 2\pi i
+\end{align*}
 \newpage
 \section*{Problem 4}
 Use the Cauchy integral formula to integrate $\int_C f(z)dz$ for $f(z) = \frac{1}{(z-i)(z-1)}$ over a contour $C$ being a positive-oriented circle at the origin with radius 2. 
-	
+
+With this boundary, both of our discontinuities are within the contour. The poles here are $z = 1$ and $z = i$. We must first break up the integral into two boundaries such that we evaluate each in its own where we can apply the CIF. Taking the first where we have $f(z) = \frac{1}{z-i}$, we can evaluate with $z_0 = 1$.
+
+\begin{align*}
+  2\pi i f(z_0) &= \int_{C_1} \frac{f(z)}{z-z_0} dz \\
+  &= 2\pi i \frac{1}{1-i}\\
+\end{align*}
+For the other point, it would be flipped
+\begin{align*}
+  2\pi i f(1) &= \int_{C_2} \frac{f(z)}{z-1} dz \\
+  &= 2\pi i \frac{1}{i-1}\\
+\end{align*}
+Then we must take the sum of these to complete the integral:
+\begin{align*}
+  \int_{C} &= \int_{C_1} + \int_{C_2} \\
+  &= 2\pi i \frac{1}{1-i} + 2\pi i \frac{1}{i-1} = 0 
+\end{align*}
 \vspace{.5cm} % Space for work
 
 \hrule
 \newpage
 \section*{Problem 5}
 Using the extended Cauchy integral formula, compute \[ \int_C \frac{e^{2i z}}{(z-3i)^4} dz \] on the curve $C$ being a positive-oriented circle with radius 4 centered at the origin.
-	
+
+The following is the extended Cauchy-Integral Formula:
+\begin{align*}
+  f^{(n)}(z_0) = \frac{n!}{2\pi i}\int_{C}\frac{f(z)}{(z-z_0)^{(n+1)}}dz
+\end{align*}
 
 \vspace{.5cm} % Space for work
-
 \hrule
+\vspace{.5cm} % Space for work
+having a radius of 4, the discontinuity at $z = 3i$ lies within the boundary. Rearranging the above, we can get it into a form that looks like our integral:
+\begin{align*}
+  \int_{C}\frac{f(z)}{(z-z_0)^{(n+1)}}dz &= \frac{2\pi i}{n!}f^{(n)}(z_0) \\
+\end{align*}
+Now we can see that $f(z) = e^{2iz}$ and our $n = 3$.
+We must take $3$ derivatives of our function $f(z)$
+
+\begin{align*}
+  f'(z) &= 2ie^{2iz}\\
+  f''(z) &= (2i)^2e^{2iz}\\
+  f'''(z) &= (2i)^3e^{2iz} = -8ie^{2iz}\\
+\end{align*}
+We can now plug this into our expression and solve at the point $z_0$
+\begin{align*}
+  \frac{2\pi i}{n!}f^{(n)}(z_0) &= \frac{2\pi i}{3!}f^{(3)}(3i)\\
+                                &= \frac{2\pi i}{6}(-8i)e^{2i(3i)} = \frac{8\pi }{3}e^{-6} 
+\end{align*}
 \newpage
+\vspace{.5cm} % Space for work
 \section*{Problem 6}
 Using the extended Cauchy integral formula, compute \[ \int_C \frac{\cosh{z}}{(z-i)^2} dz \] on the contour $C$ being the positive-oriented circle with radius 2 centered at the origin. Recall that $\cosh{z} := \frac{e^z + e^{-z}}{2}.$
 	
+Evaluating this one with the extended Cauchy Integral Formula:
+\begin{align*}
+  f^{(n)}(z_0) = \frac{n!}{2\pi i}\int_{C}\frac{f(z)}{(z-z_0)^{(n+1)}}dz
+\end{align*}
 
+We see that for our expression, $f(z) = \cosh{z}$ and $n = 1$. The derivative of $\cosh{z}$ is $\sinh{z}$.
+\begin{align*}
+  \frac{2\pi i}{n!}f^{(n)}(z_0) &= \frac{2\pi i}{1!}f^{(1)}(z_0)\\
+  \frac{2\pi i}{1}\sinh{i} &= 2\pi i\sinh{i} 
+\end{align*}
+This further reduces to $-2\pi\sin{1}$, but this is far enough I think.
 \end{document}
 
 %%% Local Variables:
