@@ -74,26 +74,30 @@ Compute the integral \[ \int_{C_i} z^{\frac{1}{2}} dz\] where $ z^{\frac{1}{2}} 
 \hrule % Adds a horizontal line to separate problems.
 \vspace{.5cm} % Space between problems
 
-Path $C_1$:
-
+Given the fundamental theorem for calculus for contours, and the fact that we can consider $f(z)$ to be analytic on that branch, we can apply the fundamental theorem of calculus:
 \begin{align*}
-  &\int_{C_i} z^{\frac{1}{2}} dz\\
-  z^{\frac{1}{2}} = e^{\frac{1}{2} \log{(z)}} &= e^{\frac{(\ln{|z|} + i \text{arg}(z))}{2}} = \sqrt{|z|}e^{\frac{i \text{arg}(z)}{2}} \\
-  f(z) &= \sqrt{|z|}e^{\frac{i \text{arg}(z)}{2}}\\
-  z_1(t) &= 3e^{i\pi (1-t)} \quad \quad 0 \leq t < 1
+  \int_{C_i} z^{\frac{1}{2}} dz &= \frac{2}{3}\int_{C_i} \frac{3}{2}z^{\frac{1}{2}} dz\\
+  &= \frac{2}{3}z^{\frac{3}{2}}|_{-3}^{3}
 \end{align*}
-This path takes us above in a circular motion clockwise from $-3$ to $3$. to get the path on the lower side, we can remove the negative in the exponential:
-
-Path $C_2$:
+The function $F(z)$ can be expressed in terms of the exponential for $C_1$:
 \begin{align*}
-  &\int_{C_2} z^{\frac{1}{2}} dz\\
-  z^{\frac{1}{2}} = e^{\frac{1}{2} \log{(z)}} &= e^{\frac{(\ln{|z|} + i \text{arg}(z))}{2}} = \sqrt{|z|}e^{\frac{i \text{arg}(z)}{2}} \\
-  f(z) &= \sqrt{|z|}e^{\frac{i \text{arg}(z)}{2}}\\
-  z_2(t) &= 3e^{i\pi t} \quad \quad 1 \leq t < 2
+  z^n &= e^{n\log{(z)}} \quad \quad n = \frac{3}{2}\\
+  \frac{2}{3}z^{\frac{3}{2}}|_{-3}^{3} &= \frac{2}{3}e^{\frac{3}{2}\log{(z)}}|_{-3}^{3}\\
+  \log{(z)} &= \ln{|z|} + i\text{Arg}(z) \\
+  \frac{2}{3}e^{\frac{3}{2}\log{(z)}}|_{-3}^{3} &= \frac{2}{3}e^{\frac{3}{2}(\ln{|3|} + i\text{Arg}(3))} - \frac{2}{3}e^{\frac{3}{2}(\ln{|-3|} + i\text{Arg}(-3))}\\
+  e^{\ln{(|3|)}} &= 3 \quad \quad e^{\ln{(|-3|)}} = 3 \\
+  \text{Arg}(-3) &= \pi \quad \quad \text{Arg}(3) \xrightarrow{} 0\\
+      &= \frac{2}{3}e^{\frac{3}{2}\ln{|3|}}e^{ i\frac{3}{2}\text{Arg}(3)} - \frac{2}{3}e^{\frac{3}{2}\ln{|-3|}}e^{ i\frac{3}{2}\text{Arg}(-3)} \\
+      &= \frac{2}{3}3^{\frac{3}{2}}e^{0} - \frac{2}{3}(3)^{\frac{3}{2}}e^{i\frac{3\pi}{2}} \\
+  &= 2\sqrt{3} +i2\sqrt{3} 
 \end{align*}
-
-\newpage
-\textcolor{white}{a}
+For path $C_2$, we can do the exact same thing and skip ahead to evaluating the expression with different Arg$(z)$
+\begin{align*}
+    \text{Arg}(-3) &= \pi \quad \quad \text{Arg}(3) \xrightarrow{} 2\pi\\
+      &= \frac{2}{3}e^{\frac{3}{2}\ln{|3|}}e^{ i\frac{3}{2}\text{Arg}(3)} - \frac{2}{3}e^{\frac{3}{2}\ln{|-3|}}e^{ i\frac{3}{2}\text{Arg}(-3)} \\
+      &= \frac{2}{3}3^{\frac{3}{2}}e^{i\frac{3\pi}{2}} - \frac{2}{3}(3)^{\frac{3}{2}}e^{i3\pi} \\
+  &= -i2\sqrt{3} +2\sqrt{3} 
+\end{align*}
 \newpage
 \section*{Problem 2}
 Apply the Cauchy-Goursat theorem to show that \[  \int_C f(z)dz = 0\] for the contour $C$ being the unit circle about the origin, or determine that Cauchy-Goursat theorem does not apply.
