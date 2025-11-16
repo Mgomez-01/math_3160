@@ -44,7 +44,7 @@
 \newcommand{\secparder}[2]{\frac{\partial^2#1}{\partial#2^2}}
 
 % --- DOCUMENT & AUTHOR INFORMATION ---
-\title{Homework \# x}
+\title{Homework \# 8}
 \author{
   MATH 3160 -- Complex Variables\\
   \myauthor
@@ -55,7 +55,7 @@
 % This section sets up the header that will appear on each page.
 \pagestyle{fancy}
 \fancyhf{} % Clears the default header and footer
-\lhead{Math 3160 -- HW \# x} % Left side of header
+\lhead{Math 3160 -- HW \# 8} % Left side of header
 \rhead{\myauthor} % Puts the author's name on the right side
 \rfoot{Page \thepage} % Puts the page number on the bottom right
 
@@ -68,37 +68,21 @@
 % ====================================================================
 
 \section*{Problem 1}
-[Problem statement goes here]
-
-\begin{enumerate}
-\item[(a)] [Sub-problem a]
-  \begin{align*}
-    % Your work here
-  \end{align*}
-  
-\item[(b)] [Sub-problem b]
-  \begin{align*}
-    % Your work here
-  \end{align*}
-\end{enumerate}
+Find the Taylor series expansion at $z_0=0$ of the function \[ f(z) = \frac{z}{z^4+9} = \frac{z}{9} \cdot \frac{1}{1+\big( \frac{z^4}{9}\big)} \]
 
 \vspace{.5cm} % Space between problems
 
 \hrule % Adds a horizontal line to separate problems.
-
 \newpage
 \section*{Problem 2}
-[Problem statement goes here]
+Find the Taylor series expansion of \[ f(z) = \frac{1}{1-z} \] at the following points, if it exists (or say it doesn't exist if the series diverges).
 
-% For graphs/diagrams, you can use TikZ:
-\begin{center}
-\begin{tikzpicture}
-    % Your TikZ code here
-    % Example: Draw axes
-    \draw[->] (-2,0) -- (3,0) node[right] {$\mathbb{R}$};
-    \draw[->] (0,-2) -- (0,3) node[above] {$\mathbb{I}$};
-\end{tikzpicture}
-\end{center}
+\begin{enumerate}
+ \item[(a)] $z=0$
+ \item[(b)] $z=1$
+ \item[(c)] $z=2$
+\end{enumerate}
+
 
 \vspace{.5cm} % Space between problems
 
@@ -106,13 +90,25 @@
 
 \newpage
 \section*{Problem 3}
-[Problem statement goes here]
+Derive the Laurent series representation of  \[ f(z) = \frac{e^z}{(z+1)^2} \]  about the point $z_0=-1$.
 
 \vspace{.5cm} % Space for work
 
 \hrule
 
-% Add more problems as needed...
+\newpage
+\section*{Problem 4}
+Represent the function 	\[ f(z) = \frac{z+1}{z-1} \]
+\begin{enumerate}
+\item[(a)] By a Taylor series at $z_0=0$ and state its domain of convergence.
+\item[(b)] By a Laurent series about $z_0 = 1$.
+\end{enumerate}
+
+
+\vspace{.5cm} % Space for work
+
+\hrule
+
 
 \end{document}
 
