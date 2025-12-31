@@ -73,25 +73,85 @@ Use the Taylor series of $\sin{z}$, $\cos{z}$, and $e^{z}$ at $z=0$ to prove Eul
 e^{iz} = \cos{z} + i\sin{z}
 \end{align*}
 
-\vspace{1cm}
+\vspace{.5cm}
 \hrule % Adds a horizontal line to separate problems.
-
+\vspace{.5cm}
+Using the known expression for the expansion of the exponential shown above:
+\begin{align*}
+  e^x &= \sum_{n=0}^{\infty}\frac{x^n}{n!}\\
+  e^{iz} &= \sum_{n=0}^{\infty}\frac{(iz)^n}{n!}\\
+  = 1 + \frac{(iz)^{1}}{1!} + \frac{(iz)^{2}}{2!} + \frac{(iz)^{3}}{3!} &+ \frac{(iz)^{4}}{4!} + \frac{(iz)^{5}}{5!} + \frac{(iz)^{6}}{6!} + ... \\
+  = 1 + i(z)^{1} + i^2\frac{(z)^{2}}{2!} + i^3\frac{(z)^{3}}{3!} &+ i^4\frac{(z)^{4}}{4!} + i^5\frac{(z)^{5}}{5!} + i^6\frac{(z)^{6}}{6!} + ... \\
+\end{align*}
+The resulting pattern shows that we have $i$ in many of the expressions, but we can reduce all the products of $i$ with itself to the following.
+\begin{align*}
+  i^{0} = i^{4} = i^{4n} &= 1\\
+  i^{1} = i^{5} = i^{4n + 1} &= i\\
+  i^{2} = i^{6} = i^{4n + 2} &= -1\\
+  i^{3} = i^{7} = i^{4n + 3} &= -i
+\end{align*}
+This shows that the expansion can be reduced to either have a factor of $i$ or not. Therefore, we can reduce the expansion further:
+\begin{align*}
+  = 1 + i(z)^{1} + (-1)\frac{(z)^{2}}{2!} -i\frac{(z)^{3}}{3!} &+ (1)\frac{(z)^{4}}{4!} + i\frac{(z)^{5}}{5!} - (1)\frac{(z)^{6}}{6!} + ... \\
+  = 1 + i(z)^{1} - \frac{(z)^{2}}{2!} - i\frac{(z)^{3}}{3!} &+ \frac{(z)^{4}}{4!} + i\frac{(z)^{5}}{5!} - (1)\frac{(z)^{6}}{6!} + ... \\
+  = 1 - \frac{(z)^{2}}{2!}  + \frac{(z)^{4}}{4!} - (1)\frac{(z)^{6}}{6!} &+ i(z)^{1} - i\frac{(z)^{3}}{3!} + i\frac{(z)^{5}}{5!} ... \\
+  = \left(1 - \frac{\left(z\right)^{2}}{2!}  + \frac{\left(z\right)^{4}}{4!} - \frac{\left(z\right)^{6}}{6!} + ...\right) &+ i\left(\left(z\right)^{1} - \frac{\left(z\right)^{3}}{3!} + \frac{\left(z\right)^{5}}{5!} ...\right) \\
+\end{align*}
+The expansion of $\sin{z}$ and $\cos{z}$:
+\begin{align*}
+  \sin{z} &= \sum_{n=0}^{\infty}(-1)^{n}\frac{z^{2n+1}}{{2n+1}!}\\
+  = (z)^{1} -\frac{(z)^{3}}{3!} &+ \frac{(z)^{5}}{5!} - \frac{(z)^{7}}{7!} + ... \\
+  \cos{z} &= \sum_{n=0}^{\infty}(-1)^{n}\frac{z^{2n}}{{2n}!}\\
+  = 1 - \frac{(z)^{2}}{2!} &+ \frac{(z)^{4}}{4!} - \frac{(z)^{6}}{6!} + ... \\
+\end{align*}
+Notice how the $\sin{z}$ and $\cos{z}$ expansions are exactly what we see in the expression above when expanding out and grouping the expression of $e^{iz}$
+\begin{align*}
+  \therefore e^{iz} &=  \sum_{n=0}^{\infty}(-1)^{n}\frac{z^{2n}}{{2n}!} + i\sum_{n=0}^{\infty}(-1)^{n}\frac{z^{2n+1}}{{2n+1}!}\\
+   &= \cos{z} + i\sin{z}
+\end{align*}
 \newpage
 \section*{Problem 2}
 Find $f^{(10)}(3)$ for $f(z)$ as given below. You can leave the answer in terms of powers, factorials, etc. 
+\begin{align*}
+  f(z) &= \sum_{n=0}^{\infty}n^2(z-3)^n
+\end{align*}
 
-\vspace{1cm} % Space for work
-
+\vspace{.5cm} % Space for work
 \hrule
+\vspace{.5cm} % Space for work
 
+To do this, we can employ the following expressions:
+\begin{align*}
+  f(z) &= \sum_{n=0}^{\infty}a_n(z-z_0)^n\\
+  f^{(n)}(z) &= n!a_n\\
+  a_n &= \frac{f^{n}(z_0)}{n!}
+\end{align*}
+So any term that would be present at the 10th derivative summation greater than n would disappear from being a constant or having a factor of $(z-3)$. Meaning we only get the final term being:
+\begin{align*}
+  f^{(10)}(3) &= 10!a_n\\
+  a_n &= n^2 = 10^2 = 100\\
+  \therefore f^{(10)}(3) &= 100\cdot 10!
+\end{align*}
 \newpage
 \section*{Problem 3}
 List the first four nonzero terms of the Taylor series for $f(z) = \cos{3z+2}$ centered at $z=-\frac{2}{3}$.
 
-\vspace{1cm} % Space for work
-
+\vspace{.5cm} % Space for work
 \hrule
-
+\vspace{.5cm} % Space for work
+Here, we need to change the expression to look like $a_n(z-z_0)$:
+\begin{align*}
+  \cos{3z+2} &= \cos{3\left(z+\frac{2}{3}\right)}\\
+\end{align*}
+expanding this out with the expansion we showed before:
+\begin{align*}
+    \cos{z} &= \sum_{n=0}^{\infty}(-1)^{n}\frac{z^{2n}}{{2n}!}\\
+  = 1 - \frac{(z)^{2}}{2!} &+ \frac{(z)^{4}}{4!} - \frac{(z)^{6}}{6!} + ... \\
+\end{align*}
+This is already the first four terms, we only need to replace the $z$ with our expression:
+\begin{align*}
+  1 - \frac{(3(z+\frac{2}{3}))^{2}}{2!} &+ \frac{(3(z+\frac{2}{3}))^{4}}{4!} - \frac{(3(z+\frac{2}{3}))^{6}}{6!}
+\end{align*}
 % Add more problems as needed...
 % \newpage
 % \section*{Problem 4}
